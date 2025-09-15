@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Deities - Skanda Sramam | Divine Forms & Worship</title>
+    <meta name="description" content="Discover the sacred deities worshipped at Skanda Sramam. Learn about Lord Murugan, Ganesha, Durga, and other divine forms that bless our temple community.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .deity-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid #f3f4f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .deity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .deity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .deity-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .deity-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 3.5rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .deity-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+        
+        .deity-card:hover .deity-avatar::before {
+            animation: shimmer 1.5s ease-in-out;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .murugan-avatar {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        
+        .ganesha-avatar {
+            background: linear-gradient(135deg, #e53e3e, #fc8181);
+        }
+        
+        .durga-avatar {
+            background: linear-gradient(135deg, #9f7aea, #d6bcfa);
+        }
+        
+        .shiva-avatar {
+            background: linear-gradient(135deg, #4299e1, #90cdf4);
+        }
+        
+        .lakshmi-avatar {
+            background: linear-gradient(135deg, #38a169, #68d391);
+        }
+        
+        .hanuman-avatar {
+            background: linear-gradient(135deg, #ed8936, #fbb040);
+        }
+        
+        .main-deity-card {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .main-deity-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+        
+        .main-deity-avatar {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 5rem;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .mantra-section {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .offering-tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .worship-time {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            margin: 0.25rem;
+        }
+        
+        .significance-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+        }
+        
+        .divine-attribute {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .divine-attribute:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .festival-highlight {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .festival-highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-medium active">About</a>
+                    <a href="Gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-semibold py-2">About</a>
+                    <a href="Gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-gray-500 hover:text-orange-600">Home</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li><a href="about.html" class="text-gray-500 hover:text-orange-600">About</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li class="text-orange-600 font-medium">Sacred Deities</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🕉️</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Sacred <span class="text-yellow-300">Deities</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Discover the divine forms that bless our temple. Each deity represents unique aspects of the divine, offering guidance, protection, and spiritual fulfillment to all devotees.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in">
+                    <a href="#main-deity" class="btn-primary">
+                        <i class="fas fa-star mr-2"></i>Lord Murugan
+                    </a>
+                    <a href="#other-deities" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-praying-hands mr-2"></i>All Deities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Main Deity - Lord Murugan -->
+        <section id="main-deity" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Presiding Deity</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Lord Murugan, the divine son of Lord Shiva, is the presiding deity of our temple. Known as Shanmukha (six-faced) and Kartikeya, he represents wisdom, courage, and spiritual victory.
+                </p>
+            </div>
+
+            <div class="main-deity-card relative z-10 mb-8">
+                <div class="main-deity-avatar">
+                    <span>🔱</span>
+                </div>
+                <h3 class="text-4xl font-bold mb-3 relative z-10">Lord Murugan</h3>
+                <p class="text-xl opacity-90 mb-2 relative z-10">Shanmukha • Kartikeya • Skanda</p>
+                <p class="text-lg opacity-90 mb-8 max-w-3xl mx-auto relative z-10">
+                    The eternal youth, commander of divine armies, and the embodiment of divine knowledge. Lord Murugan blesses devotees with wisdom, removes obstacles, and guides them on the path of righteousness.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 relative z-10">
+                    <div class="text-left">
+                        <h4 class="text-lg font-bold mb-3 opacity-90">Divine Attributes:</h4>
+                        <ul class="space-y-2 opacity-90">
+                            <li class="flex items-center"><i class="fas fa-star mr-3"></i>Six faces representing divine wisdom</li>
+                            <li class="flex items-center"><i class="fas fa-shield-alt mr-3"></i>Protector of devotees</li>
+                            <li class="flex items-center"><i class="fas fa-graduation-cap mr-3"></i>Bestower of knowledge</li>
+                            <li class="flex items-center"><i class="fas fa-heart mr-3"></i>Remover of sins and obstacles</li>
+                        </ul>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="text-lg font-bold mb-3 opacity-90">Sacred Symbols:</h4>
+                        <ul class="space-y-2 opacity-90">
+                            <li class="flex items-center"><span class="mr-3">🦚</span>Peacock (Divine vehicle)</li>
+                            <li class="flex items-center"><span class="mr-3">🔱</span>Vel (Sacred spear)</li>
+                            <li class="flex items-center"><span class="mr-3">🐓</span>Rooster (Victory flag)</li>
+                            <li class="flex items-center"><span class="mr-3">🌺</span>Red lotus (Purity)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="significance-section">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Worship Timings</h4>
+                    <div class="space-y-3">
+                        <div class="worship-time">
+                            <i class="fas fa-sun mr-2"></i>
+                            <span>Morning Pooja: 6:00 AM - 8:00 AM</span>
+                        </div>
+                        <div class="worship-time">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>Afternoon Pooja: 12:00 PM - 1:00 PM</span>
+                        </div>
+                        <div class="worship-time">
+                            <i class="fas fa-moon mr-2"></i>
+                            <span>Evening Pooja: 6:00 PM - 8:00 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mantra-section mt-6">
+                        <h5 class="font-bold text-gray-900 mb-2">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic">
+                            "Om Saravanabhavaya Namaha"<br>
+                            "Om Shanmukhaya Namaha"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="significance-section">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Preferred Offerings</h4>
+                    <p class="text-gray-600 mb-4">
+                        Lord Murugan is pleased with simple yet devotional offerings made with pure heart and sincere devotion.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="offering-tag">Vel-shaped sweets</span>
+                        <span class="offering-tag">Panchamirtham</span>
+                        <span class="offering-tag">Red flowers</span>
+                        <span class="offering-tag">Coconut</span>
+                        <span class="offering-tag">Fruits</span>
+                        <span class="offering-tag">Milk</span>
+                        <span class="offering-tag">Honey</span>
+                        <span class="offering-tag">Vibhuti</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Six Faces Significance -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Shanmukha - The Six Faces</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Each of Lord Murugan's six faces represents a different aspect of divine consciousness and spiritual wisdom.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">👁️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Divine Vision</h3>
+                    <p class="text-gray-600 text-sm">Sees beyond the material world into spiritual realms</p>
+                </div>
+
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">🧠</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Supreme Wisdom</h3>
+                    <p class="text-gray-600 text-sm">Embodies all knowledge and understanding</p>
+                </div>
+
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">💪</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Divine Power</h3>
+                    <p class="text-gray-600 text-sm">Possesses unlimited strength to protect devotees</p>
+                </div>
+
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">❤️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Compassion</h3>
+                    <p class="text-gray-600 text-sm">Shows infinite love and mercy to all beings</p>
+                </div>
+
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">⚖️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Divine Justice</h3>
+                    <p class="text-gray-600 text-sm">Upholds dharma and cosmic order</p>
+                </div>
+
+                <div class="divine-attribute">
+                    <div class="text-3xl mb-3">🕊️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Peace</h3>
+                    <p class="text-gray-600 text-sm">Grants inner peace and spiritual tranquility</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Sacred Deities -->
+        <section id="other-deities" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Other Sacred Deities</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our temple is blessed with the presence of multiple divine forms, each offering unique blessings and spiritual guidance to devotees.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lord Ganesha -->
+                <div class="deity-card">
+                    <div class="deity-avatar ganesha-avatar">
+                        <span>🐘</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Lord Ganesha</h3>
+                    <p class="text-center text-gray-600 mb-4">Vighna Harta • Remover of Obstacles</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The beloved elephant-headed deity who removes obstacles and blesses new beginnings. Devotees seek his blessings before starting any important endeavor.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Gam Ganapataye Namaha"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Modak</span>
+                            <span class="offering-tag text-xs">Laddu</span>
+                            <span class="offering-tag text-xs">Durva grass</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goddess Durga -->
+                <div class="deity-card">
+                    <div class="deity-avatar durga-avatar">
+                        <span>🌺</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Goddess Durga</h3>
+                    <p class="text-center text-gray-600 mb-4">Divine Mother • Protector</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The divine mother who protects her devotees from all forms of evil and negativity. She embodies feminine power and divine grace.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Dum Durgayei Namaha"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Red flowers</span>
+                            <span class="offering-tag text-xs">Sindoor</span>
+                            <span class="offering-tag text-xs">Sweets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lord Shiva -->
+                <div class="deity-card">
+                    <div class="deity-avatar shiva-avatar">
+                        <span>🔱</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Lord Shiva</h3>
+                    <p class="text-center text-gray-600 mb-4">Mahadeva • The Supreme</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The supreme deity, destroyer of evil and transformer of consciousness. Father of Lord Murugan and the ultimate source of divine energy.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Namah Shivaya"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Bilva leaves</span>
+                            <span class="offering-tag text-xs">Milk</span>
+                            <span class="offering-tag text-xs">Vibhuti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goddess Lakshmi -->
+                <div class="deity-card">
+                    <div class="deity-avatar lakshmi-avatar">
+                        <span>🪷</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Goddess Lakshmi</h3>
+                    <p class="text-center text-gray-600 mb-4">Goddess of Wealth • Prosperity</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The goddess of wealth, prosperity, and abundance. She blesses devotees with material and spiritual prosperity.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Shreem Mahalakshmyai Namaha"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Lotus flowers</span>
+                            <span class="offering-tag text-xs">Gold coins</span>
+                            <span class="offering-tag text-xs">Sweets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lord Hanuman -->
+                <div class="deity-card">
+                    <div class="deity-avatar hanuman-avatar">
+                        <span>🐒</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Lord Hanuman</h3>
+                    <p class="text-center text-gray-600 mb-4">Devotee Supreme • Strength</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The epitome of devotion, courage, and strength. He protects devotees from negative energies and grants physical and mental strength.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Hanumate Namaha"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Sindoor</span>
+                            <span class="offering-tag text-xs">Bananas</span>
+                            <span class="offering-tag text-xs">Besan laddu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navagraha -->
+                <div class="deity-card">
+                    <div class="deity-avatar" style="background: linear-gradient(135deg, #6b46c1, #a78bfa);">
+                        <span>⭐</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Navagraha</h3>
+                    <p class="text-center text-gray-600 mb-4">Nine Planetary Deities</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        The nine planetary deities who influence human destiny. Devotees worship them for planetary peace and astrological remedies.
+                    </p>
+                    
+                    <div class="mantra-section">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Sacred Mantra:</h5>
+                        <p class="text-orange-800 font-medium italic text-sm">
+                            "Om Navagraha Devaya Namaha"
+                        </p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Offerings:</h5>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="offering-tag text-xs">Nine grains</span>
+                            <span class="offering-tag text-xs">Colored flowers</span>
+                            <span class="offering-tag text-xs">Oil lamps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festival Celebrations -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Festival Celebrations</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Throughout the year, we celebrate various festivals dedicated to our sacred deities, bringing the community together in devotion and joy.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="festival-highlight">
+                    <div class="text-3xl mb-3">🎉</div>
+                    <h3 class="text-lg font-bold mb-2">Skanda Shasti</h3>
+                    <p class="text-sm opacity-90">Six-day festival celebrating Lord Murugan's victory</p>
+                </div>
+
+                <div class="festival-highlight">
+                    <div class="text-3xl mb-3">🎊</div>
+                    <h3 class="text-lg font-bold mb-2">Ganesh Chaturthi</h3>
+                    <p class="text-sm opacity-90">Celebrating the birth of Lord Ganesha</p>
+                </div>
+
+                <div class="festival-highlight">
+                    <div class="text-3xl mb-3">🌺</div>
+                    <h3 class="text-lg font-bold mb-2">Navaratri</h3>
+                    <p class="text-sm opacity-90">Nine nights dedicated to Goddess Durga</p>
+                </div>
+
+                <div class="festival-highlight">
+                    <div class="text-3xl mb-3">🪔</div>
+                    <h3 class="text-lg font-bold mb-2">Maha Shivaratri</h3>
+                    <p class="text-sm opacity-90">The great night of Lord Shiva</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Worship Guidelines -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Worship Guidelines</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Follow these simple guidelines to make your temple visit and worship experience more meaningful and spiritually fulfilling.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="significance-section">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Before Entering Temple</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Remove shoes at the entrance</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Wash hands and feet</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Dress modestly and appropriately</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Turn off mobile phones</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Maintain peaceful mindset</li>
+                    </ul>
+                </div>
+
+                <div class="significance-section">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">During Worship</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-3"></i>Offer prayers with devotion</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-3"></i>Chant mantras silently</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-3"></i>Make offerings respectfully</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-3"></i>Maintain silence during ceremonies</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-3"></i>Follow priest's instructions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🙏</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Experience Divine Blessings</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Visit our temple to experience the divine presence of our sacred deities. Join us for daily poojas, special ceremonies, and festival celebrations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="daily-poojas.html" class="btn-primary">
+                        <i class="fas fa-om mr-2"></i>Join Daily Poojas
+                    </a>
+                    <a href="events.html" class="btn-secondary">
+                        <i class="fas fa-calendar mr-2"></i>Festival Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-orange-400 font-semibold text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e7423e40a77f39',t:'MTc1Nzc2MjQ2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

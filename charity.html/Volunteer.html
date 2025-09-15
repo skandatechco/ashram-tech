@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - Skanda Sramam | Join Our Community Service</title>
+    <meta name="description" content="Join our volunteer community at Skanda Sramam. Contribute your time and skills to temple services, community outreach, and spiritual programs.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .volunteer-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        
+        .volunteer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .volunteer-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .volunteer-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .volunteer-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .volunteer-requirements {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .volunteer-requirements li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .volunteer-requirements li i {
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+        
+        .volunteer-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .registration-form {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .step-number.active {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .step-number.completed {
+            background: #10b981;
+            color: white;
+        }
+        
+        .step-line {
+            width: 60px;
+            height: 2px;
+            background: #e5e7eb;
+            margin: 0 1rem;
+        }
+        
+        .step-line.completed {
+            background: #10b981;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-item:hover {
+            border-color: #ff6b35;
+            background: #fef5e7;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #ff6b35;
+        }
+        
+        .availability-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .day-header {
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .time-slot {
+            background: #f3f4f6;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot:hover {
+            background: #fef5e7;
+            border-color: #ff6b35;
+        }
+        
+        .time-slot.selected {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .impact-section {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-text {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .availability-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.25rem;
+            }
+            
+            .day-header {
+                font-size: 0.75rem;
+                padding: 0.25rem;
+            }
+            
+            .time-slot {
+                padding: 0.25rem;
+                font-size: 0.625rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-orange-600 font-medium active flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="donation.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="volunteer.html" class="block px-4 py-2 text-orange-600 font-semibold hover:bg-orange-50">Volunteer</a>
+                            <a href="annadanam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="donation.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="#" class="nav-link text-orange-600 font-semibold py-2">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="donation.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="volunteer.html" class="block text-orange-600 font-semibold py-1 text-sm">Volunteer</a>
+                            <a href="annadanam.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🤝</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Join Our <span class="text-yellow-300">Volunteer</span> Community
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Make a meaningful difference in our temple community. Contribute your time, skills, and passion to serve Lord Murugan and support fellow devotees.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="#volunteer-now" class="btn-primary text-lg px-8 py-4">
+                        <i class="fas fa-hands-helping mr-2"></i>Volunteer Now
+                    </a>
+                    <a href="#opportunities" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-search mr-2"></i>Browse Opportunities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Impact Statistics -->
+        <section class="impact-section fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Volunteer Impact</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Together, our volunteers have created lasting positive change in our community
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon">👥</div>
+                    <div class="impact-number">500+</div>
+                    <div class="impact-text">Active Volunteers</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">⏰</div>
+                    <div class="impact-number">15,000</div>
+                    <div class="impact-text">Hours Contributed</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">🎯</div>
+                    <div class="impact-number">50+</div>
+                    <div class="impact-text">Programs Supported</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">❤️</div>
+                    <div class="impact-number">2,000+</div>
+                    <div class="impact-text">Lives Touched</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Opportunities -->
+        <section id="opportunities" class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Volunteer Opportunities</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Find the perfect way to contribute based on your interests, skills, and availability
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 volunteer-grid">
+                <!-- Temple Services -->
+                <div class="volunteer-card" onclick="selectOpportunity('temple-services')">
+                    <div class="volunteer-icon">🏛️</div>
+                    <div class="volunteer-title">Temple Services</div>
+                    <div class="volunteer-description">
+                        Assist with daily temple operations, pooja preparations, and maintaining the sacred spaces for devotees.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Respectful and dedicated attitude</li>
+                        <li><i class="fas fa-check-circle"></i>Basic knowledge of temple customs</li>
+                        <li><i class="fas fa-check-circle"></i>Regular availability preferred</li>
+                        <li><i class="fas fa-check-circle"></i>Physical ability for light tasks</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Daily</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+
+                <!-- Community Outreach -->
+                <div class="volunteer-card" onclick="selectOpportunity('community-outreach')">
+                    <div class="volunteer-icon">🌍</div>
+                    <div class="volunteer-title">Community Outreach</div>
+                    <div class="volunteer-description">
+                        Support education programs, elderly care, and social initiatives that benefit the broader community.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Compassionate and patient nature</li>
+                        <li><i class="fas fa-check-circle"></i>Good communication skills</li>
+                        <li><i class="fas fa-check-circle"></i>Flexible schedule availability</li>
+                        <li><i class="fas fa-check-circle"></i>Background check required</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">40</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Weekly</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+
+                <!-- Event Management -->
+                <div class="volunteer-card" onclick="selectOpportunity('event-management')">
+                    <div class="volunteer-icon">🎉</div>
+                    <div class="volunteer-title">Event Management</div>
+                    <div class="volunteer-description">
+                        Help organize festivals, cultural programs, and special events that bring our community together.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Organizational and planning skills</li>
+                        <li><i class="fas fa-check-circle"></i>Team collaboration ability</li>
+                        <li><i class="fas fa-check-circle"></i>Event-based availability</li>
+                        <li><i class="fas fa-check-circle"></i>Creative problem-solving</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Events</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+
+                <!-- Administrative Support -->
+                <div class="volunteer-card" onclick="selectOpportunity('administrative')">
+                    <div class="volunteer-icon">📋</div>
+                    <div class="volunteer-title">Administrative Support</div>
+                    <div class="volunteer-description">
+                        Assist with documentation, communication, coordination, and other administrative tasks.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Computer and office skills</li>
+                        <li><i class="fas fa-check-circle"></i>Attention to detail</li>
+                        <li><i class="fas fa-check-circle"></i>Reliable and punctual</li>
+                        <li><i class="fas fa-check-circle"></i>Multilingual skills preferred</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Flexible</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+
+                <!-- Special Skills -->
+                <div class="volunteer-card" onclick="selectOpportunity('special-skills')">
+                    <div class="volunteer-icon">⚡</div>
+                    <div class="volunteer-title">Special Skills</div>
+                    <div class="volunteer-description">
+                        Contribute your professional expertise in IT, marketing, healthcare, legal, or other specialized areas.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Professional expertise</li>
+                        <li><i class="fas fa-check-circle"></i>Willingness to share knowledge</li>
+                        <li><i class="fas fa-check-circle"></i>Project-based commitment</li>
+                        <li><i class="fas fa-check-circle"></i>Mentoring capability</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Projects</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+
+                <!-- Youth Programs -->
+                <div class="volunteer-card" onclick="selectOpportunity('youth-programs')">
+                    <div class="volunteer-icon">🌟</div>
+                    <div class="volunteer-title">Youth Programs</div>
+                    <div class="volunteer-description">
+                        Mentor children and teenagers through educational activities, sports, cultural programs, and spiritual guidance.
+                    </div>
+                    <ul class="volunteer-requirements">
+                        <li><i class="fas fa-check-circle"></i>Experience with children</li>
+                        <li><i class="fas fa-check-circle"></i>Energetic and enthusiastic</li>
+                        <li><i class="fas fa-check-circle"></i>Background check mandatory</li>
+                        <li><i class="fas fa-check-circle"></i>Weekend availability</li>
+                    </ul>
+                    <div class="volunteer-stats">
+                        <div>
+                            <div class="stat-number">35</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">Weekends</div>
+                            <div class="stat-label">Schedule</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Team</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section id="volunteer-now" class="fade-in">
+            <div class="registration-form">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Volunteer Registration</h3>
+                
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step-item">
+                        <div class="step-number active" id="step1-indicator">1</div>
+                    </div>
+                    <div class="step-line" id="line1"></div>
+                    <div class="step-item">
+                        <div class="step-number" id="step2-indicator">2</div>
+                    </div>
+                    <div class="step-line" id="line2"></div>
+                    <div class="step-item">
+                        <div class="step-number" id="step3-indicator">3</div>
+                    </div>
+                    <div class="step-line" id="line3"></div>
+                    <div class="step-item">
+                        <div class="step-number" id="step4-indicator">4</div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" id="step1">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4">Personal Information</h4>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">First Name *</label>
+                            <input type="text" class="form-input" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" class="form-input" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-input" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label class="form-label">Date of Birth</label>
+                            <input type="date" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Occupation</label>
+                            <input type="text" class="form-input" placeholder="Your profession">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-input" rows="3" placeholder="Enter your complete address"></textarea>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button class="btn-primary" onclick="nextStep(2)">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Interests & Skills -->
+                <div class="form-step" id="step2">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4">Interests & Skills</h4>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Areas of Interest (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="temple-services" name="interests" value="temple-services">
+                                <label for="temple-services">Temple Services</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="community-outreach" name="interests" value="community-outreach">
+                                <label for="community-outreach">Community Outreach</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="event-management" name="interests" value="event-management">
+                                <label for="event-management">Event Management</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="administrative" name="interests" value="administrative">
+                                <label for="administrative">Administrative Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="special-skills" name="interests" value="special-skills">
+                                <label for="special-skills">Special Skills</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="youth-programs" name="interests" value="youth-programs">
+                                <label for="youth-programs">Youth Programs</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Special Skills & Expertise</label>
+                        <textarea class="form-input" rows="3" placeholder="Describe your skills, experience, and any special talents you can contribute"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Previous Volunteer Experience</label>
+                        <textarea class="form-input" rows="3" placeholder="Tell us about any previous volunteer work or community service"></textarea>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button class="btn-secondary" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-left mr-2"></i>Previous
+                        </button>
+                        <button class="btn-primary" onclick="nextStep(3)">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Availability -->
+                <div class="form-step" id="step3">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4">Availability</h4>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Preferred Commitment Level</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="one-time" name="commitment" value="one-time">
+                                <label for="one-time">One-time events</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="monthly" name="commitment" value="monthly">
+                                <label for="monthly">Monthly commitment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="weekly" name="commitment" value="weekly">
+                                <label for="weekly">Weekly commitment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="daily" name="commitment" value="daily">
+                                <label for="daily">Daily availability</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Weekly Availability (Click to select time slots)</label>
+                        <div class="availability-grid">
+                            <div class="day-header">Mon</div>
+                            <div class="day-header">Tue</div>
+                            <div class="day-header">Wed</div>
+                            <div class="day-header">Thu</div>
+                            <div class="day-header">Fri</div>
+                            <div class="day-header">Sat</div>
+                            <div class="day-header">Sun</div>
+                            
+                            <!-- Morning slots -->
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 AM</div>
+                            
+                            <!-- Afternoon slots -->
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">12-3 PM</div>
+                            
+                            <!-- Evening slots -->
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                            <div class="time-slot" onclick="toggleTimeSlot(this)">6-9 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button class="btn-secondary" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-left mr-2"></i>Previous
+                        </button>
+                        <button class="btn-primary" onclick="nextStep(4)">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Final Details -->
+                <div class="form-step" id="step4">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4">Final Details</h4>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Emergency Contact Name</label>
+                        <input type="text" class="form-input" placeholder="Emergency contact person">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Emergency Contact Phone</label>
+                        <input type="tel" class="form-input" placeholder="Emergency contact number">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Why do you want to volunteer with us?</label>
+                        <textarea class="form-input" rows="4" placeholder="Share your motivation and what you hope to contribute"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="background-check" required>
+                            <label for="background-check">I consent to a background check if required for my volunteer role</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="terms-agreement" required>
+                            <label for="terms-agreement">I agree to the volunteer terms and conditions</label>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button class="btn-secondary" onclick="prevStep(3)">
+                            <i class="fas fa-arrow-left mr-2"></i>Previous
+                        </button>
+                        <button class="btn-primary" onclick="submitRegistration()">
+                            <i class="fas fa-check mr-2"></i>Submit Registration
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="fade-in mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Volunteer Stories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Hear from our dedicated volunteers about their meaningful experiences serving the community
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">RS</div>
+                    <div class="testimonial-text">
+                        "Volunteering at Skanda Sramam has been incredibly fulfilling. Helping with the daily poojas and seeing the devotion of the community has deepened my own spiritual journey."
+                    </div>
+                    <div class="testimonial-author">Ravi Shankar</div>
+                    <div class="testimonial-role">Temple Services Volunteer</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">PM</div>
+                    <div class="testimonial-text">
+                        "Working with the youth programs has been amazing. Teaching children about our culture and traditions while seeing their enthusiasm is truly rewarding."
+                    </div>
+                    <div class="testimonial-author">Priya Menon</div>
+                    <div class="testimonial-role">Youth Programs Coordinator</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-text">
+                        "As an IT professional, I've been able to contribute my skills to help modernize the temple's systems. It's wonderful to use my expertise for such a meaningful cause."
+                    </div>
+                    <div class="testimonial-author">Arun Kumar</div>
+                    <div class="testimonial-role">Technical Volunteer</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🙏</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Ready to Make a Difference?</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join our volunteer community today and be part of something meaningful. Every contribution, big or small, makes a difference.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#volunteer-now" class="btn-primary">
+                        <i class="fas fa-hands-helping mr-2"></i>Start Volunteering
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-phone mr-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Get Involved</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="donation.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Donation</a></li>
+                        <li><a href="volunteer.html" class="text-orange-400 font-semibold text-sm sm:text-base">Volunteer</a></li>
+                        <li><a href="annadanam.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Annadanam</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Resources</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function selectOpportunity(opportunity) {
+            alert(`You've selected: ${opportunity}. This would show more details about this volunteer opportunity and allow you to sign up directly.`);
+        }
+
+        function nextStep(step) {
+            // Hide current step
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // Update step indicators
+            document.getElementById(`step${currentStep}-indicator`).classList.remove('active');
+            document.getElementById(`step${currentStep}-indicator`).classList.add('completed');
+            
+            if (currentStep < 4) {
+                document.getElementById(`line${currentStep}`).classList.add('completed');
+            }
+            
+            // Show next step
+            currentStep = step;
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            document.getElementById(`step${currentStep}-indicator`).classList.add('active');
+        }
+
+        function prevStep(step) {
+            // Hide current step
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // Update step indicators
+            document.getElementById(`step${currentStep}-indicator`).classList.remove('active');
+            
+            // Show previous step
+            currentStep = step;
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            document.getElementById(`step${currentStep}-indicator`).classList.remove('completed');
+            document.getElementById(`step${currentStep}-indicator`).classList.add('active');
+            
+            if (currentStep < 4) {
+                document.getElementById(`line${currentStep}`).classList.remove('completed');
+            }
+        }
+
+        function toggleTimeSlot(slot) {
+            slot.classList.toggle('selected');
+        }
+
+        function submitRegistration() {
+            alert('Thank you for your volunteer registration! We will review your application and contact you within 2-3 business days with next steps. Welcome to the Skanda Sramam volunteer community!');
+        }
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f5ffc54630060c',t:'MTc1NzkxNzAyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

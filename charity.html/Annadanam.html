@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annadanam - Skanda Sramam | Sacred Food Service</title>
+    <meta name="description" content="Join our Annadanam program at Skanda Sramam. Serve free meals to devotees and community members as a sacred act of service and devotion.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .annadanam-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        
+        .annadanam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .service-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .sponsorship-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sponsorship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .sponsorship-card.featured {
+            border-color: #ff6b35;
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+        }
+        
+        .sponsorship-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 3rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-period {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #374151;
+        }
+        
+        .feature-list li i {
+            color: #10b981;
+            font-size: 1rem;
+        }
+        
+        .impact-section {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-text {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .live-counter {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .counter-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .counter-subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .menu-day {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .menu-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.875rem;
+        }
+        
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item-name {
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .menu-item-type {
+            color: #6b7280;
+            font-size: 0.75rem;
+            background: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .spiritual-quote {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spiritual-quote::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -2rem;
+            left: 2rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-source {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .counter-number {
+                font-size: 2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-orange-600 font-medium active flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="donation.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="volunteer.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="annadanam.html" class="block px-4 py-2 text-orange-600 font-semibold hover:bg-orange-50">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="donation.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="#" class="nav-link text-orange-600 font-semibold py-2">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="donation.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="volunteer.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="annadanam.html" class="block text-orange-600 font-semibold py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🍽️</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    <span class="text-yellow-300">Annadanam</span> - Sacred Food Service
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    "Anna Brahma" - Food is Divine. Join our sacred mission to serve free, nutritious meals to all devotees and community members with love and devotion.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="#sponsor-meal" class="btn-primary text-lg px-8 py-4">
+                        <i class="fas fa-utensils mr-2"></i>Sponsor a Meal
+                    </a>
+                    <a href="#volunteer-kitchen" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-hands-helping mr-2"></i>Volunteer in Kitchen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Spiritual Quote -->
+        <section class="spiritual-quote fade-in">
+            <div class="quote-text">
+                अन्नं ब्रह्म रसो विष्णुः भोक्ता देवो महेश्वरः<br>
+                एवं ज्ञात्वा तु यो भुङ्क्ते अन्नदोषो न लिप्यते
+            </div>
+            <div class="quote-source">
+                "Food is Brahma, its essence is Vishnu, and the consumer is Shiva.<br>
+                One who eats with this understanding is not affected by the defects of food."<br>
+                - Ancient Sanskrit Verse
+            </div>
+        </section>
+
+        <!-- Live Impact Counter -->
+        <section class="fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="live-counter">
+                    <div class="counter-title">Meals Served Today</div>
+                    <div class="counter-number" id="todayMeals">247</div>
+                    <div class="counter-subtitle">Updated every hour</div>
+                </div>
+                <div class="live-counter">
+                    <div class="counter-title">This Month</div>
+                    <div class="counter-number" id="monthMeals">8,432</div>
+                    <div class="counter-subtitle">Growing daily</div>
+                </div>
+                <div class="live-counter">
+                    <div class="counter-title">Total Impact</div>
+                    <div class="counter-number" id="totalMeals">125,000+</div>
+                    <div class="counter-subtitle">Since inception</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Annadanam Services -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Food Service Programs</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Multiple ways to participate in the sacred act of feeding others with devotion and compassion
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Daily Annadanam -->
+                <div class="annadanam-card" onclick="selectService('daily-annadanam')">
+                    <div class="service-icon">🍚</div>
+                    <div class="service-title">Daily Annadanam</div>
+                    <div class="service-description">
+                        Free nutritious meals served daily to all devotees and visitors. Traditional South Indian vegetarian cuisine prepared with love and devotion.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">300+</div>
+                            <div class="stat-label">Daily Meals</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">11 AM</div>
+                            <div class="stat-label">Serving Time</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Support Daily Service</button>
+                </div>
+
+                <!-- Festival Feasts -->
+                <div class="annadanam-card" onclick="selectService('festival-feasts')">
+                    <div class="service-icon">🎉</div>
+                    <div class="service-title">Festival Feasts</div>
+                    <div class="service-description">
+                        Special elaborate meals during festivals and religious celebrations. Traditional recipes and festive dishes that bring the community together.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Festival Meals</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Annual Events</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Sponsor Festival Meal</button>
+                </div>
+
+                <!-- Prasadam Distribution -->
+                <div class="annadanam-card" onclick="selectService('prasadam')">
+                    <div class="service-icon">🙏</div>
+                    <div class="service-title">Prasadam Distribution</div>
+                    <div class="service-description">
+                        Sacred food offerings blessed during poojas and distributed to devotees. Sweet and savory prasadam prepared with spiritual devotion.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">Daily</div>
+                            <div class="stat-label">Distribution</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">5 Times</div>
+                            <div class="stat-label">Per Day</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Contribute Prasadam</button>
+                </div>
+
+                <!-- Community Kitchen -->
+                <div class="annadanam-card" onclick="selectService('community-kitchen')">
+                    <div class="service-icon">👥</div>
+                    <div class="service-title">Community Kitchen</div>
+                    <div class="service-description">
+                        Large-scale cooking facility where volunteers prepare meals together. Learn traditional recipes and cooking techniques from experienced cooks.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Volunteers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">4 AM</div>
+                            <div class="stat-label">Start Time</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Kitchen Team</button>
+                </div>
+
+                <!-- Emergency Relief -->
+                <div class="annadanam-card" onclick="selectService('emergency-relief')">
+                    <div class="service-icon">🆘</div>
+                    <div class="service-title">Emergency Relief</div>
+                    <div class="service-description">
+                        Food support during community crises, natural disasters, and emergency situations. Rapid response team for immediate food assistance.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Response</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Families Helped</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Support Relief Fund</button>
+                </div>
+
+                <!-- Educational Programs -->
+                <div class="annadanam-card" onclick="selectService('educational')">
+                    <div class="service-icon">📚</div>
+                    <div class="service-title">Educational Programs</div>
+                    <div class="service-description">
+                        Teaching about nutrition, traditional cooking, food as medicine, and the spiritual significance of sharing meals with others.
+                    </div>
+                    <div class="service-stats">
+                        <div>
+                            <div class="stat-number">Monthly</div>
+                            <div class="stat-label">Workshops</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Participants</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Join Workshop</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Menu -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">This Week's Menu</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Nutritious, traditional vegetarian meals prepared fresh daily with seasonal ingredients
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="menu-card">
+                    <div class="menu-day">Monday</div>
+                    <ul class="menu-items">
+                        <li>
+                            <span class="menu-item-name">Sambar Rice</span>
+                            <span class="menu-item-type">Main</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Rasam</span>
+                            <span class="menu-item-type">Soup</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Cabbage Poriyal</span>
+                            <span class="menu-item-type">Vegetable</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Curd Rice</span>
+                            <span class="menu-item-type">Dessert</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Pickle & Papad</span>
+                            <span class="menu-item-type">Sides</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-day">Tuesday</div>
+                    <ul class="menu-items">
+                        <li>
+                            <span class="menu-item-name">Lemon Rice</span>
+                            <span class="menu-item-type">Main</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Dal Curry</span>
+                            <span class="menu-item-type">Curry</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Beans Usili</span>
+                            <span class="menu-item-type">Vegetable</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Buttermilk</span>
+                            <span class="menu-item-type">Drink</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Sweet Pongal</span>
+                            <span class="menu-item-type">Dessert</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-day">Wednesday</div>
+                    <ul class="menu-items">
+                        <li>
+                            <span class="menu-item-name">Tamarind Rice</span>
+                            <span class="menu-item-type">Main</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Sambar</span>
+                            <span class="menu-item-type">Curry</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Potato Curry</span>
+                            <span class="menu-item-type">Vegetable</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Yogurt</span>
+                            <span class="menu-item-type">Dairy</span>
+                        </li>
+                        <li>
+                            <span class="menu-item-name">Coconut Chutney</span>
+                            <span class="menu-item-type">Sides</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsorship Options -->
+        <section id="sponsor-meal" class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Sponsorship Opportunities</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Choose how you'd like to contribute to our sacred food service mission
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Daily Sponsorship -->
+                <div class="sponsorship-card">
+                    <div class="price-tag">₹5,000</div>
+                    <div class="price-period">Complete Day's Meals</div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>300+ meals served</li>
+                        <li><i class="fas fa-check"></i>All ingredients included</li>
+                        <li><i class="fas fa-check"></i>Cooking & serving costs</li>
+                        <li><i class="fas fa-check"></i>Recognition plaque</li>
+                        <li><i class="fas fa-check"></i>Photo documentation</li>
+                        <li><i class="fas fa-check"></i>Blessing certificate</li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="sponsorMeal('daily')">Sponsor Daily Meals</button>
+                </div>
+
+                <!-- Festival Sponsorship -->
+                <div class="sponsorship-card featured">
+                    <div class="price-tag">₹25,000</div>
+                    <div class="price-period">Festival Feast</div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>1000+ special meals</li>
+                        <li><i class="fas fa-check"></i>Traditional festival menu</li>
+                        <li><i class="fas fa-check"></i>Special decorations</li>
+                        <li><i class="fas fa-check"></i>Family name recognition</li>
+                        <li><i class="fas fa-check"></i>VIP seating arrangement</li>
+                        <li><i class="fas fa-check"></i>Commemorative plaque</li>
+                        <li><i class="fas fa-check"></i>Video documentation</li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="sponsorMeal('festival')">Sponsor Festival Feast</button>
+                </div>
+
+                <!-- Monthly Commitment -->
+                <div class="sponsorship-card">
+                    <div class="price-tag">₹50,000</div>
+                    <div class="price-period">Monthly Commitment</div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>30 days of meals</li>
+                        <li><i class="fas fa-check"></i>9000+ meals per month</li>
+                        <li><i class="fas fa-check"></i>Permanent recognition</li>
+                        <li><i class="fas fa-check"></i>Monthly progress reports</li>
+                        <li><i class="fas fa-check"></i>Special pooja inclusion</li>
+                        <li><i class="fas fa-check"></i>Tax exemption certificate</li>
+                    </ul>
+                    <button class="btn-primary w-full" onclick="sponsorMeal('monthly')">Monthly Sponsorship</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Statistics -->
+        <section class="impact-section fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Annadanam Impact</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    The positive change we've created together through the sacred act of food service
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon">🍽️</div>
+                    <div class="impact-number">125K+</div>
+                    <div class="impact-text">Meals Served</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">👨‍👩‍👧‍👦</div>
+                    <div class="impact-number">15,000</div>
+                    <div class="impact-text">Families Fed</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">🤝</div>
+                    <div class="impact-number">200+</div>
+                    <div class="impact-text">Kitchen Volunteers</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">💚</div>
+                    <div class="impact-number">Zero</div>
+                    <div class="impact-text">Food Waste</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Kitchen Section -->
+        <section id="volunteer-kitchen" class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Join Our Kitchen Volunteers</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Experience the joy of cooking and serving with devotion. Learn traditional recipes and be part of our sacred kitchen family.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Kitchen Volunteer Opportunities</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-utensils text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Cooking Team</h4>
+                                <p class="text-gray-600 text-sm">Help prepare traditional South Indian meals using authentic recipes and techniques.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-hands-helping text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Serving Team</h4>
+                                <p class="text-gray-600 text-sm">Serve meals to devotees with love and ensure everyone is well-fed and comfortable.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shopping-cart text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Procurement Team</h4>
+                                <p class="text-gray-600 text-sm">Help source fresh, quality ingredients from local markets and suppliers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-broom text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Cleanup Team</h4>
+                                <p class="text-gray-600 text-sm">Maintain kitchen cleanliness and help with dishwashing and sanitization.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="btn-primary" onclick="joinKitchenVolunteers()">
+                            <i class="fas fa-user-plus mr-2"></i>Join Kitchen Team
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Kitchen Schedule</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-orange-200">
+                            <span class="font-medium text-gray-700">Preparation</span>
+                            <span class="text-orange-600 font-semibold">4:00 AM - 8:00 AM</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-orange-200">
+                            <span class="font-medium text-gray-700">Cooking</span>
+                            <span class="text-orange-600 font-semibold">8:00 AM - 10:30 AM</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-orange-200">
+                            <span class="font-medium text-gray-700">Serving</span>
+                            <span class="text-orange-600 font-semibold">11:00 AM - 1:00 PM</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-orange-200">
+                            <span class="font-medium text-gray-700">Cleanup</span>
+                            <span class="text-orange-600 font-semibold">1:00 PM - 3:00 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-white rounded-lg">
+                        <h4 class="font-semibold text-gray-900 mb-2">What We Provide:</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• All cooking equipment and utensils</li>
+                            <li>• Fresh ingredients and supplies</li>
+                            <li>• Training and guidance</li>
+                            <li>• Meals for volunteers</li>
+                            <li>• Volunteer appreciation events</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Community Stories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Hear from those who have experienced the joy of giving and receiving through our Annadanam program
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">SK</div>
+                    <div class="testimonial-text">
+                        "Volunteering in the kitchen has been incredibly fulfilling. There's something magical about cooking with devotion and seeing the smiles on people's faces when they receive a warm meal."
+                    </div>
+                    <div class="testimonial-author">Sita Krishnan</div>
+                    <div class="testimonial-role">Kitchen Volunteer</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">RN</div>
+                    <div class="testimonial-text">
+                        "Sponsoring the daily meals has brought immense peace to our family. Knowing that we're helping feed hundreds of people every day fills our hearts with joy and gratitude."
+                    </div>
+                    <div class="testimonial-author">Raj Nair</div>
+                    <div class="testimonial-role">Daily Meal Sponsor</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">AM</div>
+                    <div class="testimonial-text">
+                        "As a student, the free meals at the temple have been a blessing. The food is not just nutritious but prepared with so much love. It feels like eating at home."
+                    </div>
+                    <div class="testimonial-author">Arjun Menon</div>
+                    <div class="testimonial-role">Regular Beneficiary</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🙏</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Be Part of This Sacred Service</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join us in the divine act of Annadanam. Whether through sponsorship, volunteering, or spreading awareness, every contribution makes a difference.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sponsor-meal" class="btn-primary">
+                        <i class="fas fa-utensils mr-2"></i>Sponsor Meals
+                    </a>
+                    <a href="#volunteer-kitchen" class="btn-secondary">
+                        <i class="fas fa-hands-helping mr-2"></i>Volunteer Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Get Involved</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="donation.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Donation</a></li>
+                        <li><a href="volunteer.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Volunteer</a></li>
+                        <li><a href="annadanam.html" class="text-orange-400 font-semibold text-sm sm:text-base">Annadanam</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Resources</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function selectService(service) {
+            alert(`You've selected: ${service}. This would show more details about this Annadanam service and allow you to participate directly.`);
+        }
+
+        function sponsorMeal(type) {
+            let message = '';
+            switch(type) {
+                case 'daily':
+                    message = 'Thank you for choosing to sponsor daily meals! You will be redirected to our secure payment portal to complete your ₹5,000 donation for feeding 300+ people.';
+                    break;
+                case 'festival':
+                    message = 'Thank you for choosing to sponsor a festival feast! You will be redirected to our secure payment portal to complete your ₹25,000 donation for the special celebration meal.';
+                    break;
+                case 'monthly':
+                    message = 'Thank you for choosing monthly sponsorship! You will be redirected to our secure payment portal to set up your ₹50,000 monthly commitment.';
+                    break;
+            }
+            alert(message);
+        }
+
+        function joinKitchenVolunteers() {
+            alert('Thank you for your interest in joining our kitchen volunteers! We will redirect you to our volunteer registration form where you can sign up for kitchen duties and select your preferred time slots.');
+        }
+
+        // Live counter animation
+        function animateCounters() {
+            const counters = [
+                { id: 'todayMeals', target: 247, increment: 1 },
+                { id: 'monthMeals', target: 8432, increment: 50 },
+                { id: 'totalMeals', target: 125000, increment: 1000 }
+            ];
+
+            counters.forEach(counter => {
+                const element = document.getElementById(counter.id);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += counter.increment;
+                    if (current >= counter.target) {
+                        current = counter.target;
+                        clearInterval(timer);
+                        if (counter.id === 'totalMeals') {
+                            element.textContent = current.toLocaleString() + '+';
+                        } else {
+                            element.textContent = current.toLocaleString();
+                        }
+                    } else {
+                        element.textContent = current.toLocaleString();
+                    }
+                }, 50);
+            });
+        }
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+            setTimeout(animateCounters, 1000); // Start counter animation after 1 second
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f609f2e6c4abec',t:'MTc1NzkxNzQ0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

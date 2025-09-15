@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Skanda Sramam | Temple Photography Collection</title>
+    <meta name="description" content="Browse our extensive photo gallery featuring beautiful images of Skanda Sramam temple, festivals, ceremonies, and community events. High-quality photography capturing divine moments.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .search-bar {
+            background: white;
+            border-radius: 9999px;
+            padding: 1rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #374151;
+        }
+        
+        .search-bar input::placeholder {
+            color: #9ca3af;
+        }
+        
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .filter-btn {
+            background: white;
+            color: #6b7280;
+            border: 2px solid #e5e7eb;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        
+        .view-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .view-toggle {
+            display: flex;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 0.25rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .view-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: #6b7280;
+            cursor: pointer;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .sort-dropdown {
+            position: relative;
+        }
+        
+        .sort-btn {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .sort-btn:hover {
+            border-color: #ff6b35;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .photo-grid.masonry {
+            columns: 4;
+            column-gap: 1.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .photo-grid.masonry {
+                columns: 3;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .photo-grid.masonry {
+                columns: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-grid.masonry {
+                columns: 1;
+            }
+        }
+        
+        .photo-item {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-image::before {
+            opacity: 1;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+        
+        .photo-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .photo-action {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .photo-action:hover {
+            background: white;
+            color: #ff6b35;
+            transform: scale(1.1);
+        }
+        
+        .photo-info {
+            padding: 1.5rem;
+        }
+        
+        .photo-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .photo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .photo-date {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .photo-category {
+            background: #fef5e7;
+            color: #f59e0b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .photo-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .photo-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f3f4f6;
+        }
+        
+        .photo-likes {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .photo-share {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .share-btn {
+            width: 30px;
+            height: 30px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.75rem;
+        }
+        
+        .share-btn:hover {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-close:hover {
+            background: white;
+            color: #ff6b35;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-nav:hover {
+            background: white;
+            color: #ff6b35;
+        }
+        
+        .lightbox-prev {
+            left: -70px;
+        }
+        
+        .lightbox-next {
+            right: -70px;
+        }
+        
+        .stats-bar {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        
+        .stat-item {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .featured-albums {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .album-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .album-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .album-cover {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .album-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .album-count {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-orange-600 font-medium active">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-orange-600 font-semibold py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-gray-500 hover:text-orange-600">Home</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li><a href="gallery.html" class="text-gray-500 hover:text-orange-600">Gallery</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li class="text-orange-600 font-medium">Photos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">📸</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Photo <span class="text-yellow-300">Gallery</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Explore our beautiful collection of temple photography capturing divine moments, sacred ceremonies, and vibrant community life at Skanda Sramam.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="search-bar fade-in mb-8">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" placeholder="Search photos by event, date, or category..." id="searchInput">
+                    <button class="btn-primary py-2 px-4 text-sm" onclick="searchPhotos()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Gallery Statistics -->
+        <div class="stats-bar fade-in">
+            <div class="stat-item">
+                <div class="stat-number">1,247</div>
+                <div class="stat-label">Total Photos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years Documented</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Events Captured</div>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <section class="fade-in">
+            <div class="category-filter">
+                <button class="filter-btn active" onclick="filterPhotos('all')">All Photos</button>
+                <button class="filter-btn" onclick="filterPhotos('festivals')">Festivals</button>
+                <button class="filter-btn" onclick="filterPhotos('ceremonies')">Daily Ceremonies</button>
+                <button class="filter-btn" onclick="filterPhotos('architecture')">Temple Architecture</button>
+                <button class="filter-btn" onclick="filterPhotos('community')">Community Events</button>
+                <button class="filter-btn" onclick="filterPhotos('deity')">Deity Photos</button>
+                <button class="filter-btn" onclick="filterPhotos('cultural')">Cultural Programs</button>
+                <button class="filter-btn" onclick="filterPhotos('historical')">Historical</button>
+            </div>
+        </section>
+
+        <!-- View Controls -->
+        <div class="view-controls fade-in">
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="setView('grid')">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" onclick="setView('masonry')">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="view-btn" onclick="setView('list')">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            
+            <div class="sort-dropdown">
+                <button class="sort-btn" onclick="toggleSortMenu()">
+                    <span>Sort by: Newest First</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Albums -->
+        <section class="featured-albums fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Albums</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                Curated collections of our most memorable events and celebrations
+            </p>
+
+            <div class="album-grid">
+                <div class="album-item" onclick="filterPhotos('thaipusam')">
+                    <div class="album-cover">🎭</div>
+                    <div class="album-title">Thaipusam 2024</div>
+                    <div class="album-count">156 photos</div>
+                </div>
+
+                <div class="album-item" onclick="filterPhotos('skanda-shasti')">
+                    <div class="album-cover">🕉️</div>
+                    <div class="album-title">Skanda Shasti</div>
+                    <div class="album-count">89 photos</div>
+                </div>
+
+                <div class="album-item" onclick="filterPhotos('temple-architecture')">
+                    <div class="album-cover">🏛️</div>
+                    <div class="album-title">Temple Architecture</div>
+                    <div class="album-count">124 photos</div>
+                </div>
+
+                <div class="album-item" onclick="filterPhotos('daily-life')">
+                    <div class="album-cover">🙏</div>
+                    <div class="album-title">Daily Temple Life</div>
+                    <div class="album-count">203 photos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Grid -->
+        <section class="fade-in">
+            <div class="photo-grid" id="photoGrid">
+                <!-- Festival Photos -->
+                <div class="photo-item" data-category="festivals" onclick="openLightbox(0)">
+                    <div class="photo-image">
+                        🎭
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">March 15, 2024</div>
+                            <div class="photo-category">Festival</div>
+                        </div>
+                        <div class="photo-title">Thaipusam Grand Procession</div>
+                        <div class="photo-description">
+                            Devotees carrying kavadi during the grand Thaipusam procession, showcasing the vibrant colors and spiritual devotion of our community.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>124 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temple Architecture -->
+                <div class="photo-item" data-category="architecture" onclick="openLightbox(1)">
+                    <div class="photo-image">
+                        🏛️
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">February 28, 2024</div>
+                            <div class="photo-category">Architecture</div>
+                        </div>
+                        <div class="photo-title">Main Sanctum Gopuram</div>
+                        <div class="photo-description">
+                            Intricate details of our temple's gopuram showcasing traditional Dravidian architecture with beautiful sculptures and divine imagery.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>89 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Ceremonies -->
+                <div class="photo-item" data-category="ceremonies" onclick="openLightbox(2)">
+                    <div class="photo-image">
+                        🕉️
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">March 10, 2024</div>
+                            <div class="photo-category">Ceremony</div>
+                        </div>
+                        <div class="photo-title">Morning Abhishekam</div>
+                        <div class="photo-description">
+                            Sacred abhishekam ceremony being performed to Lord Murugan during the morning prayers, with devotees participating in the divine ritual.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>156 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Events -->
+                <div class="photo-item" data-category="community" onclick="openLightbox(3)">
+                    <div class="photo-image">
+                        👥
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">March 5, 2024</div>
+                            <div class="photo-category">Community</div>
+                        </div>
+                        <div class="photo-title">Community Annadanam Service</div>
+                        <div class="photo-description">
+                            Volunteers serving free meals to devotees and community members as part of our weekly annadanam service program.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>78 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cultural Programs -->
+                <div class="photo-item" data-category="cultural" onclick="openLightbox(4)">
+                    <div class="photo-image">
+                        💃
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">February 20, 2024</div>
+                            <div class="photo-category">Cultural</div>
+                        </div>
+                        <div class="photo-title">Bharatanatyam Performance</div>
+                        <div class="photo-description">
+                            Young dancers performing classical Bharatanatyam during our cultural evening, celebrating Tamil arts and traditions.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>92 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deity Photos -->
+                <div class="photo-item" data-category="deity" onclick="openLightbox(5)">
+                    <div class="photo-image">
+                        🌺
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">March 12, 2024</div>
+                            <div class="photo-category">Deity</div>
+                        </div>
+                        <div class="photo-title">Lord Murugan Special Decoration</div>
+                        <div class="photo-description">
+                            Beautiful floral decoration of Lord Murugan during the special festival celebration, adorned with fresh flowers and traditional ornaments.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>201 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Photos -->
+                <div class="photo-item" data-category="historical" onclick="openLightbox(6)">
+                    <div class="photo-image">
+                        📜
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">June 15, 2005</div>
+                            <div class="photo-category">Historical</div>
+                        </div>
+                        <div class="photo-title">Temple Consecration Ceremony</div>
+                        <div class="photo-description">
+                            Historic moment from our temple's consecration ceremony (Kumbhabhishekam) in 2005, marking the official opening of the temple for worship.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>167 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Festival Photos -->
+                <div class="photo-item" data-category="festivals" onclick="openLightbox(7)">
+                    <div class="photo-image">
+                        🎊
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">November 12, 2023</div>
+                            <div class="photo-category">Festival</div>
+                        </div>
+                        <div class="photo-title">Diwali Celebration</div>
+                        <div class="photo-description">
+                            Temple beautifully illuminated with traditional oil lamps and decorative lights during our grand Diwali celebration.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>143 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Architecture Photos -->
+                <div class="photo-item" data-category="architecture" onclick="openLightbox(8)">
+                    <div class="photo-image">
+                        🏗️
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <a href="#" class="photo-action" title="View Full Size">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="photo-action" title="Share">
+                                    <i class="fas fa-share"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-meta">
+                            <div class="photo-date">January 18, 2024</div>
+                            <div class="photo-category">Architecture</div>
+                        </div>
+                        <div class="photo-title">Mandapam Pillars Detail</div>
+                        <div class="photo-description">
+                            Intricate carvings on the mandapam pillars showcasing traditional South Indian temple architecture and craftsmanship.
+                        </div>
+                        <div class="photo-stats">
+                            <div class="photo-likes">
+                                <i class="fas fa-heart"></i>
+                                <span>76 likes</span>
+                            </div>
+                            <div class="photo-share">
+                                <a href="#" class="share-btn" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Button -->
+        <div class="load-more fade-in">
+            <button class="btn-primary" onclick="loadMorePhotos()">
+                <i class="fas fa-plus mr-2"></i>Load More Photos
+            </button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="lightbox-nav lightbox-prev" onclick="prevPhoto()">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="lightbox-nav lightbox-next" onclick="nextPhoto()">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="lightbox-image" id="lightboxImage">
+                <div style="width: 600px; height: 400px; background: linear-gradient(135deg, #ff6b35, #f7931e); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; border-radius: 1rem;">
+                    📸
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">📷</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Share Your Temple Moments</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Have beautiful photos from temple events or ceremonies? We'd love to feature them in our community gallery. Share your divine moments with fellow devotees.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-upload mr-2"></i>Submit Photos
+                    </a>
+                    <a href="gallery-videos.html" class="btn-secondary">
+                        <i class="fas fa-video mr-2"></i>View Videos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-orange-400 font-semibold text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Gallery</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="gallery-photos.html" class="text-orange-400 font-semibold text-sm sm:text-base">Photo Gallery</a></li>
+                        <li><a href="gallery-videos.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Video Gallery</a></li>
+                        <li><a href="gallery-audio.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Audio Gallery</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentPhotoIndex = 0;
+        const photos = [
+            { title: "Thaipusam Grand Procession", category: "festivals" },
+            { title: "Main Sanctum Gopuram", category: "architecture" },
+            { title: "Morning Abhishekam", category: "ceremonies" },
+            { title: "Community Annadanam Service", category: "community" },
+            { title: "Bharatanatyam Performance", category: "cultural" },
+            { title: "Lord Murugan Special Decoration", category: "deity" },
+            { title: "Temple Consecration Ceremony", category: "historical" },
+            { title: "Diwali Celebration", category: "festivals" },
+            { title: "Mandapam Pillars Detail", category: "architecture" }
+        ];
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function filterPhotos(category) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Show/hide photos based on category
+            const photoItems = document.querySelectorAll('.photo-item');
+            photoItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function setView(viewType) {
+            // Remove active class from all view buttons
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            const photoGrid = document.getElementById('photoGrid');
+            
+            // Reset classes
+            photoGrid.className = 'photo-grid';
+            
+            // Apply new view
+            if (viewType === 'masonry') {
+                photoGrid.classList.add('masonry');
+            } else if (viewType === 'list') {
+                photoGrid.style.gridTemplateColumns = '1fr';
+            }
+        }
+
+        function toggleSortMenu() {
+            alert('Sort menu would open here with options: Newest First, Oldest First, Most Popular, A-Z, Z-A');
+        }
+
+        function searchPhotos() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim()) {
+                alert(`Searching for photos: "${searchTerm}". This would filter photos based on titles, descriptions, and tags.`);
+            }
+        }
+
+        function openLightbox(index) {
+            currentPhotoIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('active');
+            
+            // In a real implementation, you would load the actual image here
+            console.log(`Opening photo ${index}: ${photos[index].title}`);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        function prevPhoto() {
+            currentPhotoIndex = currentPhotoIndex > 0 ? currentPhotoIndex - 1 : photos.length - 1;
+            console.log(`Showing photo ${currentPhotoIndex}: ${photos[currentPhotoIndex].title}`);
+        }
+
+        function nextPhoto() {
+            currentPhotoIndex = currentPhotoIndex < photos.length - 1 ? currentPhotoIndex + 1 : 0;
+            console.log(`Showing photo ${currentPhotoIndex}: ${photos[currentPhotoIndex].title}`);
+        }
+
+        function loadMorePhotos() {
+            alert('Loading more photos... This would fetch additional photos from the server and append them to the grid.');
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                prevPhoto();
+            } else if (e.key === 'ArrowRight') {
+                nextPhoto();
+            }
+        });
+
+        // Search on enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPhotos();
+            }
+        });
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f5ba10b38ea994',t:'MTc1NzkxNDE3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

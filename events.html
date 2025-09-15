@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Festivals - Skanda Sramam | Temple Celebrations & Cultural Programs</title>
+    <meta name="description" content="Join us for sacred festivals, cultural events, and spiritual celebrations at Skanda Sramam. View upcoming events, festival calendar, and special ceremonies dedicated to Lord Murugan.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .event-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .festival-badge {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .date-badge {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 4rem;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .calendar-day {
+            background: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            min-height: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .calendar-day.header {
+            background: #f3f4f6;
+            font-weight: 600;
+            color: #374151;
+            min-height: 2rem;
+        }
+        
+        .calendar-day.event {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .calendar-day.event:hover {
+            background: rgba(255, 107, 53, 0.2);
+        }
+        
+        .calendar-day.today {
+            background: #ff6b35;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .event-dot {
+            width: 6px;
+            height: 6px;
+            background: #ff6b35;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 2px solid #e5e7eb;
+            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+        
+        .filter-btn.active {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            color: white;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #ff6b35;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #ff6b35;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .btn-primary, .btn-secondary {
+                padding: 0.625rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .filter-btn {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .calendar-day {
+                padding: 0.5rem 0.25rem;
+                min-height: 2.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="poojas.html/daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="poojas.html/special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-orange-600 font-medium active">Events</a>
+                    <div class="relative group">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                             <a href="about.html/asramam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
+                            <a href="about.html/deities.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">History</a>
+                            <a href="about.html/history.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
+                            <a href="about.html/swamiji.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Deities</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="gallery.html#pictures" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Pictures</a>
+                            <a href="gallery.html#videos" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Videos</a>
+                            <a href="gallery.html#audio" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="poojas.html/daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="poojas.html/special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-orange-600 font-semibold py-2">Events</a>
+                    <div class="space-y-2">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">About</a>
+                        <div class="pl-4 space-y-1">
+                             <a href="about.html/asramam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
+                            <a href="about.html/deities.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">History</a>
+                            <a href="about.html/history.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
+                            <a href="about.html/swamiji.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Deities</a>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Gallery</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="gallery.html#pictures" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Pictures</a>
+                            <a href="gallery.html#videos" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Videos</a>
+                            <a href="gallery.html#audio" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🎉</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Sacred <span class="text-yellow-300">Events</span> & Festivals
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Join us in celebrating divine festivals, cultural programs, and spiritual gatherings 
+                    that bring our community together in devotion to Lord Murugan.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in">
+                    <a href="#upcoming" class="btn-primary">
+                        <i class="fas fa-calendar-alt mr-2"></i>Upcoming Events
+                    </a>
+                    <a href="#calendar" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-calendar mr-2"></i>Festival Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Filters -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="filter-btn active" onclick="filterEvents('all')">All Events</button>
+                <button class="filter-btn" onclick="filterEvents('festival')">Festivals</button>
+                <button class="filter-btn" onclick="filterEvents('cultural')">Cultural Programs</button>
+                <button class="filter-btn" onclick="filterEvents('spiritual')">Spiritual Talks</button>
+                <button class="filter-btn" onclick="filterEvents('community')">Community Service</button>
+                <button class="filter-btn" onclick="filterEvents('special')">Special Ceremonies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Upcoming Events</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Don't miss these sacred celebrations and spiritual gatherings at Skanda Sramam
+                </p>
+            </div>
+            
+            <div id="events-container" class="grid lg:grid-cols-2 gap-8">
+                <!-- Featured Event -->
+                <div class="event-card lg:col-span-2 featured-event" data-category="festival">
+                    <div class="relative">
+                        <div class="h-64 sm:h-80 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="text-6xl sm:text-8xl mb-4">🎊</div>
+                                <h3 class="text-2xl sm:text-3xl font-bold">Thaipusam Festival</h3>
+                                <p class="text-lg opacity-90">Grand Celebration</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <div class="festival-badge">Featured Event</div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="date-badge">
+                                <div class="text-xs font-semibold">JAN</div>
+                                <div class="text-xl font-bold">25</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-wrap items-center gap-4 mb-4">
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-calendar mr-1"></i>January 25, 2025
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>5:00 AM - 10:00 PM
+                            </span>
+                            <span class="text-sm text-gray-500">
+                                <i class="fas fa-users mr-1"></i>5000+ Expected
+                            </span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Thaipusam - The Grand Festival of Lord Murugan</h3>
+                        <p class="text-gray-600 mb-6">
+                            Join us for the most significant festival dedicated to Lord Murugan. Experience the divine energy 
+                            with special poojas, kavadi processions, cultural performances, and community feast. This sacred 
+                            celebration brings together devotees from across the region.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="btn-primary" onclick="showEventDetails('thaipusam')">
+                                <i class="fas fa-info-circle mr-2"></i>View Details
+                            </button>
+                            <button class="btn-secondary" onclick="registerForEvent('thaipusam')">
+                                <i class="fas fa-user-plus mr-2"></i>Register Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Events -->
+                <div class="event-card" data-category="spiritual">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="text-4xl mb-2">📿</div>
+                                <h3 class="text-xl font-bold">Spiritual Discourse</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="date-badge">
+                                <div class="text-xs font-semibold">DEC</div>
+                                <div class="text-xl font-bold">22</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3 text-sm text-gray-500">
+                            <span><i class="fas fa-calendar mr-1"></i>Dec 22, 2024</span>
+                            <span><i class="fas fa-clock mr-1"></i>6:00 PM</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Bhagavad Gita Discourse</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Weekly spiritual discourse on the teachings of Bhagavad Gita by our learned scholars.
+                        </p>
+                        <div class="flex gap-2">
+                            <button class="btn-primary text-sm px-4 py-2" onclick="showEventDetails('discourse')">Details</button>
+                            <button class="btn-secondary text-sm px-4 py-2" onclick="registerForEvent('discourse')">Register</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="cultural">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="text-4xl mb-2">🎭</div>
+                                <h3 class="text-xl font-bold">Cultural Evening</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="date-badge">
+                                <div class="text-xs font-semibold">DEC</div>
+                                <div class="text-xl font-bold">28</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3 text-sm text-gray-500">
+                            <span><i class="fas fa-calendar mr-1"></i>Dec 28, 2024</span>
+                            <span><i class="fas fa-clock mr-1"></i>7:00 PM</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Classical Dance & Music</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            An evening of traditional South Indian classical dance and devotional music performances.
+                        </p>
+                        <div class="flex gap-2">
+                            <button class="btn-primary text-sm px-4 py-2" onclick="showEventDetails('cultural')">Details</button>
+                            <button class="btn-secondary text-sm px-4 py-2" onclick="registerForEvent('cultural')">Register</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="community">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="text-4xl mb-2">🍽️</div>
+                                <h3 class="text-xl font-bold">Annadanam</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="date-badge">
+                                <div class="text-xs font-semibold">JAN</div>
+                                <div class="text-xl font-bold">01</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3 text-sm text-gray-500">
+                            <span><i class="fas fa-calendar mr-1"></i>Jan 1, 2025</span>
+                            <span><i class="fas fa-clock mr-1"></i>12:00 PM</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">New Year Annadanam</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Special community feast to welcome the New Year with blessings and shared meals.
+                        </p>
+                        <div class="flex gap-2">
+                            <button class="btn-primary text-sm px-4 py-2" onclick="showEventDetails('annadanam')">Details</button>
+                            <button class="btn-secondary text-sm px-4 py-2" onclick="registerForEvent('annadanam')">Volunteer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="special">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-pink-400 to-red-500 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <div class="text-4xl mb-2">🌸</div>
+                                <h3 class="text-xl font-bold">Abhishekam</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <div class="date-badge">
+                                <div class="text-xs font-semibold">JAN</div>
+                                <div class="text-xl font-bold">15</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-3 text-sm text-gray-500">
+                            <span><i class="fas fa-calendar mr-1"></i>Jan 15, 2025</span>
+                            <span><i class="fas fa-clock mr-1"></i>6:00 AM</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Makar Sankranti Abhishekam</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Special abhishekam ceremony for Lord Murugan on the auspicious day of Makar Sankranti.
+                        </p>
+                        <div class="flex gap-2">
+                            <button class="btn-primary text-sm px-4 py-2" onclick="showEventDetails('abhishekam')">Details</button>
+                            <button class="btn-secondary text-sm px-4 py-2" onclick="registerForEvent('abhishekam')">Book Pooja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Calendar -->
+    <section id="calendar" class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Festival Calendar</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Plan your visits with our comprehensive calendar of festivals and special events
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900">January 2025</h3>
+                    <div class="flex space-x-2">
+                        <button class="p-2 text-gray-600 hover:text-orange-600 transition-colors">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="p-2 text-gray-600 hover:text-orange-600 transition-colors">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day header">Sun</div>
+                    <div class="calendar-day header">Mon</div>
+                    <div class="calendar-day header">Tue</div>
+                    <div class="calendar-day header">Wed</div>
+                    <div class="calendar-day header">Thu</div>
+                    <div class="calendar-day header">Fri</div>
+                    <div class="calendar-day header">Sat</div>
+                    
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day event" onclick="showCalendarEvent('new-year')">
+                        1
+                        <div class="event-dot"></div>
+                    </div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day event" onclick="showCalendarEvent('sankranti')">
+                        15
+                        <div class="event-dot"></div>
+                    </div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day event" onclick="showCalendarEvent('thaipusam')">
+                        25
+                        <div class="event-dot"></div>
+                    </div>
+                    
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                    <div class="calendar-day"></div>
+                </div>
+                
+                <div class="mt-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Upcoming Festivals</h4>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h5 class="font-semibold text-gray-900">New Year Annadanam</h5>
+                                    <span class="text-sm text-orange-600 font-medium">Jan 1</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Community feast to welcome the New Year</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h5 class="font-semibold text-gray-900">Makar Sankranti Abhishekam</h5>
+                                    <span class="text-sm text-orange-600 font-medium">Jan 15</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Special abhishekam ceremony for Lord Murugan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h5 class="font-semibold text-gray-900">Thaipusam Festival</h5>
+                                    <span class="text-sm text-orange-600 font-medium">Jan 25</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Grand celebration with kavadi processions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Registration CTA -->
+    <section class="py-16 sm:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🎪</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Never Miss an Event</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Subscribe to our event notifications and be the first to know about upcoming festivals, 
+                    cultural programs, and special ceremonies at Skanda Sramam.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <button class="btn-primary whitespace-nowrap">
+                        <i class="fas fa-bell mr-2"></i>Subscribe
+                    </button>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">
+                    Get weekly updates about events, festivals, and temple activities
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-orange-400 font-semibold text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Details Modal -->
+    <div id="eventModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-900">Event Details</h3>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="modalContent">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function filterEvents(category) {
+            const events = document.querySelectorAll('.event-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter events
+            events.forEach(eventCard => {
+                if (category === 'all' || eventCard.dataset.category === category) {
+                    eventCard.style.display = 'block';
+                } else {
+                    eventCard.style.display = 'none';
+                }
+            });
+        }
+
+        function showEventDetails(eventId) {
+            const eventDetails = {
+                'thaipusam': {
+                    title: 'Thaipusam - The Grand Festival of Lord Murugan',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-900 mb-2">Event Schedule</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span>5:00 AM - 7:00 AM</span>
+                                        <span>Special Abhishekam</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>8:00 AM - 12:00 PM</span>
+                                        <span>Kavadi Procession</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>1:00 PM - 3:00 PM</span>
+                                        <span>Community Feast</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>7:00 PM - 10:00 PM</span>
+                                        <span>Cultural Programs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">About Thaipusam</h4>
+                                <p class="text-gray-600 text-sm">
+                                    Thaipusam is one of the most significant festivals dedicated to Lord Murugan. 
+                                    Devotees carry kavadi (decorated structures) as offerings and perform various 
+                                    acts of devotion. The festival celebrates the victory of good over evil and 
+                                    the divine grace of Lord Murugan.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">What to Expect</h4>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• Elaborate kavadi processions</li>
+                                    <li>• Traditional music and dance</li>
+                                    <li>• Free community meals</li>
+                                    <li>• Special poojas throughout the day</li>
+                                    <li>• Cultural performances in the evening</li>
+                                </ul>
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="btn-primary" onclick="registerForEvent('thaipusam')">Register Now</button>
+                                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                            </div>
+                        </div>
+                    `
+                },
+                'discourse': {
+                    title: 'Bhagavad Gita Discourse',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-900 mb-2">Session Details</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span>Date:</span>
+                                        <span>Every Sunday</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Time:</span>
+                                        <span>6:00 PM - 7:30 PM</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Language:</span>
+                                        <span>English & Tamil</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Speaker:</span>
+                                        <span>Swami Murugananda</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">About the Discourse</h4>
+                                <p class="text-gray-600 text-sm">
+                                    Join us for weekly spiritual discourses on the timeless teachings of the Bhagavad Gita. 
+                                    These sessions provide practical insights for modern living based on ancient wisdom.
+                                </p>
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="btn-primary" onclick="registerForEvent('discourse')">Register</button>
+                                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+
+            const modal = document.getElementById('eventModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            if (eventDetails[eventId]) {
+                modalTitle.textContent = eventDetails[eventId].title;
+                modalContent.innerHTML = eventDetails[eventId].content;
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function showCalendarEvent(eventId) {
+            const calendarEvents = {
+                'new-year': {
+                    title: 'New Year Annadanam',
+                    content: `
+                        <div class="space-y-4">
+                            <p class="text-gray-600">Join us for a special community feast to welcome the New Year with blessings and shared meals.</p>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-900 mb-2">Event Details</h4>
+                                <div class="space-y-1 text-sm">
+                                    <div>📅 January 1, 2025</div>
+                                    <div>⏰ 12:00 PM - 3:00 PM</div>
+                                    <div>📍 Temple Main Hall</div>
+                                    <div>🍽️ Free for all devotees</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="btn-primary" onclick="registerForEvent('new-year')">Register</button>
+                                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                            </div>
+                        </div>
+                    `
+                },
+                'sankranti': {
+                    title: 'Makar Sankranti Abhishekam',
+                    content: `
+                        <div class="space-y-4">
+                            <p class="text-gray-600">Special abhishekam ceremony for Lord Murugan on the auspicious day of Makar Sankranti.</p>
+                            <div class="bg-pink-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-pink-900 mb-2">Ceremony Details</h4>
+                                <div class="space-y-1 text-sm">
+                                    <div>📅 January 15, 2025</div>
+                                    <div>⏰ 6:00 AM - 8:00 AM</div>
+                                    <div>📍 Main Sanctum</div>
+                                    <div>🌸 Milk, honey, and flower abhishekam</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="btn-primary" onclick="registerForEvent('sankranti')">Book Pooja</button>
+                                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+
+            const modal = document.getElementById('eventModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            if (calendarEvents[eventId]) {
+                modalTitle.textContent = calendarEvents[eventId].title;
+                modalContent.innerHTML = calendarEvents[eventId].content;
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function registerForEvent(eventId) {
+            // In a real implementation, this would open a registration form
+            alert(`Registration for ${eventId} event will be available soon! Please contact the temple office for now.`);
+            closeModal();
+        }
+
+        function closeModal() {
+            document.getElementById('eventModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('eventModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e710d563dcb85b',t:'MTc1Nzc2MDQzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

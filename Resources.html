@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Skanda Sramam | Spiritual Learning & Sacred Texts</title>
+    <meta name="description" content="Access our comprehensive collection of spiritual resources including sacred texts, prayer guides, meditation materials, and educational content at Skanda Sramam.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .search-bar {
+            background: white;
+            border-radius: 9999px;
+            padding: 1rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #374151;
+        }
+        
+        .search-bar input::placeholder {
+            color: #9ca3af;
+        }
+        
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .filter-btn {
+            background: white;
+            color: #6b7280;
+            border: 2px solid #e5e7eb;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+        }
+        
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .resource-subtitle {
+            opacity: 0.9;
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .resource-type {
+            background: #fef5e7;
+            color: #f59e0b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .resource-pages {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .resource-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .action-btn {
+            flex: 1;
+            background: #f3f4f6;
+            color: #6b7280;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .action-btn.primary {
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .action-btn.primary:hover {
+            background: #e55a2b;
+        }
+        
+        .featured-section {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .featured-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .featured-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .featured-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .featured-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .study-programs {
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .program-card {
+            border: 2px solid #f3f4f6;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .program-card:hover {
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+        }
+        
+        .program-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .program-info {
+            flex: 1;
+        }
+        
+        .program-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        
+        .program-duration {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .program-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .program-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+        }
+        
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-features li i {
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+        
+        .quick-access {
+            background: #f9fafb;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .quick-link {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: #374151;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .quick-link:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .quick-link i {
+            font-size: 1.25rem;
+            color: #ff6b35;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-link:hover i {
+            color: white;
+        }
+        
+        .stats-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-orange-600 font-medium active">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-orange-600 font-semibold py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">📚</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Spiritual <span class="text-yellow-300">Resources</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Discover our comprehensive collection of sacred texts, prayer guides, meditation materials, and educational content to deepen your spiritual journey.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="search-bar fade-in mb-8">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" placeholder="Search resources, texts, or topics..." id="searchInput">
+                    <button class="btn-primary py-2 px-4 text-sm" onclick="searchResources()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Statistics -->
+        <div class="stats-section fade-in">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">📖</div>
+                    <div class="stat-value">150+</div>
+                    <div class="stat-description">Sacred Texts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎧</div>
+                    <div class="stat-value">300+</div>
+                    <div class="stat-description">Audio Resources</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-value">25</div>
+                    <div class="stat-description">Study Programs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value">5000+</div>
+                    <div class="stat-description">Active Learners</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="quick-access fade-in">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">Quick Access</h2>
+            <div class="quick-links">
+                <a href="#daily-prayers" class="quick-link" onclick="filterResources('prayers')">
+                    <i class="fas fa-pray"></i>
+                    <span>Daily Prayers</span>
+                </a>
+                <a href="#mantras" class="quick-link" onclick="filterResources('mantras')">
+                    <i class="fas fa-om"></i>
+                    <span>Mantras & Chants</span>
+                </a>
+                <a href="#meditation" class="quick-link" onclick="filterResources('meditation')">
+                    <i class="fas fa-leaf"></i>
+                    <span>Meditation Guides</span>
+                </a>
+                <a href="#festivals" class="quick-link" onclick="filterResources('festivals')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Festival Calendar</span>
+                </a>
+                <a href="#scriptures" class="quick-link" onclick="filterResources('scriptures')">
+                    <i class="fas fa-scroll"></i>
+                    <span>Sacred Scriptures</span>
+                </a>
+                <a href="#children" class="quick-link" onclick="filterResources('children')">
+                    <i class="fas fa-child"></i>
+                    <span>Children's Section</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <section class="fade-in">
+            <div class="category-filter">
+                <button class="filter-btn active" onclick="filterResources('all')">All Resources</button>
+                <button class="filter-btn" onclick="filterResources('scriptures')">Sacred Texts</button>
+                <button class="filter-btn" onclick="filterResources('prayers')">Prayer Books</button>
+                <button class="filter-btn" onclick="filterResources('meditation')">Meditation</button>
+                <button class="filter-btn" onclick="filterResources('festivals')">Festivals</button>
+                <button class="filter-btn" onclick="filterResources('education')">Educational</button>
+                <button class="filter-btn" onclick="filterResources('children')">Children</button>
+                <button class="filter-btn" onclick="filterResources('audio')">Audio Guides</button>
+            </div>
+        </section>
+
+        <!-- Featured Resources -->
+        <section class="featured-section fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Collections</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Curated spiritual resources for different aspects of your devotional practice
+                </p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="featured-item" onclick="openResource('beginners-guide')">
+                    <div class="featured-icon">🌱</div>
+                    <div class="featured-title">Beginner's Guide to Hinduism</div>
+                    <div class="featured-description">
+                        Complete introduction to Hindu philosophy, practices, and traditions for newcomers to the faith.
+                    </div>
+                    <div class="featured-stats">
+                        <div>
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">150</div>
+                            <div class="stat-label">Pages</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">4.8</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Start Reading</button>
+                </div>
+
+                <div class="featured-item" onclick="openResource('daily-devotion')">
+                    <div class="featured-icon">🌅</div>
+                    <div class="featured-title">Daily Devotion Handbook</div>
+                    <div class="featured-description">
+                        Morning and evening prayer routines, mantras, and spiritual practices for daily life.
+                    </div>
+                    <div class="featured-stats">
+                        <div>
+                            <div class="stat-number">365</div>
+                            <div class="stat-label">Daily Prayers</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">50</div>
+                            <div class="stat-label">Mantras</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Download Guide</button>
+                </div>
+
+                <div class="featured-item" onclick="openResource('meditation-library')">
+                    <div class="featured-icon">🧘</div>
+                    <div class="featured-title">Meditation Library</div>
+                    <div class="featured-description">
+                        Guided meditation sessions, breathing techniques, and mindfulness practices for inner peace.
+                    </div>
+                    <div class="featured-stats">
+                        <div>
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Hours</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">4.7</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Start Meditating</button>
+                </div>
+
+                <div class="featured-item" onclick="openResource('festival-guide')">
+                    <div class="featured-icon">🎊</div>
+                    <div class="featured-title">Festival Celebration Guide</div>
+                    <div class="featured-description">
+                        Complete guide to Hindu festivals, rituals, significance, and celebration methods.
+                    </div>
+                    <div class="featured-stats">
+                        <div>
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Festivals</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">100</div>
+                            <div class="stat-label">Rituals</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">4.8</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full">Explore Festivals</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Grid -->
+        <section class="fade-in">
+            <div class="resources-grid" id="resourcesGrid">
+                <!-- Sacred Texts -->
+                <div class="resource-card" data-category="scriptures">
+                    <div class="resource-header">
+                        <div class="resource-icon">📜</div>
+                        <div class="resource-title">Bhagavad Gita</div>
+                        <div class="resource-subtitle">Complete Text with Commentary</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Sacred Text</div>
+                            <div class="resource-pages">700 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            The timeless dialogue between Prince Arjuna and Lord Krishna, offering profound insights into dharma, karma, and the path to spiritual liberation. Includes Sanskrit verses with English translation and detailed commentary.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('bhagavad-gita')">
+                                <i class="fas fa-book-open"></i>Read Online
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('bhagavad-gita')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                            <button class="action-btn" onclick="bookmarkResource('bhagavad-gita')">
+                                <i class="fas fa-bookmark"></i>Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Books -->
+                <div class="resource-card" data-category="prayers">
+                    <div class="resource-header">
+                        <div class="resource-icon">🙏</div>
+                        <div class="resource-title">Murugan Prayer Collection</div>
+                        <div class="resource-subtitle">Complete Devotional Prayers</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Prayer Book</div>
+                            <div class="resource-pages">120 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Comprehensive collection of prayers, stotrams, and kavachams dedicated to Lord Murugan. Includes Skanda Shasti Kavacham, Murugan Ashtakam, and daily prayer routines with pronunciation guides.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('murugan-prayers')">
+                                <i class="fas fa-book-open"></i>Read Online
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('murugan-prayers')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                            <button class="action-btn" onclick="playAudio('murugan-prayers')">
+                                <i class="fas fa-play"></i>Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meditation Guides -->
+                <div class="resource-card" data-category="meditation">
+                    <div class="resource-header">
+                        <div class="resource-icon">🧘‍♀️</div>
+                        <div class="resource-title">Mindfulness Meditation Guide</div>
+                        <div class="resource-subtitle">Step-by-Step Practice Manual</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Meditation</div>
+                            <div class="resource-pages">80 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Learn the art of mindfulness meditation with practical techniques, breathing exercises, and guided sessions. Perfect for beginners and experienced practitioners seeking deeper spiritual connection.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('meditation-guide')">
+                                <i class="fas fa-book-open"></i>Read Guide
+                            </button>
+                            <button class="action-btn" onclick="startMeditation('guided-session')">
+                                <i class="fas fa-play"></i>Start Session
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('meditation-guide')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Festival Information -->
+                <div class="resource-card" data-category="festivals">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎭</div>
+                        <div class="resource-title">Thaipusam Celebration Guide</div>
+                        <div class="resource-subtitle">Complete Festival Manual</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Festival Guide</div>
+                            <div class="resource-pages">45 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Detailed guide to celebrating Thaipusam, including rituals, kavadi preparation, fasting guidelines, and the spiritual significance of this sacred festival dedicated to Lord Murugan.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('thaipusam-guide')">
+                                <i class="fas fa-book-open"></i>Read Guide
+                            </button>
+                            <button class="action-btn" onclick="viewCalendar('thaipusam')">
+                                <i class="fas fa-calendar"></i>Calendar
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('thaipusam-guide')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Educational Materials -->
+                <div class="resource-card" data-category="education">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <div class="resource-title">Hindu Philosophy Basics</div>
+                        <div class="resource-subtitle">Introduction to Core Concepts</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Educational</div>
+                            <div class="resource-pages">200 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Explore fundamental concepts of Hindu philosophy including dharma, karma, moksha, and the various paths of yoga. Written in accessible language for modern seekers.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('philosophy-basics')">
+                                <i class="fas fa-book-open"></i>Start Course
+                            </button>
+                            <button class="action-btn" onclick="takeQuiz('philosophy-basics')">
+                                <i class="fas fa-question-circle"></i>Quiz
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('philosophy-basics')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Children's Resources -->
+                <div class="resource-card" data-category="children">
+                    <div class="resource-header">
+                        <div class="resource-icon">🌈</div>
+                        <div class="resource-title">Stories of Lord Ganesha</div>
+                        <div class="resource-subtitle">Illustrated Children's Book</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Children's Book</div>
+                            <div class="resource-pages">32 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Beautifully illustrated stories of Lord Ganesha's adventures and wisdom, designed to teach children about Hindu values, traditions, and moral lessons in an engaging way.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('ganesha-stories')">
+                                <i class="fas fa-book-open"></i>Read Stories
+                            </button>
+                            <button class="action-btn" onclick="playAudio('ganesha-stories')">
+                                <i class="fas fa-play"></i>Listen
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('ganesha-stories')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio Guides -->
+                <div class="resource-card" data-category="audio">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎵</div>
+                        <div class="resource-title">Sanskrit Pronunciation Guide</div>
+                        <div class="resource-subtitle">Audio Learning Course</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Audio Course</div>
+                            <div class="resource-pages">3 hours</div>
+                        </div>
+                        <div class="resource-description">
+                            Master the correct pronunciation of Sanskrit mantras and prayers with this comprehensive audio course. Includes practice exercises and common prayer recitations.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="playAudio('sanskrit-guide')">
+                                <i class="fas fa-play"></i>Start Course
+                            </button>
+                            <button class="action-btn" onclick="readResource('sanskrit-guide')">
+                                <i class="fas fa-book-open"></i>Text Guide
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('sanskrit-guide')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Sacred Texts -->
+                <div class="resource-card" data-category="scriptures">
+                    <div class="resource-header">
+                        <div class="resource-icon">📚</div>
+                        <div class="resource-title">Ramayana - Condensed Version</div>
+                        <div class="resource-subtitle">Epic Tale of Lord Rama</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Epic Text</div>
+                            <div class="resource-pages">300 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            The timeless epic of Lord Rama's journey, condensed for modern readers while preserving the spiritual essence and moral teachings of Valmiki's original masterpiece.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('ramayana')">
+                                <i class="fas fa-book-open"></i>Read Epic
+                            </button>
+                            <button class="action-btn" onclick="playAudio('ramayana')">
+                                <i class="fas fa-play"></i>Audio Book
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('ramayana')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Prayer Books -->
+                <div class="resource-card" data-category="prayers">
+                    <div class="resource-header">
+                        <div class="resource-icon">✨</div>
+                        <div class="resource-title">108 Sacred Mantras</div>
+                        <div class="resource-subtitle">Complete Mantra Collection</div>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-meta">
+                            <div class="resource-type">Mantra Book</div>
+                            <div class="resource-pages">150 pages</div>
+                        </div>
+                        <div class="resource-description">
+                            Collection of 108 powerful mantras for different purposes - healing, prosperity, protection, and spiritual growth. Includes meanings, benefits, and proper chanting methods.
+                        </div>
+                        <div class="resource-actions">
+                            <button class="action-btn primary" onclick="readResource('108-mantras')">
+                                <i class="fas fa-book-open"></i>View Mantras
+                            </button>
+                            <button class="action-btn" onclick="playAudio('108-mantras')">
+                                <i class="fas fa-play"></i>Chanting
+                            </button>
+                            <button class="action-btn" onclick="downloadResource('108-mantras')">
+                                <i class="fas fa-download"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Programs -->
+        <section class="study-programs fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Study Programs</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Structured learning paths to deepen your understanding of Hindu philosophy and practices
+                </p>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card" onclick="enrollProgram('foundations')">
+                    <div class="program-header">
+                        <div class="program-icon">🏛️</div>
+                        <div class="program-info">
+                            <div class="program-title">Foundations of Hinduism</div>
+                            <div class="program-duration">8 weeks • Beginner Level</div>
+                        </div>
+                    </div>
+                    <div class="program-description">
+                        Comprehensive introduction to Hindu philosophy, history, and practices. Perfect for newcomers seeking to understand the fundamentals of this ancient tradition.
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i>Interactive lessons and quizzes</li>
+                        <li><i class="fas fa-check-circle"></i>Weekly live discussions</li>
+                        <li><i class="fas fa-check-circle"></i>Certificate of completion</li>
+                        <li><i class="fas fa-check-circle"></i>Access to study materials</li>
+                    </ul>
+                    <button class="btn-primary w-full">Enroll Now - Free</button>
+                </div>
+
+                <div class="program-card" onclick="enrollProgram('bhagavad-gita')">
+                    <div class="program-header">
+                        <div class="program-icon">📖</div>
+                        <div class="program-info">
+                            <div class="program-title">Bhagavad Gita Study Circle</div>
+                            <div class="program-duration">12 weeks • Intermediate</div>
+                        </div>
+                    </div>
+                    <div class="program-description">
+                        Deep dive into the teachings of the Bhagavad Gita with verse-by-verse analysis, practical applications, and group discussions.
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i>Chapter-wise study sessions</li>
+                        <li><i class="fas fa-check-circle"></i>Sanskrit pronunciation guide</li>
+                        <li><i class="fas fa-check-circle"></i>Practical life applications</li>
+                        <li><i class="fas fa-check-circle"></i>Expert guidance</li>
+                    </ul>
+                    <button class="btn-primary w-full">Join Study Circle</button>
+                </div>
+
+                <div class="program-card" onclick="enrollProgram('meditation')">
+                    <div class="program-header">
+                        <div class="program-icon">🧘</div>
+                        <div class="program-info">
+                            <div class="program-title">Meditation Mastery</div>
+                            <div class="program-duration">6 weeks • All Levels</div>
+                        </div>
+                    </div>
+                    <div class="program-description">
+                        Learn various meditation techniques from basic mindfulness to advanced practices. Includes guided sessions and personal coaching.
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i>Daily guided meditations</li>
+                        <li><i class="fas fa-check-circle"></i>Breathing techniques</li>
+                        <li><i class="fas fa-check-circle"></i>Progress tracking</li>
+                        <li><i class="fas fa-check-circle"></i>Personal mentorship</li>
+                    </ul>
+                    <button class="btn-primary w-full">Start Journey</button>
+                </div>
+
+                <div class="program-card" onclick="enrollProgram('sanskrit')">
+                    <div class="program-header">
+                        <div class="program-icon">🔤</div>
+                        <div class="program-info">
+                            <div class="program-title">Sanskrit for Devotees</div>
+                            <div class="program-duration">10 weeks • Beginner</div>
+                        </div>
+                    </div>
+                    <div class="program-description">
+                        Learn to read, write, and pronounce Sanskrit for better understanding of prayers, mantras, and sacred texts.
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check-circle"></i>Devanagari script learning</li>
+                        <li><i class="fas fa-check-circle"></i>Common prayer translations</li>
+                        <li><i class="fas fa-check-circle"></i>Audio pronunciation guides</li>
+                        <li><i class="fas fa-check-circle"></i>Practice exercises</li>
+                    </ul>
+                    <button class="btn-primary w-full">Learn Sanskrit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12 fade-in">
+            <button class="btn-primary" onclick="loadMoreResources()">
+                <i class="fas fa-plus mr-2"></i>Load More Resources
+            </button>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">📱</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Get Our Mobile App</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Access all resources offline, track your study progress, and receive daily spiritual content with our mobile application.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-mobile-alt mr-2"></i>Download App
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-envelope mr-2"></i>Subscribe Newsletter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Resources</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="resources.html" class="text-orange-400 font-semibold text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="resources.html#scriptures" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Sacred Texts</a></li>
+                        <li><a href="resources.html#prayers" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Prayer Books</a></li>
+                        <li><a href="resources.html#meditation" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Meditation Guides</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function filterResources(category) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Show/hide resource cards based on category
+            const resourceCards = document.querySelectorAll('.resource-card');
+            resourceCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchResources() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim()) {
+                alert(`Searching for resources: "${searchTerm}". This would filter resources based on titles, descriptions, and content.`);
+            }
+        }
+
+        function readResource(resourceId) {
+            alert(`Opening resource: ${resourceId}. This would open the resource in a reader interface with bookmarking, highlighting, and note-taking features.`);
+        }
+
+        function downloadResource(resourceId) {
+            alert(`Downloading resource: ${resourceId}. This would initiate the download of the PDF or audio file for offline access.`);
+        }
+
+        function bookmarkResource(resourceId) {
+            alert(`Bookmarking resource: ${resourceId}. This would save the resource to your personal library for quick access.`);
+        }
+
+        function playAudio(resourceId) {
+            alert(`Playing audio for: ${resourceId}. This would start the audio playback with pronunciation guides or narrated content.`);
+        }
+
+        function startMeditation(sessionId) {
+            alert(`Starting meditation session: ${sessionId}. This would launch a guided meditation with timer and progress tracking.`);
+        }
+
+        function takeQuiz(courseId) {
+            alert(`Starting quiz for: ${courseId}. This would open an interactive quiz to test your understanding of the material.`);
+        }
+
+        function viewCalendar(festival) {
+            alert(`Opening festival calendar for: ${festival}. This would show important dates, rituals, and preparation guidelines.`);
+        }
+
+        function openResource(resourceId) {
+            alert(`Opening featured resource: ${resourceId}. This would navigate to the detailed resource page with full content and interactive features.`);
+        }
+
+        function enrollProgram(programId) {
+            alert(`Enrolling in program: ${programId}. This would start the enrollment process with course materials and schedule.`);
+        }
+
+        function loadMoreResources() {
+            alert('Loading more resources... This would fetch additional resources from the server and append them to the grid.');
+        }
+
+        // Search on enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchResources();
+            }
+        });
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f5ed0f46f117b7',t:'MTc1NzkxNjI2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

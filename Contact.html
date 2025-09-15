@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Skanda Sramam | Get in Touch</title>
+    <meta name="description" content="Contact Skanda Sramam temple for pooja bookings, events, volunteer opportunities, and general inquiries. Find our location, hours, and contact information.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .contact-info {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+        
+        .quick-action-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .quick-action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .quick-action-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .quick-action-title {
+            font-weight: 600;
+            color: #374151;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-action-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+            text-align: center;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            text-align: center;
+            color: #6b7280;
+        }
+        
+        .map-placeholder i {
+            font-size: 4rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        .hours-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .hours-title {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.875rem;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-day {
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .hours-time {
+            color: #6b7280;
+        }
+        
+        .hours-time.open {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .hours-time.closed {
+            color: #ef4444;
+            font-weight: 600;
+        }
+        
+        .department-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .department-name {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.75rem;
+        }
+        
+        .department-contact {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-contact a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        
+        .department-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .emergency-banner {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .emergency-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency-desc {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-message {
+            background: #ef4444;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .social-links {
+                gap: 0.75rem;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">About</a>
+                    <a href="Gallery" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html/Donation.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="Donation.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="Volunteer.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="Annadanam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-orange-600 font-medium active">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="Donation.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">About</a>
+                    <a href="Gallery" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html/Donation.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="Donation.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="Volunteer.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="Annadanam.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-orange-600 font-semibold py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">📞</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Get in <span class="text-yellow-300">Touch</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    We're here to help with your spiritual journey. Contact us for pooja bookings, events, volunteer opportunities, or any questions about our temple services.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="#contact-form" class="btn-primary text-lg px-8 py-4">
+                        <i class="fas fa-envelope mr-2"></i>Send Message
+                    </a>
+                    <a href="tel:+1234567890" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Emergency Contact Banner -->
+        <section class="fade-in mb-12">
+            <div class="emergency-banner">
+                <div class="emergency-title">24/7 Emergency Contact</div>
+                <div class="emergency-number">+1 (555) 123-HELP</div>
+                <div class="emergency-desc">For urgent spiritual guidance, medical emergencies, or immediate assistance</div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Fast access to our most requested services and information
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="quick-action-card" onclick="quickAction('book-pooja')">
+                    <div class="quick-action-icon">🙏</div>
+                    <div class="quick-action-title">Book Pooja</div>
+                    <div class="quick-action-desc">Schedule rituals</div>
+                </div>
+                
+                <div class="quick-action-card" onclick="quickAction('events')">
+                    <div class="quick-action-icon">🎉</div>
+                    <div class="quick-action-title">Events</div>
+                    <div class="quick-action-desc">Upcoming programs</div>
+                </div>
+                
+                <div class="quick-action-card" onclick="quickAction('volunteer')">
+                    <div class="quick-action-icon">🤝</div>
+                    <div class="quick-action-title">Volunteer</div>
+                    <div class="quick-action-desc">Join our team</div>
+                </div>
+                
+                <div class="quick-action-card" onclick="quickAction('donate')">
+                    <div class="quick-action-icon">💝</div>
+                    <div class="quick-action-title">Donate</div>
+                    <div class="quick-action-desc">Support temple</div>
+                </div>
+                
+                <div class="quick-action-card" onclick="quickAction('directions')">
+                    <div class="quick-action-icon">🗺️</div>
+                    <div class="quick-action-title">Directions</div>
+                    <div class="quick-action-desc">Find us</div>
+                </div>
+                
+                <div class="quick-action-card" onclick="quickAction('live-chat')">
+                    <div class="quick-action-icon">💬</div>
+                    <div class="quick-action-title">Live Chat</div>
+                    <div class="quick-action-desc">Instant help</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information & Form -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- Contact Information -->
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <!-- Address -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-title">Temple Address</div>
+                        <div class="contact-info">
+                            123 Sacred Grove Lane<br>
+                            Temple Hills, CA 90210<br>
+                            United States<br><br>
+                            <strong>Landmarks:</strong><br>
+                            Near Spiritual Center Mall<br>
+                            Opposite Peace Park
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-title">Phone Numbers</div>
+                        <div class="contact-info">
+                            <strong>Main Office:</strong><br>
+                            <a href="tel:+15551234567">+1 (555) 123-4567</a><br><br>
+                            <strong>Pooja Bookings:</strong><br>
+                            <a href="tel:+15551234568">+1 (555) 123-4568</a><br><br>
+                            <strong>Events:</strong><br>
+                            <a href="tel:+15551234569">+1 (555) 123-4569</a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-title">Email Addresses</div>
+                        <div class="contact-info">
+                            <strong>General Inquiries:</strong><br>
+                            <a href="mailto:info@skandasramam.org">info@skandasramam.org</a><br><br>
+                            <strong>Pooja Services:</strong><br>
+                            <a href="mailto:poojas@skandasramam.org">poojas@skandasramam.org</a><br><br>
+                            <strong>Donations:</strong><br>
+                            <a href="mailto:donations@skandasramam.org">donations@skandasramam.org</a>
+                        </div>
+                    </div>
+
+                    <!-- Hours -->
+                    <div class="contact-card">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-title">Temple Hours</div>
+                        <div class="contact-info">
+                            <strong>Daily:</strong> 5:00 AM - 9:00 PM<br>
+                            <strong>Office:</strong> 9:00 AM - 6:00 PM<br>
+                            <strong>Fridays:</strong> 5:00 AM - 10:00 PM<br>
+                            <strong>Festivals:</strong> Extended hours<br><br>
+                            <em>Special timings during festivals and events</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="fade-in">
+                <div class="bg-white rounded-2xl p-8 shadow-xl">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                    
+                    <div id="successMessage" class="success-message">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    </div>
+                    
+                    <div id="errorMessage" class="error-message">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        Please fill in all required fields correctly.
+                    </div>
+                    
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject *</label>
+                            <select id="subject" name="subject" class="form-input form-select" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="pooja">Pooja Booking</option>
+                                <option value="events">Event Information</option>
+                                <option value="volunteer">Volunteer Opportunity</option>
+                                <option value="donation">Donation Inquiry</option>
+                                <option value="annadanam">Annadanam Program</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5" placeholder="Please provide details about your inquiry..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="flex items-center">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="mr-2">
+                                <span class="text-sm text-gray-600">Subscribe to our newsletter for temple updates and events</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full text-lg py-3">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location & Map -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Visit Our Temple</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Find us easily with detailed directions and nearby landmarks
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Map -->
+                <div class="lg:col-span-2">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3 class="text-xl font-semibold mb-2">Interactive Map</h3>
+                            <p class="mb-4">123 Sacred Grove Lane, Temple Hills, CA 90210</p>
+                            <button class="btn-primary" onclick="openDirections()">
+                                <i class="fas fa-directions mr-2"></i>Get Directions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Directions & Hours -->
+                <div class="space-y-6">
+                    <!-- Detailed Hours -->
+                    <div class="hours-card">
+                        <div class="hours-title">Temple Hours</div>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="hours-day">Monday - Thursday</span>
+                                <span class="hours-time open">5:00 AM - 9:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="hours-day">Friday</span>
+                                <span class="hours-time open">5:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="hours-day">Saturday - Sunday</span>
+                                <span class="hours-time open">5:00 AM - 9:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="hours-day">Office Hours</span>
+                                <span class="hours-time">9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Transportation -->
+                    <div class="hours-card">
+                        <div class="hours-title">Transportation</div>
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div><strong>By Car:</strong> Free parking available</div>
+                            <div><strong>By Bus:</strong> Routes 15, 23, 45</div>
+                            <div><strong>By Train:</strong> Temple Hills Station (0.5 miles)</div>
+                            <div><strong>Accessibility:</strong> Wheelchair accessible</div>
+                        </div>
+                    </div>
+
+                    <!-- Nearby Facilities -->
+                    <div class="hours-card">
+                        <div class="hours-title">Nearby Facilities</div>
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <div>🏨 Temple Guest House (0.2 miles)</div>
+                            <div>🍽️ Vegetarian Restaurants (0.3 miles)</div>
+                            <div>🏪 Indian Grocery Store (0.4 miles)</div>
+                            <div>🏥 Community Hospital (1.2 miles)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Contacts -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Department Contacts</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Direct contact information for specific departments and services
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="department-card">
+                    <div class="department-name">Temple Administration</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:admin@skandasramam.org">admin@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Mon-Fri: 9:00 AM - 6:00 PM
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-name">Pooja Services</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234568">+1 (555) 123-4568</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:poojas@skandasramam.org">poojas@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Daily: 6:00 AM - 8:00 PM
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-name">Events & Programs</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234569">+1 (555) 123-4569</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:events@skandasramam.org">events@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Mon-Sat: 10:00 AM - 5:00 PM
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-name">Volunteer Coordination</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234570">+1 (555) 123-4570</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:volunteers@skandasramam.org">volunteers@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Tue-Sun: 9:00 AM - 4:00 PM
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-name">Donations & Charity</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234571">+1 (555) 123-4571</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:donations@skandasramam.org">donations@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Mon-Fri: 9:00 AM - 5:00 PM
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="department-name">Maintenance & Facilities</div>
+                    <div class="department-contact">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+15551234572">+1 (555) 123-4572</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <a href="mailto:facilities@skandasramam.org">facilities@skandasramam.org</a>
+                    </div>
+                    <div class="department-contact">
+                        <i class="fas fa-clock mr-2"></i>
+                        Mon-Sat: 8:00 AM - 4:00 PM
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Get Involved</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="donation.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Donation</a></li>
+                        <li><a href="volunteer.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Volunteer</a></li>
+                        <li><a href="annadanam.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Annadanam</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Resources</a></li>
+                        <li><a href="contact.html" class="text-orange-400 font-semibold text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function quickAction(action) {
+            const actions = {
+                'book-pooja': 'You would be redirected to our pooja booking system where you can select dates, times, and specific rituals.',
+                'events': 'You would be taken to our events page showing all upcoming festivals and programs.',
+                'volunteer': 'You would be directed to our volunteer registration form to join our temple service team.',
+                'donate': 'You would be taken to our secure donation portal to support temple activities.',
+                'directions': 'You would be redirected to Google Maps with our exact location and turn-by-turn directions.',
+                'live-chat': 'You would be connected to our live chat system for immediate assistance from temple staff.'
+            };
+            
+            alert(actions[action] || 'This feature would provide quick access to the requested service.');
+        }
+
+        function openDirections() {
+            alert('You would be redirected to Google Maps with our temple location: 123 Sacred Grove Lane, Temple Hills, CA 90210. This would provide turn-by-turn directions from your current location.');
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            // Get form elements
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Basic validation
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Validate required fields
+            if (!firstName || !lastName || !email || !subject || !message) {
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Simulate form submission
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                form.reset();
+            }, 1000);
+        }
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f611be33aaabec',t:'MTc1NzkxNzc2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

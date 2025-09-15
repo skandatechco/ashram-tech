@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Poojas & Ceremonies - Skanda Sramam | Book Sacred Rituals</title>
+    <meta name="description" content="Book personalized special poojas and ceremonies at Skanda Sramam. Deity-specific worship, life events, and spiritual ceremonies conducted by experienced priests.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pooja-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .pooja-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .booking-form {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background: white;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .close:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .btn-primary, .btn-secondary {
+                padding: 0.625rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .booking-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="special-poojas.html" class="nav-link text-orange-600 font-medium active flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-orange-600 hover:bg-orange-50 font-semibold">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <div class="relative group">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="about.html#asramam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
+                            <a href="about.html#history" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">History</a>
+                            <a href="about.html#swamiji" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
+                            <a href="about.html#deities" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Deities</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="gallery.html#pictures" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Pictures</a>
+                            <a href="gallery.html#videos" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Videos</a>
+                            <a href="gallery.html#audio" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="charity.html#donation" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="charity.html#donation" class="btn-primary hidden sm:flex text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="special-poojas.html" class="nav-link text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-orange-600 hover:text-orange-600 py-1 text-sm font-semibold">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <div class="space-y-2">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">About</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="about.html#asramam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Asramam</a>
+                            <a href="about.html#history" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">History</a>
+                            <a href="about.html#swamiji" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Swamiji</a>
+                            <a href="about.html#deities" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Deities</a>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Gallery</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="gallery.html#pictures" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Pictures</a>
+                            <a href="gallery.html#videos" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Videos</a>
+                            <a href="gallery.html#audio" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="charity.html#donation" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                    <a href="charity.html#donation" class="btn-primary justify-center mt-4 sm:hidden">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight fade-in">
+                    Special <span class="text-yellow-300">Poojas</span> & Ceremonies
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 max-w-4xl mx-auto fade-in">
+                    Book personalized poojas for special occasions, individual deities, and life events. 
+                    Each ceremony is customized to your spiritual needs and conducted with utmost devotion.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#deity-poojas" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50">
+                        <i class="fas fa-star mr-2"></i>Deity Poojas
+                    </a>
+                    <a href="#life-events" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900">
+                        <i class="fas fa-heart mr-2"></i>Life Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deity Specific Poojas -->
+    <section id="deity-poojas" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Deity Specific Poojas</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
+                    Invoke the blessings of specific deities through traditional worship rituals. 
+                    Each pooja is conducted with authentic mantras and offerings.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="pooja-card fade-in">
+                    <div class="bg-gradient-to-br from-orange-400 to-red-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🕉️</div>
+                        <h4 class="text-xl font-bold">Murugan Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Special worship of Lord Murugan with Kavadi, Abhishekam, and traditional offerings. 
+                            Ideal for seeking courage, wisdom, and victory over obstacles.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$108</span>
+                            <span class="text-gray-600 text-sm">Duration: 2 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Murugan Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🐘</div>
+                        <h4 class="text-xl font-bold">Ganesha Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Invoke Lord Ganesha's blessings for new beginnings, removing obstacles, 
+                            and ensuring success in all endeavors.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$78</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Ganesha Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="bg-gradient-to-br from-pink-400 to-purple-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🌺</div>
+                        <h4 class="text-xl font-bold">Durga Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Seek the divine mother's protection and blessings for strength, 
+                            prosperity, and spiritual growth.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$98</span>
+                            <span class="text-gray-600 text-sm">Duration: 2 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Durga Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="bg-gradient-to-br from-blue-400 to-indigo-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🔱</div>
+                        <h4 class="text-xl font-bold">Shiva Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Worship Lord Shiva for spiritual transformation, inner peace, 
+                            and liberation from worldly attachments.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$88</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Shiva Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="bg-gradient-to-br from-green-400 to-teal-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🪷</div>
+                        <h4 class="text-xl font-bold">Vishnu Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Seek Lord Vishnu's blessings for protection, prosperity, 
+                            and maintaining harmony in life.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$88</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Vishnu Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-yellow-300 to-pink-400 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">💰</div>
+                        <h4 class="text-xl font-bold">Lakshmi Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Invoke Goddess Lakshmi for wealth, prosperity, abundance, 
+                            and material well-being.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$78</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Lakshmi Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life Event Ceremonies -->
+    <section id="life-events" class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Life Event Ceremonies</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
+                    Celebrate life's precious moments with traditional Vedic ceremonies. 
+                    From birth to marriage, mark every milestone with divine blessings.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="pooja-card fade-in">
+                    <div class="bg-gradient-to-br from-green-400 to-blue-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">👶</div>
+                        <h4 class="text-xl font-bold">Naming Ceremony</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Traditional Namakarana ceremony for newborns with Vedic rituals, 
+                            blessings, and auspicious name selection.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$158</span>
+                            <span class="text-gray-600 text-sm">Duration: 2.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Naming Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="bg-gradient-to-br from-pink-400 to-red-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">💒</div>
+                        <h4 class="text-xl font-bold">Marriage Ceremony</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Complete Hindu wedding ceremony with Vedic rituals, 
+                            sacred fire ceremony, and divine blessings.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$508</span>
+                            <span class="text-gray-600 text-sm">Duration: 4-6 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Marriage Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🏠</div>
+                        <h4 class="text-xl font-bold">Housewarming</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Griha Pravesh ceremony to bless your new home with 
+                            prosperity, peace, and positive energy.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$188</span>
+                            <span class="text-gray-600 text-sm">Duration: 3 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Housewarming Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="bg-gradient-to-br from-purple-400 to-indigo-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🎓</div>
+                        <h4 class="text-xl font-bold">Upanayana</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Sacred thread ceremony marking the beginning of spiritual education 
+                            and formal learning for young boys.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$208</span>
+                            <span class="text-gray-600 text-sm">Duration: 3 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Upanayana Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="bg-gradient-to-br from-teal-400 to-green-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🌾</div>
+                        <h4 class="text-xl font-bold">Annaprasana</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            First feeding ceremony for babies, marking the transition 
+                            from milk to solid food with divine blessings.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$88</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Annaprasana Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-red-400 to-pink-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">💍</div>
+                        <h4 class="text-xl font-bold">Engagement</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Traditional engagement ceremony with ring exchange, 
+                            family blessings, and auspicious rituals.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$128</span>
+                            <span class="text-gray-600 text-sm">Duration: 2 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Engagement Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spiritual Ceremonies -->
+    <section id="spiritual-ceremonies" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Spiritual Ceremonies</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
+                    Powerful spiritual rituals for purification, healing, and divine intervention. 
+                    These ceremonies address specific spiritual needs and planetary influences.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="pooja-card fade-in">
+                    <div class="bg-gradient-to-br from-purple-400 to-indigo-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🌟</div>
+                        <h4 class="text-xl font-bold">Navagraha Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Worship of nine planetary deities to reduce negative influences 
+                            and enhance positive planetary effects in your life.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$128</span>
+                            <span class="text-gray-600 text-sm">Duration: 2.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Navagraha Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="bg-gradient-to-br from-teal-400 to-green-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">💧</div>
+                        <h4 class="text-xl font-bold">Abhishekam</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Sacred bathing ceremony of deities with milk, honey, 
+                            and other auspicious substances for purification and blessings.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$68</span>
+                            <span class="text-gray-600 text-sm">Duration: 1 hour</span>
+                        </div>
+                        <button onclick="openBookingModal('Abhishekam')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="bg-gradient-to-br from-red-400 to-orange-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🔥</div>
+                        <h4 class="text-xl font-bold">Homam</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Sacred fire ceremony with Vedic mantras and offerings 
+                            for spiritual purification and divine blessings.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$208</span>
+                            <span class="text-gray-600 text-sm">Duration: 3 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Homam Ceremony')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="bg-gradient-to-br from-yellow-400 to-red-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">📿</div>
+                        <h4 class="text-xl font-bold">Rudra Abhishekam</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Powerful Shiva worship with Rudra mantras for healing, 
+                            protection, and spiritual transformation.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$158</span>
+                            <span class="text-gray-600 text-sm">Duration: 2.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Rudra Abhishekam')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="bg-gradient-to-br from-green-400 to-blue-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🌸</div>
+                        <h4 class="text-xl font-bold">Sahasranama</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Chanting of 1000 names of deities for divine grace, 
+                            spiritual upliftment, and fulfillment of desires.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$98</span>
+                            <span class="text-gray-600 text-sm">Duration: 2 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Sahasranama Chanting')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pooja-card fade-in" style="animation-delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-indigo-400 to-purple-500 p-6 text-center text-white">
+                        <div class="text-4xl mb-3">🕯️</div>
+                        <h4 class="text-xl font-bold">Kalasha Pooja</h4>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4 text-sm">
+                            Sacred pot worship representing the divine presence, 
+                            performed for prosperity and spiritual blessings.
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="price-tag">$78</span>
+                            <span class="text-gray-600 text-sm">Duration: 1.5 hours</span>
+                        </div>
+                        <button onclick="openBookingModal('Kalasha Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Book Your Special Pooja</h2>
+            
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                        <input type="text" id="fullName" class="form-input" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                    <input type="email" id="emailAddress" class="form-input" required>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Pooja Type *</label>
+                        <select id="poojaType" class="form-select" required>
+                            <option value="">Select Special Pooja</option>
+                            <optgroup label="Deity Specific Poojas">
+                                <option value="Murugan Pooja">Murugan Pooja - $108</option>
+                                <option value="Ganesha Pooja">Ganesha Pooja - $78</option>
+                                <option value="Durga Pooja">Durga Pooja - $98</option>
+                                <option value="Shiva Pooja">Shiva Pooja - $88</option>
+                                <option value="Vishnu Pooja">Vishnu Pooja - $88</option>
+                                <option value="Lakshmi Pooja">Lakshmi Pooja - $78</option>
+                            </optgroup>
+                            <optgroup label="Life Event Ceremonies">
+                                <option value="Naming Ceremony">Naming Ceremony - $158</option>
+                                <option value="Marriage Ceremony">Marriage Ceremony - $508</option>
+                                <option value="Housewarming Ceremony">Housewarming Ceremony - $188</option>
+                                <option value="Upanayana Ceremony">Upanayana Ceremony - $208</option>
+                                <option value="Annaprasana Ceremony">Annaprasana Ceremony - $88</option>
+                                <option value="Engagement Ceremony">Engagement Ceremony - $128</option>
+                            </optgroup>
+                            <optgroup label="Spiritual Ceremonies">
+                                <option value="Navagraha Pooja">Navagraha Pooja - $128</option>
+                                <option value="Abhishekam">Abhishekam - $68</option>
+                                <option value="Homam Ceremony">Homam Ceremony - $208</option>
+                                <option value="Rudra Abhishekam">Rudra Abhishekam - $158</option>
+                                <option value="Sahasranama Chanting">Sahasranama Chanting - $98</option>
+                                <option value="Kalasha Pooja">Kalasha Pooja - $78</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Preferred Date *</label>
+                        <input type="date" id="preferredDate" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Preferred Time</label>
+                    <select id="preferredTime" class="form-select">
+                        <option value="">Select Time</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Number of Participants</label>
+                    <input type="number" id="participants" class="form-input" min="1" max="50" placeholder="How many people will attend?">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Special Requests</label>
+                    <textarea id="specialRequests" class="form-input" rows="3" placeholder="Any specific requirements, dietary restrictions, or special requests..."></textarea>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button type="button" onclick="closeBookingModal()" class="btn-secondary flex-1 justify-center">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary flex-1 justify-center">
+                        <i class="fas fa-check mr-2"></i>Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <div class="text-6xl mb-4">✅</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Booking Confirmed!</h2>
+            <p class="text-gray-700 mb-6">
+                Your special pooja booking has been successfully submitted. Our temple coordinator will contact you within 24 hours to confirm the details and discuss any special arrangements.
+            </p>
+            <div class="bg-orange-50 p-4 rounded-lg mb-6">
+                <p class="text-orange-800 font-semibold">Booking Reference: <span id="bookingReference"></span></p>
+            </div>
+            <button onclick="closeConfirmationModal()" class="btn-primary">
+                <i class="fas fa-check mr-2"></i>Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="py-16 sm:py-20 temple-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 fade-in">
+                    Need Guidance?
+                </h2>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 opacity-90 fade-in">
+                    Our experienced priests are here to help you choose the most appropriate 
+                    ceremony for your spiritual needs and life circumstances.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+                    <a href="daily-poojas.html" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50 text-lg px-8 py-4">
+                        <i class="fas fa-sun mr-2"></i>Daily Poojas
+                    </a>
+                    <a href="contact.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900 text-lg px-8 py-4">
+                        <i class="fas fa-phone mr-2"></i>Contact Temple
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="charity.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Community Service</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function openBookingModal(poojaType = '') {
+            const modal = document.getElementById('bookingModal');
+            const poojaSelect = document.getElementById('poojaType');
+            
+            if (poojaType) {
+                poojaSelect.value = poojaType;
+            }
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('preferredDate').min = today;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.getElementById('bookingForm').reset();
+        }
+
+        function closeConfirmationModal() {
+            const modal = document.getElementById('confirmationModal');
+            modal.style.display = 'none';
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                emailAddress: document.getElementById('emailAddress').value,
+                poojaType: document.getElementById('poojaType').value,
+                preferredDate: document.getElementById('preferredDate').value,
+                preferredTime: document.getElementById('preferredTime').value,
+                participants: document.getElementById('participants').value,
+                specialRequests: document.getElementById('specialRequests').value
+            };
+            
+            // Generate booking reference
+            const bookingRef = 'SKS' + Date.now().toString().slice(-6);
+            
+            // Store booking data (in a real application, this would be sent to a server)
+            console.log('Special Pooja booking submitted:', formData);
+            
+            // Close booking modal
+            closeBookingModal();
+            
+            // Show confirmation modal
+            document.getElementById('bookingReference').textContent = bookingRef;
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const bookingModal = document.getElementById('bookingModal');
+            const confirmationModal = document.getElementById('confirmationModal');
+            
+            if (event.target === bookingModal) {
+                closeBookingModal();
+            }
+            if (event.target === confirmationModal) {
+                closeConfirmationModal();
+            }
+        }
+
+        // Initialize fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f5a3f1456b7ef4',t:'MTc1NzkxMzI2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Poojas - Skanda Sramam | Morning, Afternoon & Evening Worship</title>
+    <meta name="description" content="Join our daily worship services at Skanda Sramam. Morning, afternoon, and evening poojas conducted with traditional Vedic rituals by experienced priests.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pooja-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .pooja-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .time-card {
+            background: linear-gradient(135deg, #fff7ed, #fed7aa);
+            border: 2px solid #fb923c;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .time-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(251, 146, 60, 0.2);
+        }
+        
+        .booking-form {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background: white;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .close:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .btn-primary, .btn-secondary {
+                padding: 0.625rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .booking-form {
+                padding: 1.5rem;
+            }
+            
+            .time-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-orange-600 font-medium active flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-orange-600 hover:bg-orange-50 font-semibold">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <div class="relative group">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="about.html#asramam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
+                            <a href="about.html#history" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">History</a>
+                            <a href="about.html#swamiji" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
+                            <a href="about.html#deities" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Deities</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="gallery.html#pictures" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Pictures</a>
+                            <a href="gallery.html#videos" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Videos</a>
+                            <a href="gallery.html#audio" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="charity.html#donation" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="charity.html#donation" class="btn-primary hidden sm:flex text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-orange-600 hover:text-orange-600 py-1 text-sm font-semibold">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <div class="space-y-2">
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">About</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="about.html#asramam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Asramam</a>
+                            <a href="about.html#history" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">History</a>
+                            <a href="about.html#swamiji" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Swamiji</a>
+                            <a href="about.html#deities" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Deities</a>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Gallery</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="gallery.html#pictures" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Pictures</a>
+                            <a href="gallery.html#videos" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Videos</a>
+                            <a href="gallery.html#audio" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Audio</a>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="charity.html#donation" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                    <a href="charity.html#donation" class="btn-primary justify-center mt-4 sm:hidden">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight fade-in">
+                    Daily <span class="text-yellow-300">Worship</span> Services
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 max-w-4xl mx-auto fade-in">
+                    Join our traditional daily poojas conducted three times a day with authentic Vedic rituals. 
+                    Experience divine blessings in our sacred atmosphere.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#daily-schedule" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50">
+                        <i class="fas fa-clock mr-2"></i>View Schedule
+                    </a>
+                    <a href="special-poojas.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900">
+                        <i class="fas fa-star mr-2"></i>Special Ceremonies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Pooja Section -->
+    <section id="daily-schedule" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Daily Worship Schedule</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
+                    Join us for our daily poojas conducted with traditional Vedic rituals. 
+                    Each session includes prayers, offerings, and blessings for all devotees.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mb-16">
+                <!-- Morning Pooja -->
+                <div class="time-card fade-in">
+                    <div class="text-4xl mb-4">🌅</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Morning Pooja</h3>
+                    <div class="text-orange-600 font-semibold text-lg mb-4">6:00 AM - 8:00 AM</div>
+                    <div class="space-y-3 text-gray-700">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-prayer-hands text-orange-600 mr-2"></i>
+                            <span class="text-sm">Suprabhatam</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-flower text-orange-600 mr-2"></i>
+                            <span class="text-sm">Abhishekam</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-fire text-orange-600 mr-2"></i>
+                            <span class="text-sm">Aarti</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button onclick="openBookingModal('Morning Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Afternoon Pooja -->
+                <div class="time-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-4xl mb-4">☀️</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Afternoon Pooja</h3>
+                    <div class="text-orange-600 font-semibold text-lg mb-4">12:00 PM - 1:00 PM</div>
+                    <div class="space-y-3 text-gray-700">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-utensils text-orange-600 mr-2"></i>
+                            <span class="text-sm">Naivedyam</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-music text-orange-600 mr-2"></i>
+                            <span class="text-sm">Bhajans</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-hands-praying text-orange-600 mr-2"></i>
+                            <span class="text-sm">Prayers</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button onclick="openBookingModal('Afternoon Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Evening Pooja -->
+                <div class="time-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-4xl mb-4">🌅</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Evening Pooja</h3>
+                    <div class="text-orange-600 font-semibold text-lg mb-4">6:00 PM - 8:00 PM</div>
+                    <div class="space-y-3 text-gray-700">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-candle-holder text-orange-600 mr-2"></i>
+                            <span class="text-sm">Deepa Aarti</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-bell text-orange-600 mr-2"></i>
+                            <span class="text-sm">Mangala Aarti</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-gift text-orange-600 mr-2"></i>
+                            <span class="text-sm">Prasadam</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button onclick="openBookingModal('Evening Pooja')" class="btn-primary w-full justify-center">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Daily Pooja Information -->
+            <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8 lg:p-12">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">What to Expect</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Authentic Rituals</h4>
+                                    <p class="text-gray-700 text-sm">Traditional Vedic ceremonies performed according to ancient scriptures</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Experienced Priests</h4>
+                                    <p class="text-gray-700 text-sm">Conducted by qualified priests with years of spiritual training</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Sacred Atmosphere</h4>
+                                    <p class="text-gray-700 text-sm">Peaceful environment with traditional music and incense</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Blessed Prasadam</h4>
+                                    <p class="text-gray-700 text-sm">Receive blessed food offerings after each ceremony</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <div class="text-6xl mb-4">🙏</div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Join Daily Worship</h4>
+                            <p class="text-gray-700 mb-6">
+                                All devotees are welcome to participate in our daily poojas. 
+                                No advance booking required for general attendance.
+                            </p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex items-center justify-center">
+                                    <i class="fas fa-clock text-orange-600 mr-2"></i>
+                                    <span>Duration: 1-2 hours each session</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <i class="fas fa-users text-orange-600 mr-2"></i>
+                                    <span>Open to all devotees</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <i class="fas fa-dollar-sign text-orange-600 mr-2"></i>
+                                    <span>Free participation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Temple Guidelines</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
+                    Please follow these guidelines to ensure a peaceful and respectful worship experience for all devotees.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <i class="fas fa-clock text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Arrival Time</h3>
+                            <p class="text-gray-700">Please arrive 15 minutes before the scheduled pooja time. Late arrivals may not be able to participate in certain rituals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <i class="fas fa-tshirt text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Dress Code</h3>
+                            <p class="text-gray-700">Traditional or modest clothing is preferred. Please avoid shorts, sleeveless tops, and revealing attire.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <i class="fas fa-mobile-alt text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile Phones</h3>
+                            <p class="text-gray-700">Please keep mobile phones on silent mode during worship services. Photography is allowed with permission.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <i class="fas fa-gift text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Offerings</h3>
+                            <p class="text-gray-700">Flowers, fruits, and coconuts are welcome offerings. All offerings will be blessed and returned as prasadam.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">📿</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Special Requests</h3>
+                        <p class="text-gray-700 mb-6">
+                            Need a customized pooja or have specific requirements? Our priests can accommodate special requests for your spiritual needs.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                            <span class="text-gray-700">Personal Consultation</span>
+                            <span class="text-orange-600 font-semibold">Available</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                            <span class="text-gray-700">Custom Timing</span>
+                            <span class="text-orange-600 font-semibold">On Request</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
+                            <span class="text-gray-700">Group Bookings</span>
+                            <span class="text-orange-600 font-semibold">Welcome</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <a href="contact.html" class="btn-primary w-full justify-center">
+                            <i class="fas fa-phone mr-2"></i>Contact for Special Requests
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Book Your Pooja</h2>
+            
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                        <input type="text" id="fullName" class="form-input" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                    <input type="email" id="emailAddress" class="form-input" required>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Pooja Type *</label>
+                        <select id="poojaType" class="form-select" required>
+                            <option value="">Select Daily Pooja</option>
+                            <option value="Morning Pooja">Morning Pooja (6:00 AM - 8:00 AM)</option>
+                            <option value="Afternoon Pooja">Afternoon Pooja (12:00 PM - 1:00 PM)</option>
+                            <option value="Evening Pooja">Evening Pooja (6:00 PM - 8:00 PM)</option>
+                            <option value="Private Morning Pooja">Private Morning Pooja - $50</option>
+                            <option value="Private Afternoon Pooja">Private Afternoon Pooja - $50</option>
+                            <option value="Private Evening Pooja">Private Evening Pooja - $50</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Preferred Date *</label>
+                        <input type="date" id="preferredDate" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Preferred Time</label>
+                    <select id="preferredTime" class="form-select">
+                        <option value="">Select Time</option>
+                        <option value="6:00 AM">6:00 AM</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                        <option value="8:00 PM">8:00 PM</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Special Requests</label>
+                    <textarea id="specialRequests" class="form-input" rows="3" placeholder="Any specific requirements or requests..."></textarea>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button type="button" onclick="closeBookingModal()" class="btn-secondary flex-1 justify-center">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary flex-1 justify-center">
+                        <i class="fas fa-check mr-2"></i>Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <div class="text-6xl mb-4">✅</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Booking Confirmed!</h2>
+            <p class="text-gray-700 mb-6">
+                Your pooja booking has been successfully submitted. Our temple coordinator will contact you within 24 hours to confirm the details.
+            </p>
+            <div class="bg-orange-50 p-4 rounded-lg mb-6">
+                <p class="text-orange-800 font-semibold">Booking Reference: <span id="bookingReference"></span></p>
+            </div>
+            <button onclick="closeConfirmationModal()" class="btn-primary">
+                <i class="fas fa-check mr-2"></i>Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="py-16 sm:py-20 temple-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 fade-in">
+                    Looking for Special Ceremonies?
+                </h2>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 opacity-90 fade-in">
+                    Explore our special poojas for individual deities, life events, and spiritual ceremonies. 
+                    Each ceremony is personalized to your spiritual needs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+                    <a href="special-poojas.html" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50 text-lg px-8 py-4">
+                        <i class="fas fa-star mr-2"></i>Special Poojas
+                    </a>
+                    <a href="contact.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900 text-lg px-8 py-4">
+                        <i class="fas fa-phone mr-2"></i>Contact Temple
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="charity.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Community Service</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function openBookingModal(poojaType = '') {
+            const modal = document.getElementById('bookingModal');
+            const poojaSelect = document.getElementById('poojaType');
+            
+            if (poojaType) {
+                poojaSelect.value = poojaType;
+            }
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('preferredDate').min = today;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.getElementById('bookingForm').reset();
+        }
+
+        function closeConfirmationModal() {
+            const modal = document.getElementById('confirmationModal');
+            modal.style.display = 'none';
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                emailAddress: document.getElementById('emailAddress').value,
+                poojaType: document.getElementById('poojaType').value,
+                preferredDate: document.getElementById('preferredDate').value,
+                preferredTime: document.getElementById('preferredTime').value,
+                specialRequests: document.getElementById('specialRequests').value
+            };
+            
+            // Generate booking reference
+            const bookingRef = 'SKS' + Date.now().toString().slice(-6);
+            
+            // Store booking data (in a real application, this would be sent to a server)
+            console.log('Booking submitted:', formData);
+            
+            // Close booking modal
+            closeBookingModal();
+            
+            // Show confirmation modal
+            document.getElementById('bookingReference').textContent = bookingRef;
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const bookingModal = document.getElementById('bookingModal');
+            const confirmationModal = document.getElementById('confirmationModal');
+            
+            if (event.target === bookingModal) {
+                closeBookingModal();
+            }
+            if (event.target === confirmationModal) {
+                closeConfirmationModal();
+            }
+        }
+
+        // Initialize fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

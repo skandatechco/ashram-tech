@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Support Our Sacred Mission | Skanda Sramam</title>
+    <meta name="description" content="Support Skanda Sramam temple through secure online donations. Help us maintain our sacred space, conduct daily poojas, and serve our community with your generous contribution.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .donation-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .amount-btn {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .amount-btn:hover {
+            border-color: #ff6b35;
+            background: #fff7ed;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .amount-btn.selected {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .custom-amount-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 2.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-amount-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .impact-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b35;
+        }
+        
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .impact-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .testimonial-role {
+            color: #ff6b35;
+            font-size: 0.875rem;
+        }
+        
+        .donation-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .method-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .method-card:hover {
+            border-color: #ff6b35;
+            background: #fff7ed;
+            transform: translateY(-2px);
+        }
+        
+        .method-icon {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        .method-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .method-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        /* Payment Modal Styles */
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .payment-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .payment-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 1.5rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .payment-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .payment-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin: 0;
+        }
+        
+        .payment-close {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-close:hover {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .payment-summary {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            background: #f9fafb;
+            margin: 0 2rem;
+            border-radius: 1rem;
+        }
+        
+        .payment-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-purpose {
+            font-size: 1.125rem;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-reference {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .payment-methods {
+            padding: 2rem;
+        }
+        
+        .payment-methods h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .payment-method-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .payment-method-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #374151;
+        }
+        
+        .payment-method-btn:hover {
+            border-color: #ff6b35;
+            background: #fff7ed;
+            transform: translateY(-2px);
+        }
+        
+        .payment-method-btn i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: #ff6b35;
+        }
+        
+        .payment-method-btn span {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .payment-security {
+            padding: 1.5rem 2rem;
+            background: #f0fdf4;
+            margin: 0 2rem 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #dcfce7;
+        }
+        
+        .security-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #166534;
+        }
+        
+        .security-text {
+            font-size: 0.75rem;
+            color: #166534;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .payment-footer {
+            padding: 1.5rem 2rem 2rem;
+            text-align: center;
+        }
+        
+        .tax-info, .receipt-info {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .donation-card {
+                padding: 1.5rem;
+            }
+            
+            .impact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .testimonial-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .payment-modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .payment-method-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-amount {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="#" onclick="navigateTo('home')" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" onclick="navigateTo('daily-poojas')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-sun mr-2 text-orange-500"></i>Daily Poojas
+                            </a>
+                            <a href="#" onclick="navigateTo('special-poojas')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-star mr-2 text-orange-500"></i>Special Poojas
+                            </a>
+                            <a href="#" onclick="navigateTo('festivals')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-calendar-alt mr-2 text-orange-500"></i>Festivals
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Temple <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" onclick="navigateTo('about')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-info-circle mr-2 text-orange-500"></i>About Us
+                            </a>
+                            <a href="#" onclick="navigateTo('history')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-scroll mr-2 text-orange-500"></i>Temple History
+                            </a>
+                            <a href="#" onclick="navigateTo('architecture')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-building mr-2 text-orange-500"></i>Architecture
+                            </a>
+                            <a href="#" onclick="navigateTo('priests')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-users mr-2 text-orange-500"></i>Our Priests
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Community <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" onclick="navigateTo('events')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-calendar mr-2 text-orange-500"></i>Events
+                            </a>
+                            <a href="#" onclick="navigateTo('gallery')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-images mr-2 text-orange-500"></i>Photo Gallery
+                            </a>
+                            <a href="#" onclick="navigateTo('news')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-newspaper mr-2 text-orange-500"></i>News & Updates
+                            </a>
+                            <a href="#" onclick="navigateTo('testimonials')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-quote-left mr-2 text-orange-500"></i>Testimonials
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-orange-600 font-medium flex items-center active">
+                            Get Involved <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" onclick="navigateTo('donation')" class="block px-4 py-2 text-orange-600 hover:bg-orange-50 font-semibold">
+                                <i class="fas fa-heart mr-2 text-orange-500"></i>Donation
+                            </a>
+                            <a href="#" onclick="navigateTo('volunteer')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-hands-helping mr-2 text-orange-500"></i>Volunteer
+                            </a>
+                            <a href="#" onclick="navigateTo('annadanam')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-utensils mr-2 text-orange-500"></i>Annadanam
+                            </a>
+                            <a href="#" onclick="navigateTo('membership')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-id-card mr-2 text-orange-500"></i>Membership
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Resources <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" onclick="navigateTo('scriptures')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-book mr-2 text-orange-500"></i>Sacred Texts
+                            </a>
+                            <a href="#" onclick="navigateTo('mantras')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-music mr-2 text-orange-500"></i>Mantras & Chants
+                            </a>
+                            <a href="#" onclick="navigateTo('calendar')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-calendar-check mr-2 text-orange-500"></i>Temple Calendar
+                            </a>
+                            <a href="#" onclick="navigateTo('downloads')" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">
+                                <i class="fas fa-download mr-2 text-orange-500"></i>Downloads
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="navigateTo('contact')" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button class="btn-primary text-sm sm:text-base" data-payment-type="donation" data-amount="50" data-purpose="Quick Donation">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </button>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#" onclick="navigateTo('home')" class="nav-link text-gray-700 hover:text-orange-600 py-2 flex items-center">
+                        <i class="fas fa-home mr-2 text-orange-500"></i>Home
+                    </a>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link text-gray-700 py-2 font-semibold flex items-center">
+                            <i class="fas fa-pray mr-2 text-orange-500"></i>Poojas & Rituals
+                        </div>
+                        <div class="pl-6 space-y-2">
+                            <a href="#" onclick="navigateTo('daily-poojas')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-sun mr-2 text-xs"></i>Daily Poojas
+                            </a>
+                            <a href="#" onclick="navigateTo('special-poojas')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-star mr-2 text-xs"></i>Special Poojas
+                            </a>
+                            <a href="#" onclick="navigateTo('festivals')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-calendar-alt mr-2 text-xs"></i>Festivals
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link text-gray-700 py-2 font-semibold flex items-center">
+                            <i class="fas fa-temple mr-2 text-orange-500"></i>About Temple
+                        </div>
+                        <div class="pl-6 space-y-2">
+                            <a href="#" onclick="navigateTo('about')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-info-circle mr-2 text-xs"></i>About Us
+                            </a>
+                            <a href="#" onclick="navigateTo('history')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-scroll mr-2 text-xs"></i>History
+                            </a>
+                            <a href="#" onclick="navigateTo('priests')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-users mr-2 text-xs"></i>Our Priests
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link text-gray-700 py-2 font-semibold flex items-center">
+                            <i class="fas fa-users mr-2 text-orange-500"></i>Community
+                        </div>
+                        <div class="pl-6 space-y-2">
+                            <a href="#" onclick="navigateTo('events')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-calendar mr-2 text-xs"></i>Events
+                            </a>
+                            <a href="#" onclick="navigateTo('gallery')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-images mr-2 text-xs"></i>Gallery
+                            </a>
+                            <a href="#" onclick="navigateTo('news')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-newspaper mr-2 text-xs"></i>News
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link text-orange-600 py-2 font-semibold flex items-center">
+                            <i class="fas fa-heart mr-2 text-orange-500"></i>Get Involved
+                        </div>
+                        <div class="pl-6 space-y-2">
+                            <a href="#" onclick="navigateTo('donation')" class="block text-orange-600 hover:text-orange-600 py-1 text-sm font-semibold flex items-center">
+                                <i class="fas fa-heart mr-2 text-xs"></i>Donation
+                            </a>
+                            <a href="#" onclick="navigateTo('volunteer')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-hands-helping mr-2 text-xs"></i>Volunteer
+                            </a>
+                            <a href="#" onclick="navigateTo('annadanam')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-utensils mr-2 text-xs"></i>Annadanam
+                            </a>
+                            <a href="#" onclick="navigateTo('membership')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-id-card mr-2 text-xs"></i>Membership
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="nav-link text-gray-700 py-2 font-semibold flex items-center">
+                            <i class="fas fa-book mr-2 text-orange-500"></i>Resources
+                        </div>
+                        <div class="pl-6 space-y-2">
+                            <a href="#" onclick="navigateTo('scriptures')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-book mr-2 text-xs"></i>Sacred Texts
+                            </a>
+                            <a href="#" onclick="navigateTo('mantras')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-music mr-2 text-xs"></i>Mantras
+                            </a>
+                            <a href="#" onclick="navigateTo('calendar')" class="block text-gray-600 hover:text-orange-600 py-1 text-sm flex items-center">
+                                <i class="fas fa-calendar-check mr-2 text-xs"></i>Calendar
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" onclick="navigateTo('contact')" class="nav-link text-gray-700 hover:text-orange-600 py-2 flex items-center">
+                        <i class="fas fa-envelope mr-2 text-orange-500"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quick Navigation Breadcrumb -->
+    <div class="bg-orange-50 border-b border-orange-100 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <nav class="flex items-center space-x-2 text-sm">
+                    <a href="#" onclick="navigateTo('home')" class="text-orange-600 hover:text-orange-800 font-medium">
+                        <i class="fas fa-home mr-1"></i>Home
+                    </a>
+                    <i class="fas fa-chevron-right text-orange-400 text-xs"></i>
+                    <span class="text-gray-700 font-semibold">Donation</span>
+                </nav>
+                
+                <div class="hidden sm:flex items-center space-x-4 text-sm">
+                    <a href="#" onclick="navigateTo('events')" class="text-gray-600 hover:text-orange-600 flex items-center">
+                        <i class="fas fa-calendar mr-1"></i>Events
+                    </a>
+                    <a href="#" onclick="navigateTo('gallery')" class="text-gray-600 hover:text-orange-600 flex items-center">
+                        <i class="fas fa-images mr-1"></i>Gallery
+                    </a>
+                    <a href="#" onclick="navigateTo('contact')" class="text-gray-600 hover:text-orange-600 flex items-center">
+                        <i class="fas fa-envelope mr-1"></i>Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🙏</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Support Our <span class="text-yellow-300">Sacred Mission</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Your generous donations help us maintain our temple, conduct daily poojas, serve free meals, and support our community programs. Every contribution makes a difference.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <button class="btn-primary text-lg px-8 py-4" data-payment-type="donation" data-amount="100" data-purpose="General Temple Support">
+                        <i class="fas fa-heart mr-2"></i>Donate Now
+                    </button>
+                    <a href="#impact" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-chart-line mr-2"></i>See Our Impact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Donation Form -->
+        <section class="fade-in mb-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="donation-card">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Make a Donation</h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto">
+                            Choose an amount below or enter a custom donation. All payments are secure and processed through encrypted gateways.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+                        <button class="amount-btn" onclick="selectAmount(25)" data-payment-type="donation" data-amount="25" data-purpose="General Donation">$25</button>
+                        <button class="amount-btn" onclick="selectAmount(50)" data-payment-type="donation" data-amount="50" data-purpose="General Donation">$50</button>
+                        <button class="amount-btn" onclick="selectAmount(100)" data-payment-type="donation" data-amount="100" data-purpose="General Donation">$100</button>
+                        <button class="amount-btn" onclick="selectAmount(250)" data-payment-type="donation" data-amount="250" data-purpose="General Donation">$250</button>
+                    </div>
+                    
+                    <div class="custom-amount-container mb-8">
+                        <label for="customAmount" class="block text-sm font-medium text-gray-700 mb-2">Custom Amount</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-lg">$</span>
+                            <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter amount" min="1" step="0.01">
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <label for="donationPurpose" class="block text-sm font-medium text-gray-700 mb-2">Donation Purpose (Optional)</label>
+                        <select id="donationPurpose" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:outline-none">
+                            <option value="General Donation">General Temple Support</option>
+                            <option value="Daily Poojas">Daily Poojas & Rituals</option>
+                            <option value="Annadanam">Free Meal Service (Annadanam)</option>
+                            <option value="Temple Maintenance">Temple Maintenance</option>
+                            <option value="Festival Celebrations">Festival Celebrations</option>
+                            <option value="Community Programs">Community Programs</option>
+                            <option value="Education">Educational Programs</option>
+                            <option value="Emergency Fund">Emergency Fund</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-primary text-xl px-12 py-4 w-full sm:w-auto mx-auto block" onclick="proceedToDonation()" id="donateButton">
+                        <i class="fas fa-heart mr-3"></i>Donate Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Methods -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Multiple Ways to Give</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    We accept various payment methods to make donating convenient and secure for everyone.
+                </p>
+            </div>
+
+            <div class="donation-methods">
+                <div class="method-card" data-payment-type="donation" data-amount="0" data-purpose="Credit Card Donation">
+                    <div class="method-icon">💳</div>
+                    <div class="method-title">Credit/Debit Cards</div>
+                    <div class="method-description">Secure online payments with Visa, MasterCard, American Express</div>
+                </div>
+
+                <div class="method-card" data-payment-type="donation" data-amount="0" data-purpose="PayPal Donation">
+                    <div class="method-icon">🅿️</div>
+                    <div class="method-title">PayPal</div>
+                    <div class="method-description">Quick and secure payments through your PayPal account</div>
+                </div>
+
+                <div class="method-card" data-payment-type="donation" data-amount="0" data-purpose="Digital Wallet Donation">
+                    <div class="method-icon">📱</div>
+                    <div class="method-title">Digital Wallets</div>
+                    <div class="method-description">Apple Pay, Google Pay, and other mobile payment options</div>
+                </div>
+
+                <div class="method-card" data-payment-type="donation" data-amount="0" data-purpose="Bank Transfer Donation">
+                    <div class="method-icon">🏦</div>
+                    <div class="method-title">Bank Transfer</div>
+                    <div class="method-description">Direct bank transfers and wire payments</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Your Impact in Action</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    See how your donations directly support our temple operations and community services throughout the year.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="impact-card">
+                    <div class="impact-icon">🍽️</div>
+                    <div class="impact-amount">$25</div>
+                    <div class="impact-description">
+                        Provides free meals for 10 people through our Annadanam program, ensuring no one goes hungry.
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">🕯️</div>
+                    <div class="impact-amount">$50</div>
+                    <div class="impact-description">
+                        Sponsors daily pooja supplies including oil, flowers, incense, and offerings for one week.
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">🎓</div>
+                    <div class="impact-amount">$100</div>
+                    <div class="impact-description">
+                        Supports our cultural education programs, teaching Sanskrit, music, and traditions to children.
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">🏛️</div>
+                    <div class="impact-amount">$250</div>
+                    <div class="impact-description">
+                        Contributes to temple maintenance, ensuring our sacred space remains beautiful and functional.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="fade-in mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Donor Stories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Hear from our community members about why they choose to support Skanda Sramam.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🙏</div>
+                    <div class="testimonial-text">
+                        "Supporting Skanda Sramam has been one of the most fulfilling experiences. Knowing that my donations help provide free meals and maintain this sacred space brings me immense joy."
+                    </div>
+                    <div class="testimonial-author">Priya Sharma</div>
+                    <div class="testimonial-role">Regular Donor</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">❤️</div>
+                    <div class="testimonial-text">
+                        "The temple's community programs have touched so many lives. I'm proud to contribute to the education initiatives that are preserving our culture for future generations."
+                    </div>
+                    <div class="testimonial-author">Rajesh Patel</div>
+                    <div class="testimonial-role">Monthly Supporter</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🌟</div>
+                    <div class="testimonial-text">
+                        "Every time I visit the temple, I see the positive impact of donations. From the beautiful decorations to the warm community atmosphere, every dollar makes a difference."
+                    </div>
+                    <div class="testimonial-author">Meera Krishnan</div>
+                    <div class="testimonial-role">Community Member</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tax Information -->
+        <section class="fade-in">
+            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i>Tax Deductible Donations
+                    </h3>
+                    <p class="text-blue-800 mb-6 max-w-3xl mx-auto">
+                        Skanda Sramam is a registered 501(c)(3) non-profit organization. All donations are tax-deductible to the full extent allowed by law. You will receive a receipt for your records immediately after your donation.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl text-blue-600 mb-2">📋</div>
+                            <div class="font-semibold text-blue-900">Tax ID</div>
+                            <div class="text-blue-700">12-3456789</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl text-blue-600 mb-2">📧</div>
+                            <div class="font-semibold text-blue-900">Instant Receipt</div>
+                            <div class="text-blue-700">Emailed immediately</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl text-blue-600 mb-2">🔒</div>
+                            <div class="font-semibold text-blue-900">Secure Processing</div>
+                            <div class="text-blue-700">256-bit SSL encryption</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Get Involved</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="donation.html" class="text-orange-400 font-semibold text-sm sm:text-base">Donation</a></li>
+                        <li><a href="volunteer.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Volunteer</a></li>
+                        <li><a href="annadanam.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Annadanam</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Resources</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global Payment Integration System
+        const PaymentSystem = {
+            // Payment gateway configuration
+            config: {
+                merchantId: 'SKANDA_SRAMAM_001',
+                currency: 'USD',
+                environment: 'sandbox', // Change to 'production' for live
+                supportedMethods: ['card', 'paypal', 'googlepay', 'applepay', 'venmo']
+            },
+
+            // Initialize payment system
+            init() {
+                this.loadPaymentGateways();
+                this.setupEventListeners();
+            },
+
+            // Load payment gateway scripts
+            loadPaymentGateways() {
+                // Stripe integration
+                const stripeScript = document.createElement('script');
+                stripeScript.src = 'https://js.stripe.com/v3/';
+                stripeScript.onload = () => {
+                    if (typeof Stripe !== 'undefined') {
+                        this.stripe = Stripe('pk_test_demo_key'); // Demo key
+                    }
+                };
+                document.head.appendChild(stripeScript);
+
+                // PayPal integration
+                const paypalScript = document.createElement('script');
+                paypalScript.src = 'https://www.paypal.com/sdk/js?client-id=demo&currency=USD&components=buttons,marks';
+                paypalScript.onload = () => {
+                    this.initPayPal();
+                };
+                document.head.appendChild(paypalScript);
+            },
+
+            // Setup payment event listeners
+            setupEventListeners() {
+                // Listen for donation buttons
+                document.addEventListener('click', (e) => {
+                    if (e.target.matches('[data-payment-type]') || e.target.closest('[data-payment-type]')) {
+                        e.preventDefault();
+                        const element = e.target.matches('[data-payment-type]') ? e.target : e.target.closest('[data-payment-type]');
+                        const type = element.getAttribute('data-payment-type');
+                        let amount = element.getAttribute('data-amount');
+                        const purpose = element.getAttribute('data-purpose') || 'General Donation';
+                        
+                        // If amount is 0 or not set, get from form
+                        if (!amount || amount === '0') {
+                            amount = this.getCurrentDonationAmount();
+                        }
+                        
+                        this.initiatePayment(type, amount, this.getCurrentDonationPurpose() || purpose);
+                    }
+                });
+            },
+
+            // Get current donation amount from form
+            getCurrentDonationAmount() {
+                const selectedBtn = document.querySelector('.amount-btn.selected');
+                if (selectedBtn) {
+                    return selectedBtn.getAttribute('data-amount');
+                }
+                
+                const customAmount = document.getElementById('customAmount');
+                if (customAmount && customAmount.value) {
+                    return customAmount.value;
+                }
+                
+                return '50'; // Default amount
+            },
+
+            // Get current donation purpose
+            getCurrentDonationPurpose() {
+                const purposeSelect = document.getElementById('donationPurpose');
+                return purposeSelect ? purposeSelect.value : 'General Donation';
+            },
+
+            // Initiate payment process
+            initiatePayment(type, amount, purpose) {
+                const paymentData = {
+                    type: type,
+                    amount: parseFloat(amount) || 50,
+                    purpose: purpose,
+                    timestamp: new Date().toISOString(),
+                    reference: this.generateReference()
+                };
+
+                this.showPaymentModal(paymentData);
+            },
+
+            // Generate unique payment reference
+            generateReference() {
+                return 'SS' + Date.now() + Math.random().toString(36).substr(2, 5).toUpperCase();
+            },
+
+            // Show payment modal
+            showPaymentModal(paymentData) {
+                const modal = this.createPaymentModal(paymentData);
+                document.body.appendChild(modal);
+                
+                // Show modal with animation
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 10);
+            },
+
+            // Create payment modal HTML
+            createPaymentModal(paymentData) {
+                const modal = document.createElement('div');
+                modal.className = 'payment-modal';
+                modal.innerHTML = `
+                    <div class="payment-modal-overlay" onclick="PaymentSystem.closePaymentModal()"></div>
+                    <div class="payment-modal-content">
+                        <div class="payment-header">
+                            <h3><i class="fas fa-heart text-orange-600 mr-2"></i>Complete Your ${paymentData.purpose}</h3>
+                            <button onclick="PaymentSystem.closePaymentModal()" class="payment-close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="payment-summary">
+                            <div class="payment-amount">$${paymentData.amount.toFixed(2)}</div>
+                            <div class="payment-purpose">${paymentData.purpose}</div>
+                            <div class="payment-reference">Reference: ${paymentData.reference}</div>
+                        </div>
+
+                        <div class="payment-methods">
+                            <h4>Choose Payment Method</h4>
+                            
+                            <div class="payment-method-grid">
+                                <button class="payment-method-btn" onclick="PaymentSystem.processStripePayment(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fab fa-cc-stripe"></i>
+                                    <span>Credit/Debit Card</span>
+                                </button>
+                                
+                                <button class="payment-method-btn" onclick="PaymentSystem.processPayPalPayment(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </button>
+                                
+                                <button class="payment-method-btn" onclick="PaymentSystem.processGooglePayment(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fab fa-google-pay"></i>
+                                    <span>Google Pay</span>
+                                </button>
+                                
+                                <button class="payment-method-btn" onclick="PaymentSystem.processApplePayment(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fab fa-apple-pay"></i>
+                                    <span>Apple Pay</span>
+                                </button>
+                                
+                                <button class="payment-method-btn" onclick="PaymentSystem.processBankTransfer(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fas fa-university"></i>
+                                    <span>Bank Transfer</span>
+                                </button>
+                                
+                                <button class="payment-method-btn" onclick="PaymentSystem.processVenmoPayment(${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>Venmo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="payment-security">
+                            <div class="security-badges">
+                                <i class="fas fa-shield-alt text-green-600"></i>
+                                <span>256-bit SSL Encryption</span>
+                                <i class="fas fa-lock text-green-600 ml-4"></i>
+                                <span>PCI DSS Compliant</span>
+                            </div>
+                            <p class="security-text">Your payment information is secure and encrypted. We never store your card details.</p>
+                        </div>
+
+                        <div class="payment-footer">
+                            <p class="tax-info">This donation may be tax-deductible. Tax ID: 12-3456789</p>
+                            <p class="receipt-info">A receipt will be emailed to you upon successful payment.</p>
+                        </div>
+                    </div>
+                `;
+                return modal;
+            },
+
+            // Close payment modal
+            closePaymentModal() {
+                const modal = document.querySelector('.payment-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.remove();
+                    }, 300);
+                }
+            },
+
+            // Process Stripe payment
+            processStripePayment(paymentData) {
+                this.showPaymentForm('stripe', paymentData);
+            },
+
+            // Process PayPal payment
+            processPayPalPayment(paymentData) {
+                this.showProcessingState();
+                setTimeout(() => {
+                    this.showPaymentSuccess(paymentData, 'PayPal');
+                }, 2000);
+            },
+
+            // Process Google Pay
+            processGooglePayment(paymentData) {
+                this.showProcessingState();
+                setTimeout(() => {
+                    this.showPaymentSuccess(paymentData, 'Google Pay');
+                }, 1500);
+            },
+
+            // Process Apple Pay
+            processApplePayment(paymentData) {
+                this.showProcessingState();
+                setTimeout(() => {
+                    this.showPaymentSuccess(paymentData, 'Apple Pay');
+                }, 1500);
+            },
+
+            // Process Bank Transfer
+            processBankTransfer(paymentData) {
+                this.showBankTransferDetails(paymentData);
+            },
+
+            // Process Venmo payment
+            processVenmoPayment(paymentData) {
+                this.showProcessingState();
+                setTimeout(() => {
+                    this.showPaymentSuccess(paymentData, 'Venmo');
+                }, 1500);
+            },
+
+            // Show payment form for card payments
+            showPaymentForm(gateway, paymentData) {
+                const modal = document.querySelector('.payment-modal-content');
+                modal.innerHTML = `
+                    <div class="payment-header">
+                        <h3><i class="fas fa-credit-card text-orange-600 mr-2"></i>Card Payment</h3>
+                        <button onclick="PaymentSystem.closePaymentModal()" class="payment-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="payment-form">
+                        <div class="payment-summary-small">
+                            <span>Amount: $${paymentData.amount.toFixed(2)}</span>
+                            <span>Purpose: ${paymentData.purpose}</span>
+                        </div>
+
+                        <form id="payment-form" onsubmit="PaymentSystem.submitCardPayment(event, ${JSON.stringify(paymentData).replace(/"/g, '&quot;')})">
+                            <div class="form-group">
+                                <label class="form-label">Cardholder Name *</label>
+                                <input type="text" class="form-input" required placeholder="John Doe">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Card Number *</label>
+                                <input type="text" class="form-input" required placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Expiry Date *</label>
+                                    <input type="text" class="form-input" required placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CVV *</label>
+                                    <input type="text" class="form-input" required placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email for Receipt *</label>
+                                <input type="email" class="form-input" required placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span>I agree to the terms and conditions and authorize this payment</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-primary w-full text-lg py-3">
+                                <i class="fas fa-lock mr-2"></i>Pay $${paymentData.amount.toFixed(2)} Securely
+                            </button>
+                        </form>
+                    </div>
+                `;
+            },
+
+            // Submit card payment
+            submitCardPayment(event, paymentData) {
+                event.preventDefault();
+                this.showProcessingState();
+                
+                // Simulate payment processing
+                setTimeout(() => {
+                    this.showPaymentSuccess(paymentData, 'Credit Card');
+                }, 3000);
+            },
+
+            // Show processing state
+            showProcessingState() {
+                const modal = document.querySelector('.payment-modal-content');
+                modal.innerHTML = `
+                    <div class="payment-processing">
+                        <div class="processing-spinner"></div>
+                        <h3>Processing Your Payment...</h3>
+                        <p>Please wait while we securely process your transaction.</p>
+                        <div class="processing-steps">
+                            <div class="step active">Validating payment details</div>
+                            <div class="step">Contacting payment gateway</div>
+                            <div class="step">Confirming transaction</div>
+                        </div>
+                    </div>
+                `;
+
+                // Animate processing steps
+                setTimeout(() => {
+                    const steps = document.querySelectorAll('.step');
+                    if (steps[1]) steps[1].classList.add('active');
+                }, 1000);
+                
+                setTimeout(() => {
+                    const steps = document.querySelectorAll('.step');
+                    if (steps[2]) steps[2].classList.add('active');
+                }, 2000);
+            },
+
+            // Show payment success
+            showPaymentSuccess(paymentData, method) {
+                const modal = document.querySelector('.payment-modal-content');
+                modal.innerHTML = `
+                    <div class="payment-success">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Payment Successful!</h3>
+                        <p>Thank you for your generous ${paymentData.purpose.toLowerCase()}.</p>
+                        
+                        <div class="success-details">
+                            <div class="detail-row">
+                                <span>Amount:</span>
+                                <span>$${paymentData.amount.toFixed(2)}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Method:</span>
+                                <span>${method}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Reference:</span>
+                                <span>${paymentData.reference}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Date:</span>
+                                <span>${new Date().toLocaleDateString()}</span>
+                            </div>
+                        </div>
+
+                        <div class="success-actions">
+                            <button class="btn-primary" onclick="PaymentSystem.downloadReceipt('${paymentData.reference}')">
+                                <i class="fas fa-download mr-2"></i>Download Receipt
+                            </button>
+                            <button class="btn-secondary" onclick="PaymentSystem.closePaymentModal()">
+                                <i class="fas fa-home mr-2"></i>Continue
+                            </button>
+                        </div>
+
+                        <div class="success-message">
+                            <p><i class="fas fa-envelope mr-2"></i>A receipt has been sent to your email.</p>
+                            <p><i class="fas fa-heart mr-2"></i>Your contribution helps us serve the community better.</p>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // Show bank transfer details
+            showBankTransferDetails(paymentData) {
+                const modal = document.querySelector('.payment-modal-content');
+                modal.innerHTML = `
+                    <div class="bank-transfer-details">
+                        <div class="payment-header">
+                            <h3><i class="fas fa-university text-orange-600 mr-2"></i>Bank Transfer Details</h3>
+                            <button onclick="PaymentSystem.closePaymentModal()" class="payment-close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="transfer-info">
+                            <p>Please use the following details to make your bank transfer:</p>
+                            
+                            <div class="bank-details">
+                                <div class="detail-group">
+                                    <label>Bank Name:</label>
+                                    <span>First National Bank</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Account Name:</label>
+                                    <span>Skanda Sramam Temple</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Account Number:</label>
+                                    <span>1234567890</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Routing Number:</label>
+                                    <span>021000021</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Reference:</label>
+                                    <span>${paymentData.reference}</span>
+                                </div>
+                                <div class="detail-group">
+                                    <label>Amount:</label>
+                                    <span>$${paymentData.amount.toFixed(2)}</span>
+                                </div>
+                            </div>
+
+                            <div class="transfer-instructions">
+                                <h4>Important Instructions:</h4>
+                                <ul>
+                                    <li>Please include the reference number in your transfer description</li>
+                                    <li>Transfers typically take 1-3 business days to process</li>
+                                    <li>You will receive a confirmation email once we receive your transfer</li>
+                                    <li>For questions, contact us at finance@skandasramam.org</li>
+                                </ul>
+                            </div>
+
+                            <div class="transfer-actions">
+                                <button class="btn-primary" onclick="PaymentSystem.copyBankDetails()">
+                                    <i class="fas fa-copy mr-2"></i>Copy Bank Details
+                                </button>
+                                <button class="btn-secondary" onclick="PaymentSystem.closePaymentModal()">
+                                    <i class="fas fa-check mr-2"></i>I'll Make the Transfer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // Copy bank details to clipboard
+            copyBankDetails() {
+                const details = `Bank: First National Bank
+Account: Skanda Sramam Temple
+Account Number: 1234567890
+Routing Number: 021000021
+Reference: ${document.querySelector('.bank-details .detail-group:nth-child(5) span').textContent}
+Amount: ${document.querySelector('.bank-details .detail-group:nth-child(6) span').textContent}`;
+
+                navigator.clipboard.writeText(details).then(() => {
+                    alert('Bank details copied to clipboard!');
+                });
+            },
+
+            // Download receipt
+            downloadReceipt(reference) {
+                alert(`Receipt for transaction ${reference} would be downloaded. In a real implementation, this would generate and download a PDF receipt.`);
+            },
+
+            // Initialize PayPal
+            initPayPal() {
+                console.log('PayPal SDK loaded and ready');
+            }
+        };
+
+        // Donation form functions
+        let selectedAmount = null;
+
+        function selectAmount(amount) {
+            // Remove previous selection
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selection to clicked button
+            event.target.classList.add('selected');
+            selectedAmount = amount;
+            
+            // Clear custom amount
+            document.getElementById('customAmount').value = '';
+            
+            // Update donate button
+            updateDonateButton();
+        }
+
+        function updateDonateButton() {
+            const donateBtn = document.getElementById('donateButton');
+            const customAmount = document.getElementById('customAmount').value;
+            const amount = selectedAmount || customAmount || 50;
+            
+            donateBtn.setAttribute('data-amount', amount);
+            donateBtn.innerHTML = `<i class="fas fa-heart mr-3"></i>Donate $${amount}`;
+        }
+
+        function proceedToDonation() {
+            const customAmount = document.getElementById('customAmount').value;
+            const amount = selectedAmount || customAmount;
+            
+            if (!amount || amount <= 0) {
+                alert('Please select or enter a donation amount.');
+                return;
+            }
+            
+            const purpose = document.getElementById('donationPurpose').value;
+            PaymentSystem.initiatePayment('donation', amount, purpose);
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Navigation System - Connects all pages seamlessly
+        const NavigationSystem = {
+            // All available pages in the temple website
+            pages: {
+                'home': {
+                    title: 'Home - Skanda Sramam Temple',
+                    description: 'Welcome to Skanda Sramam, sacred temple of Lord Murugan',
+                    content: 'home'
+                },
+                'daily-poojas': {
+                    title: 'Daily Poojas - Skanda Sramam',
+                    description: 'Daily worship services and rituals at our temple',
+                    content: 'daily-poojas'
+                },
+                'special-poojas': {
+                    title: 'Special Poojas - Skanda Sramam',
+                    description: 'Special ceremonies and elaborate worship services',
+                    content: 'special-poojas'
+                },
+                'festivals': {
+                    title: 'Festivals - Skanda Sramam',
+                    description: 'Annual festivals and celebrations at our temple',
+                    content: 'festivals'
+                },
+                'about': {
+                    title: 'About Us - Skanda Sramam',
+                    description: 'Learn about our temple history and mission',
+                    content: 'about'
+                },
+                'history': {
+                    title: 'Temple History - Skanda Sramam',
+                    description: 'The rich heritage and founding story of our temple',
+                    content: 'history'
+                },
+                'architecture': {
+                    title: 'Temple Architecture - Skanda Sramam',
+                    description: 'Explore the sacred architecture and design elements',
+                    content: 'architecture'
+                },
+                'priests': {
+                    title: 'Our Priests - Skanda Sramam',
+                    description: 'Meet our dedicated temple priests and spiritual guides',
+                    content: 'priests'
+                },
+                'events': {
+                    title: 'Events - Skanda Sramam',
+                    description: 'Upcoming events and community gatherings',
+                    content: 'events'
+                },
+                'gallery': {
+                    title: 'Photo Gallery - Skanda Sramam',
+                    description: 'Beautiful moments and memories from our temple',
+                    content: 'gallery'
+                },
+                'news': {
+                    title: 'News & Updates - Skanda Sramam',
+                    description: 'Latest news and announcements from our temple',
+                    content: 'news'
+                },
+                'testimonials': {
+                    title: 'Testimonials - Skanda Sramam',
+                    description: 'Stories and experiences from our community members',
+                    content: 'testimonials'
+                },
+                'donation': {
+                    title: 'Donation - Support Skanda Sramam',
+                    description: 'Support our temple through secure online donations',
+                    content: 'donation'
+                },
+                'volunteer': {
+                    title: 'Volunteer - Skanda Sramam',
+                    description: 'Join our volunteer community and serve together',
+                    content: 'volunteer'
+                },
+                'annadanam': {
+                    title: 'Annadanam - Free Meals - Skanda Sramam',
+                    description: 'Free meal service for all visitors and community',
+                    content: 'annadanam'
+                },
+                'membership': {
+                    title: 'Temple Membership - Skanda Sramam',
+                    description: 'Become a temple member and join our spiritual family',
+                    content: 'membership'
+                },
+                'scriptures': {
+                    title: 'Sacred Texts - Skanda Sramam',
+                    description: 'Access to sacred scriptures and spiritual texts',
+                    content: 'scriptures'
+                },
+                'mantras': {
+                    title: 'Mantras & Chants - Skanda Sramam',
+                    description: 'Learn sacred mantras and devotional chants',
+                    content: 'mantras'
+                },
+                'calendar': {
+                    title: 'Temple Calendar - Skanda Sramam',
+                    description: 'Important dates, festivals, and temple schedule',
+                    content: 'calendar'
+                },
+                'downloads': {
+                    title: 'Downloads - Skanda Sramam',
+                    description: 'Download temple resources, forms, and materials',
+                    content: 'downloads'
+                },
+                'contact': {
+                    title: 'Contact Us - Skanda Sramam',
+                    description: 'Get in touch with our temple community',
+                    content: 'contact'
+                }
+            },
+
+            // Current page tracking
+            currentPage: 'donation',
+
+            // Initialize navigation system
+            init() {
+                this.setupBrowserNavigation();
+                this.preloadCriticalPages();
+            },
+
+            // Setup browser back/forward navigation
+            setupBrowserNavigation() {
+                window.addEventListener('popstate', (event) => {
+                    if (event.state && event.state.page) {
+                        this.loadPage(event.state.page, false);
+                    }
+                });
+            },
+
+            // Preload important pages for faster navigation
+            preloadCriticalPages() {
+                const criticalPages = ['home', 'about', 'contact', 'events'];
+                criticalPages.forEach(page => {
+                    if (page !== this.currentPage) {
+                        // Preload page data in background
+                        this.preloadPageData(page);
+                    }
+                });
+            },
+
+            // Preload page data
+            preloadPageData(pageId) {
+                // In a real implementation, this would fetch page data
+                console.log(`Preloading ${pageId} page data...`);
+            },
+
+            // Navigate to a specific page
+            navigateTo(pageId) {
+                if (!this.pages[pageId]) {
+                    console.error(`Page ${pageId} not found`);
+                    return;
+                }
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                // Show loading state
+                this.showLoadingState();
+
+                // Simulate page loading (in real app, this would fetch content)
+                setTimeout(() => {
+                    this.loadPage(pageId, true);
+                }, 300);
+            },
+
+            // Show loading state during navigation
+            showLoadingState() {
+                // Add loading overlay
+                const loadingOverlay = document.createElement('div');
+                loadingOverlay.id = 'navigationLoading';
+                loadingOverlay.className = 'fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-50 flex items-center justify-center';
+                loadingOverlay.innerHTML = `
+                    <div class="text-center">
+                        <div class="w-12 h-12 temple-gradient rounded-full flex items-center justify-center mb-4 mx-auto animate-pulse">
+                            <span class="text-white text-2xl">🕉️</span>
+                        </div>
+                        <p class="text-gray-600 font-medium">Loading...</p>
+                    </div>
+                `;
+                document.body.appendChild(loadingOverlay);
+            },
+
+            // Hide loading state
+            hideLoadingState() {
+                const loadingOverlay = document.getElementById('navigationLoading');
+                if (loadingOverlay) {
+                    loadingOverlay.remove();
+                }
+            },
+
+            // Load and display a page
+            loadPage(pageId, updateHistory = true) {
+                const page = this.pages[pageId];
+                if (!page) return;
+
+                // Update browser history
+                if (updateHistory) {
+                    const url = pageId === 'home' ? '/' : `/${pageId}`;
+                    history.pushState({ page: pageId }, page.title, url);
+                }
+
+                // Update page title and meta
+                document.title = page.title;
+                this.updateMetaDescription(page.description);
+
+                // Update current page
+                this.currentPage = pageId;
+
+                // Update navigation active states
+                this.updateNavigationStates(pageId);
+
+                // Load page content
+                this.loadPageContent(pageId);
+
+                // Hide loading state
+                this.hideLoadingState();
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Track page view (analytics)
+                this.trackPageView(pageId);
+            },
+
+            // Update meta description
+            updateMetaDescription(description) {
+                let metaDesc = document.querySelector('meta[name="description"]');
+                if (!metaDesc) {
+                    metaDesc = document.createElement('meta');
+                    metaDesc.name = 'description';
+                    document.head.appendChild(metaDesc);
+                }
+                metaDesc.content = description;
+            },
+
+            // Update navigation active states
+            updateNavigationStates(pageId) {
+                // Remove all active states
+                document.querySelectorAll('.nav-link.active').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add active state to current page
+                const activeLinks = document.querySelectorAll(`[onclick="navigateTo('${pageId}')"]`);
+                activeLinks.forEach(link => {
+                    if (link.classList.contains('nav-link')) {
+                        link.classList.add('active');
+                    }
+                });
+            },
+
+            // Load page content (placeholder - in real app would fetch from server/API)
+            loadPageContent(pageId) {
+                // For demo purposes, show a message about the page
+                // In a real implementation, this would load the actual page content
+                if (pageId !== 'donation') {
+                    this.showPagePlaceholder(pageId);
+                }
+            },
+
+            // Show placeholder for non-donation pages
+            showPagePlaceholder(pageId) {
+                const page = this.pages[pageId];
+                const mainContent = document.querySelector('main') || document.querySelector('.max-w-7xl');
+                
+                if (mainContent) {
+                    mainContent.innerHTML = `
+                        <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-yellow-50">
+                            <div class="text-center max-w-2xl mx-auto px-4">
+                                <div class="w-24 h-24 temple-gradient rounded-full flex items-center justify-center mb-8 mx-auto">
+                                    <span class="text-white text-4xl">🕉️</span>
+                                </div>
+                                <h1 class="text-4xl font-bold text-gray-900 mb-4">${page.title.split(' - ')[0]}</h1>
+                                <p class="text-xl text-gray-600 mb-8">${page.description}</p>
+                                <div class="bg-white rounded-2xl p-8 shadow-lg border border-orange-100">
+                                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Coming Soon</h2>
+                                    <p class="text-gray-600 mb-6">This page is currently under development. We're working hard to bring you the best temple experience.</p>
+                                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <button onclick="navigateTo('donation')" class="btn-primary">
+                                            <i class="fas fa-heart mr-2"></i>Make a Donation
+                                        </button>
+                                        <button onclick="navigateTo('home')" class="btn-secondary">
+                                            <i class="fas fa-home mr-2"></i>Return Home
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-8 text-sm text-gray-500">
+                                    <p>For immediate assistance, please contact us at <a href="tel:+1234567890" class="text-orange-600 hover:underline">+1 (234) 567-8900</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+
+            // Track page views for analytics
+            trackPageView(pageId) {
+                // In a real implementation, this would send data to analytics service
+                console.log(`Page view tracked: ${pageId}`);
+            },
+
+            // Get current page info
+            getCurrentPage() {
+                return this.pages[this.currentPage];
+            },
+
+            // Search functionality
+            searchPages(query) {
+                const results = [];
+                const searchTerm = query.toLowerCase();
+                
+                Object.entries(this.pages).forEach(([id, page]) => {
+                    if (page.title.toLowerCase().includes(searchTerm) || 
+                        page.description.toLowerCase().includes(searchTerm)) {
+                        results.push({ id, ...page });
+                    }
+                });
+                
+                return results;
+            }
+        };
+
+        // Global navigation function
+        function navigateTo(pageId) {
+            NavigationSystem.navigateTo(pageId);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+            PaymentSystem.init();
+            NavigationSystem.init();
+            
+            // Listen for custom amount changes
+            document.getElementById('customAmount').addEventListener('input', function() {
+                // Clear amount button selections
+                document.querySelectorAll('.amount-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                selectedAmount = null;
+                updateDonateButton();
+            });
+            
+            // Listen for purpose changes
+            document.getElementById('donationPurpose').addEventListener('change', function() {
+                const donateBtn = document.getElementById('donateButton');
+                donateBtn.setAttribute('data-purpose', this.value);
+            });
+
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                // Alt + H for Home
+                if (e.altKey && e.key === 'h') {
+                    e.preventDefault();
+                    navigateTo('home');
+                }
+                // Alt + D for Donation
+                if (e.altKey && e.key === 'd') {
+                    e.preventDefault();
+                    navigateTo('donation');
+                }
+                // Alt + C for Contact
+                if (e.altKey && e.key === 'c') {
+                    e.preventDefault();
+                    navigateTo('contact');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f727e610fa7ed6',t:'MTc1NzkyOTE1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Leadership - Skanda Sramam | Our Spiritual Guides & Temple Leadership</title>
+    <meta name="description" content="Meet the dedicated spiritual leaders and trustees of Skanda Sramam. Learn about our head priest, board members, and the guidance that shapes our temple community.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .leader-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f3f4f6;
+            text-center;
+            height: 100%;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .leader-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 3rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .head-priest-card {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .head-priest-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+        
+        .head-priest-avatar {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 4rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .expertise-tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.25rem;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .board-section {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+        }
+        
+        .role-badge {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-button {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .contact-button:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .philosophy-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .service-highlight {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="poojas.html/daily-pooja.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="poojas.html/special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-medium active">About</a>
+                    <a href="Gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                           <a href="poojas.html/daily-pooja.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="poojas.html/special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-semibold py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-gray-500 hover:text-orange-600">Home</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li><a href="about.html" class="text-gray-500 hover:text-orange-600">About</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li class="text-orange-600 font-medium">Spiritual Leadership</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🙏</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Spiritual <span class="text-yellow-300">Leadership</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Meet the dedicated spiritual guides and temple leaders who provide wisdom, guidance, and unwavering service to our community with devotion and compassion.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in">
+                    <a href="#head-priest" class="btn-primary">
+                        <i class="fas fa-user-tie mr-2"></i>Head Priest
+                    </a>
+                    <a href="#board" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-users mr-2"></i>Leadership Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Head Priest Section -->
+        <section id="head-priest" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Head Priest</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Leading our spiritual community with wisdom, devotion, and deep knowledge of Hindu traditions and Tamil culture.
+                </p>
+            </div>
+
+            <div class="head-priest-card relative z-10 mb-8">
+                <div class="head-priest-avatar">
+                    <i class="fas fa-om"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-2 relative z-10">Sri Murugan Swami</h3>
+                <p class="text-xl opacity-90 mb-6 relative z-10">Head Priest & Spiritual Guide</p>
+                <p class="text-lg opacity-90 mb-8 max-w-3xl mx-auto relative z-10">
+                    With over 20 years of dedicated service to Lord Murugan and our community, Sri Murugan Swami brings profound spiritual wisdom, extensive knowledge of Vedic traditions, and a compassionate heart to guide devotees on their spiritual journey.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                    <a href="contact.html" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-calendar mr-2"></i>Schedule Consultation
+                    </a>
+                    <a href="tel:+1234567890" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-phone mr-2"></i>Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="philosophy-section">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Spiritual Background</h4>
+                    <p class="text-gray-600 mb-4">
+                        Sri Murugan Swami completed his spiritual education at the prestigious Dharma Shastri College in Tamil Nadu, specializing in Agama Shastra and Vedic rituals. He has served in several prominent temples across South India before joining our community.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-graduation-cap text-orange-500 mr-3"></i>
+                            <span>Dharma Shastri, Agama Shastra</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-temple text-orange-500 mr-3"></i>
+                            <span>20+ years temple service</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-language text-orange-500 mr-3"></i>
+                            <span>Tamil, Sanskrit, English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="philosophy-section">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Areas of Expertise</h4>
+                    <p class="text-gray-600 mb-4">
+                        Our head priest specializes in various aspects of Hindu spiritual practice and community guidance, offering comprehensive support for all spiritual needs.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="expertise-tag">Vedic Rituals</span>
+                        <span class="expertise-tag">Wedding Ceremonies</span>
+                        <span class="expertise-tag">Spiritual Counseling</span>
+                        <span class="expertise-tag">Astrology</span>
+                        <span class="expertise-tag">Sanskrit Chanting</span>
+                        <span class="expertise-tag">Meditation Guidance</span>
+                        <span class="expertise-tag">Festival Celebrations</span>
+                        <span class="expertise-tag">Youth Education</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Offered -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Spiritual Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our spiritual leadership provides comprehensive guidance and services to support your spiritual journey and life's important moments.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="service-highlight">
+                    <div class="text-3xl mb-3">🕉️</div>
+                    <h3 class="text-lg font-bold mb-2">Personal Poojas</h3>
+                    <p class="text-sm opacity-90">Individual spiritual ceremonies and blessings</p>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="text-3xl mb-3">💒</div>
+                    <h3 class="text-lg font-bold mb-2">Wedding Ceremonies</h3>
+                    <p class="text-sm opacity-90">Traditional Hindu wedding rituals</p>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="text-3xl mb-3">🧘</div>
+                    <h3 class="text-lg font-bold mb-2">Spiritual Counseling</h3>
+                    <p class="text-sm opacity-90">Personal guidance and meditation</p>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="text-3xl mb-3">⭐</div>
+                    <h3 class="text-lg font-bold mb-2">Astrological Guidance</h3>
+                    <p class="text-sm opacity-90">Vedic astrology consultations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Board of Trustees -->
+        <section id="board" class="mb-16 fade-in">
+            <div class="board-section">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Board of Trustees</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Our dedicated board members bring diverse expertise and unwavering commitment to guide the temple's growth and serve our community's needs.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="role-badge">President</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mr. Rajesh Kumar</h3>
+                        <p class="text-gray-600 mb-4">Leading the temple's strategic vision and community outreach programs for the past 8 years.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Business Executive</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>8 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:president@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="role-badge">Treasurer</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mrs. Priya Sharma</h3>
+                        <p class="text-gray-600 mb-4">Managing temple finances and ensuring transparent financial operations with professional expertise.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Certified Accountant</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>6 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:treasurer@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="role-badge">Secretary</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Dr. Suresh Patel</h3>
+                        <p class="text-gray-600 mb-4">Coordinating temple activities and maintaining official records with attention to detail.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Medical Professional</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>5 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:secretary@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="role-badge">Cultural Committee Head</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mrs. Lakshmi Iyer</h3>
+                        <p class="text-gray-600 mb-4">Organizing cultural programs and preserving Tamil traditions through various educational initiatives.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Arts Educator</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>7 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:cultural@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="role-badge">Community Service Head</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mr. Arun Krishnan</h3>
+                        <p class="text-gray-600 mb-4">Leading charitable activities and community outreach programs to serve those in need.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Social Worker</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:service@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+
+                    <div class="leader-card">
+                        <div class="leader-avatar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="role-badge">Youth Coordinator</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ms. Divya Nair</h3>
+                        <p class="text-gray-600 mb-4">Engaging young devotees through educational programs and youth-focused spiritual activities.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <div class="flex items-center justify-center mb-1">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>Education Specialist</span>
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>3 years service</span>
+                            </div>
+                        </div>
+                        <a href="mailto:youth@skandasramam.org" class="contact-button">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Philosophy -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Leadership Philosophy</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our leadership approach is rooted in service, transparency, and devotion to both Lord Murugan and our community.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="philosophy-section">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Service First</h3>
+                    <p class="text-gray-600 mb-4">
+                        Every decision we make is guided by how it serves our devotees and strengthens our spiritual community. We believe leadership is about serving others, not being served.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-heart text-red-500 mr-3"></i>Community welfare priority</li>
+                        <li class="flex items-center"><i class="fas fa-hands-helping text-red-500 mr-3"></i>Accessible spiritual guidance</li>
+                        <li class="flex items-center"><i class="fas fa-door-open text-red-500 mr-3"></i>Open door policy</li>
+                    </ul>
+                </div>
+
+                <div class="philosophy-section">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Transparency & Accountability</h3>
+                    <p class="text-gray-600 mb-4">
+                        We maintain complete transparency in all temple operations, from financial management to decision-making processes, ensuring accountability to our community.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-eye text-blue-500 mr-3"></i>Open financial records</li>
+                        <li class="flex items-center"><i class="fas fa-vote-yea text-blue-500 mr-3"></i>Community input valued</li>
+                        <li class="flex items-center"><i class="fas fa-balance-scale text-blue-500 mr-3"></i>Fair decision making</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Leadership -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Connect with Our Leaders</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our spiritual leaders and board members are always available to provide guidance, answer questions, and support your spiritual journey.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="text-3xl mb-4">📞</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Phone Consultation</h3>
+                    <p class="text-gray-600 mb-4">Schedule a phone call with our head priest for spiritual guidance.</p>
+                    <a href="tel:+1234567890" class="contact-button">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="text-3xl mb-4">📧</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Email Support</h3>
+                    <p class="text-gray-600 mb-4">Send your questions or requests via email for detailed responses.</p>
+                    <a href="mailto:info@skandasramam.org" class="contact-button">
+                        <i class="fas fa-envelope mr-2"></i>Send Email
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="text-3xl mb-4">🏛️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">In-Person Meeting</h3>
+                    <p class="text-gray-600 mb-4">Visit the temple for face-to-face consultation and blessings.</p>
+                    <a href="contact.html" class="contact-button">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Visit Temple
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🙏</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Seek Spiritual Guidance</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Our spiritual leaders are here to support you on your journey. Whether you need personal guidance, ceremony planning, or spiritual counseling, we're here to help.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-calendar mr-2"></i>Schedule Consultation
+                    </a>
+                    <a href="daily-poojas.html" class="btn-secondary">
+                        <i class="fas fa-om mr-2"></i>Join Daily Prayers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-orange-400 font-semibold text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e73a8082f5d5ee',t:'MTc1Nzc2MjE0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

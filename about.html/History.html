@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our History - Skanda Sramam | 25+ Years of Spiritual Journey</title>
+    <meta name="description" content="Discover the rich history of Skanda Sramam spanning over 25 years. From humble beginnings to a thriving spiritual community serving thousands of devotees.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff6b35, #f7931e);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 2rem;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-weight: bold;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .decade-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f3f4f6;
+            text-center;
+        }
+        
+        .decade-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            display: block;
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 1rem;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        /* Mobile Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 2rem;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+            
+            .timeline-dot {
+                left: 2rem;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .timeline-year {
+                left: 2rem;
+                font-size: 0.875rem;
+            }
+            
+            .counter {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-medium active">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-semibold py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-gray-500 hover:text-orange-600">Home</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li><a href="about.html" class="text-gray-500 hover:text-orange-600">About</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li class="text-orange-600 font-medium">Our History</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">📖</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Our Sacred <span class="text-yellow-300">Journey</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    From humble beginnings to a thriving spiritual community, discover the remarkable 25+ year journey of devotion, growth, and service that defines Skanda Sramam.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in">
+                    <a href="#timeline" class="btn-primary">
+                        <i class="fas fa-history mr-2"></i>View Timeline
+                    </a>
+                    <a href="#milestones" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-trophy mr-2"></i>Key Milestones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Foundation Story -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">The Foundation Story</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Every great journey begins with a vision. Discover how Skanda Sramam was born from the devotion and determination of a small group of Lord Murugan devotees.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                <div class="photo-placeholder">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">The Vision Begins</h3>
+                    <p class="text-gray-600 mb-4">
+                        In 1998, a small group of Tamil families in the community felt a deep calling to create a sacred space dedicated to Lord Murugan. What started as weekly gatherings in homes soon grew into a vision for a permanent temple.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        The founding members, led by their unwavering faith and commitment to preserving Tamil culture and Hindu traditions, embarked on a journey that would transform not just their own lives, but the lives of thousands of devotees.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-users text-orange-500 mr-3"></i>
+                            <span>Started with 12 founding families</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-home text-orange-500 mr-3"></i>
+                            <span>First gatherings in family homes</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-heart text-orange-500 mr-3"></i>
+                            <span>United by devotion to Lord Murugan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-section">
+                <p class="text-xl sm:text-2xl font-medium mb-4 relative z-10">
+                    "We dreamed of creating not just a temple, but a spiritual home where future generations could connect with their roots, find peace, and serve the community with love."
+                </p>
+                <p class="text-lg opacity-90 relative z-10">- Founding Committee, 1998</p>
+            </div>
+        </section>
+
+        <!-- Decades Overview -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Journey Through the Decades</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Each decade brought new challenges, growth, and achievements that shaped Skanda Sramam into the vibrant spiritual community it is today.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="decade-card">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">1990s - Foundation</h3>
+                    <p class="text-gray-600 mb-4">
+                        The seeds of devotion were planted as community members came together with a shared vision of creating a sacred space.
+                    </p>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Community formation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Initial planning</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Fundraising begins</li>
+                    </ul>
+                </div>
+
+                <div class="decade-card">
+                    <div class="text-4xl mb-4">🏗️</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">2000s - Building</h3>
+                    <p class="text-gray-600 mb-4">
+                        A decade of construction, growth, and establishing the temple as a cornerstone of the community's spiritual life.
+                    </p>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Temple construction</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>First consecration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Community programs</li>
+                    </ul>
+                </div>
+
+                <div class="decade-card">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">2010s - Expansion</h3>
+                    <p class="text-gray-600 mb-4">
+                        Major expansions and renovations transformed the temple into a comprehensive cultural and spiritual center.
+                    </p>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i>Major renovations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i>Cultural center</li>
+                        <li class="flex items-center"><i class="fas fa-check text-purple-500 mr-2"></i>Educational programs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Historical Timeline</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Follow our journey through the years, from the first community gathering to becoming a beacon of spiritual and cultural life.
+                </p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Temple Foundation</h3>
+                        <p class="text-gray-600 mb-4">
+                            Skanda Sramam was officially established with the blessing of 12 founding families. The first temporary shrine was set up in a rented community hall, marking the beginning of our sacred journey.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>12 founding families • First shrine established</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2000</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Land Acquisition</h3>
+                        <p class="text-gray-600 mb-4">
+                            After two years of fundraising and community support, we acquired our permanent location. The groundbreaking ceremony was attended by over 200 devotees, marking a historic moment.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>2.5 acres acquired • Groundbreaking ceremony</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2002</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">First Consecration</h3>
+                        <p class="text-gray-600 mb-4">
+                            The main sanctum was completed and the first Kumbhabhishekam (consecration ceremony) was performed. Lord Murugan's divine presence was officially invoked in our new temple.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-om mr-2"></i>
+                            <span>Kumbhabhishekam performed • 500 devotees attended</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Community Growth</h3>
+                        <p class="text-gray-600 mb-4">
+                            Our devotee community grew to over 1,000 families. We started regular cultural programs, Tamil language classes, and youth activities to preserve our heritage.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <span>1,000+ families • Cultural programs launched</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Educational Initiative</h3>
+                        <p class="text-gray-600 mb-4">
+                            Launched our educational wing with Tamil language school, classical music classes, and Bharatanatyam dance programs. Over 200 children enrolled in the first year.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-graduation-cap mr-2"></i>
+                            <span>Educational programs • 200+ students enrolled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Major Expansion</h3>
+                        <p class="text-gray-600 mb-4">
+                            Completed the construction of our community hall, kitchen facilities, and additional parking. The temple could now accommodate 500 devotees for major festivals.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-building mr-2"></i>
+                            <span>Community hall built • 500 person capacity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Cultural Center</h3>
+                        <p class="text-gray-600 mb-4">
+                            Opened our dedicated cultural center with a performance stage, library, and meeting rooms. This became the hub for preserving and promoting Tamil arts and culture.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-theater-masks mr-2"></i>
+                            <span>Cultural center opened • Performance stage added</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">20th Anniversary</h3>
+                        <p class="text-gray-600 mb-4">
+                            Celebrated our 20th anniversary with a grand festival attended by over 2,000 devotees. Completed major renovations including modern amenities and accessibility features.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-birthday-cake mr-2"></i>
+                            <span>20th anniversary • 2,000+ attendees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Digital Transformation</h3>
+                        <p class="text-gray-600 mb-4">
+                            Adapted to the digital age with online poojas, virtual darshan, and live streaming of ceremonies. Maintained spiritual connection during challenging times.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-wifi mr-2"></i>
+                            <span>Online services launched • Virtual darshan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Modern Era</h3>
+                        <p class="text-gray-600 mb-4">
+                            Today, Skanda Sramam serves over 5,000 devotees with modern facilities while preserving ancient traditions. We continue to grow and serve our community with dedication.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-rocket mr-2"></i>
+                            <span>5,000+ devotees • Modern facilities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Growth Statistics -->
+        <section id="milestones" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Growth Milestones</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Numbers tell the story of our remarkable growth and the impact we've made in the community over the years.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stats-card">
+                    <span class="counter" data-target="26">0</span>
+                    <p class="text-gray-600 font-semibold">Years of Service</p>
+                    <p class="text-gray-500 text-sm mt-1">Since 1998</p>
+                </div>
+
+                <div class="stats-card">
+                    <span class="counter" data-target="5000">0</span>
+                    <p class="text-gray-600 font-semibold">Devotee Families</p>
+                    <p class="text-gray-500 text-sm mt-1">Active community</p>
+                </div>
+
+                <div class="stats-card">
+                    <span class="counter" data-target="15000">0</span>
+                    <p class="text-gray-600 font-semibold">Square Feet</p>
+                    <p class="text-gray-500 text-sm mt-1">Temple complex</p>
+                </div>
+
+                <div class="stats-card">
+                    <span class="counter" data-target="100">0</span>
+                    <p class="text-gray-600 font-semibold">Annual Events</p>
+                    <p class="text-gray-500 text-sm mt-1">Festivals & programs</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Community Impact</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Students Educated:</span>
+                            <span class="font-semibold text-orange-600">2,500+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Meals Served:</span>
+                            <span class="font-semibold text-orange-600">150,000+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Weddings Blessed:</span>
+                            <span class="font-semibold text-orange-600">800+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Charity Beneficiaries:</span>
+                            <span class="font-semibold text-orange-600">10,000+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Cultural Preservation</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Tamil Classes:</span>
+                            <span class="font-semibold text-orange-600">26 years</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Dance Performances:</span>
+                            <span class="font-semibold text-orange-600">500+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Music Concerts:</span>
+                            <span class="font-semibold text-orange-600">200+</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">Cultural Programs:</span>
+                            <span class="font-semibold text-orange-600">1,000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Vision -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Looking Forward</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    As we continue our journey, we remain committed to our founding vision while embracing new opportunities to serve and grow.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision for Tomorrow</h3>
+                    <p class="text-gray-600 mb-6">
+                        Building on our strong foundation, we envision Skanda Sramam as a global center for Tamil culture and Hindu spirituality, connecting devotees worldwide while serving our local community with even greater dedication.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-globe text-blue-500 mr-3"></i>
+                            <span>Global outreach programs</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-laptop text-blue-500 mr-3"></i>
+                            <span>Enhanced digital services</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-leaf text-blue-500 mr-3"></i>
+                            <span>Sustainable temple practices</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>
+                            <span>Expanded educational programs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-placeholder">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">📚</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Be Part of Our Continuing Story</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Our history is still being written, and you can be part of it. Join our community, participate in our programs, and help us continue this sacred journey for future generations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-users mr-2"></i>Join Our Community
+                    </a>
+                    <a href="events.html" class="btn-secondary">
+                        <i class="fas fa-calendar mr-2"></i>Upcoming Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-orange-400 font-semibold text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Trigger counter animation when milestones section is visible
+                        if (entry.target.id === 'milestones') {
+                            animateCounters();
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e72d3062eeb85b',t:'MTc1Nzc2MTYwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
