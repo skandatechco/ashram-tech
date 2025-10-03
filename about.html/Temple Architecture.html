@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Architecture - Skanda Sramam | Sacred Design & Divine Spaces</title>
+    <meta name="description" content="Explore the beautiful architecture of Skanda Sramam. Discover our traditional Dravidian design, sacred spaces, and the spiritual significance of our temple structure.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .temple-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23temple)"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: #ff6b35 !important;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .architecture-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid #f3f4f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .architecture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .architecture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .architecture-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .space-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floor-plan {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floor-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            aspect-ratio: 4/3;
+        }
+        
+        .floor-room {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .floor-room:hover {
+            border-color: #ff6b35;
+            background: #fef5e7;
+            transform: scale(1.05);
+        }
+        
+        .floor-room.sanctum {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            grid-column: 2 / 4;
+            grid-row: 2 / 3;
+        }
+        
+        .floor-room.prayer-hall {
+            grid-column: 1 / 5;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+        }
+        
+        .architectural-element {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .architectural-element:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .design-principle {
+            background: linear-gradient(135deg, #fef5e7, #fed7aa);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b35;
+            margin: 1rem 0;
+        }
+        
+        .construction-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .construction-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        
+        .timeline-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-left: 1rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: #ff6b35;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #ff6b35;
+        }
+        
+        .sacred-geometry {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sacred-geometry::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+        
+        .geometry-pattern {
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .geometry-pattern::before {
+            content: '';
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .geometry-pattern::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .feature-highlight {
+            background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #bfdbfe;
+            text-align: center;
+        }
+        
+        .sustainability-badge {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-medium active">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+                    <div class="relative group">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="payment-integration.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+                            <a href="charity.html#volunteer" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="payment-integration.html" class="btn-primary text-sm sm:text-base">
+                        <i class="fas fa-heart mr-2"></i>Donate
+                    </a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Home</a>
+                    <div class="space-y-2">
+                        <a href="daily-poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
+                            <a href="special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
+                        </div>
+                    </div>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
+                    <a href="about.html" class="nav-link text-orange-600 font-semibold py-2">About</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Gallery</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
+                    <div class="space-y-2">
+                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
+                        <div class="pl-4 space-y-1">
+                            <a href="payment-integration.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
+                            <a href="charity.html#volunteer" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
+                            <a href="charity.html#annadanam" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-gray-500 hover:text-orange-600">Home</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li><a href="about.html" class="text-gray-500 hover:text-orange-600">About</a></li>
+                    <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                    <li class="text-orange-600 font-medium">Temple Architecture</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 sm:py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating mb-8">
+                    <div class="text-5xl sm:text-6xl lg:text-7xl mb-4">🏛️</div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
+                    Temple <span class="text-yellow-300">Architecture</span>
+                </h1>
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
+                    Discover the sacred design and architectural beauty of Skanda Sramam. Every element reflects ancient wisdom, spiritual significance, and divine harmony.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 fade-in">
+                    <a href="#floor-plan" class="btn-primary">
+                        <i class="fas fa-map mr-2"></i>Floor Plan
+                    </a>
+                    <a href="#sacred-spaces" class="btn-secondary bg-white/20 border-white/30 text-white hover:bg-white hover:text-orange-600">
+                        <i class="fas fa-building mr-2"></i>Sacred Spaces
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <!-- Architectural Overview -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Architectural Overview</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Skanda Sramam follows traditional Dravidian temple architecture, incorporating sacred geometry, Vastu Shastra principles, and modern amenities for devotee comfort.
+                </p>
+            </div>
+
+            <div class="sacred-geometry relative z-10 mb-8">
+                <div class="geometry-pattern relative z-10"></div>
+                <h3 class="text-3xl font-bold mb-6 relative z-10">Sacred Geometry & Design</h3>
+                <p class="text-xl opacity-90 mb-8 max-w-4xl mx-auto relative z-10">
+                    Our temple design is based on ancient principles of sacred geometry, where every measurement, proportion, and alignment serves a spiritual purpose, creating harmony between the physical and divine realms.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 relative z-10">
+                    <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                        <div class="text-2xl mb-2">📐</div>
+                        <h4 class="font-bold mb-2">Vastu Compliance</h4>
+                        <p class="text-sm opacity-90">Aligned with cardinal directions and cosmic energies</p>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                        <div class="text-2xl mb-2">🔄</div>
+                        <h4 class="font-bold mb-2">Sacred Proportions</h4>
+                        <p class="text-sm opacity-90">Golden ratio and divine measurements throughout</p>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                        <div class="text-2xl mb-2">🎯</div>
+                        <h4 class="font-bold mb-2">Energy Centers</h4>
+                        <p class="text-sm opacity-90">Strategic placement for optimal spiritual vibrations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floor Plan -->
+        <section id="floor-plan" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Interactive Floor Plan</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Explore our temple layout and discover the purpose and significance of each sacred space.
+                </p>
+            </div>
+
+            <div class="floor-plan">
+                <div class="floor-plan-grid">
+                    <div class="floor-room" onclick="showRoomInfo('entrance')">
+                        <div class="text-lg mb-1">🚪</div>
+                        <div class="text-xs font-medium">Entrance</div>
+                    </div>
+                    <div class="floor-room sanctum" onclick="showRoomInfo('sanctum')">
+                        <div class="text-2xl mb-2">🕉️</div>
+                        <div class="text-sm font-bold">Main Sanctum</div>
+                        <div class="text-xs opacity-90">Garbhagriha</div>
+                    </div>
+                    <div class="floor-room" onclick="showRoomInfo('meditation')">
+                        <div class="text-lg mb-1">🧘</div>
+                        <div class="text-xs font-medium">Meditation</div>
+                    </div>
+                    
+                    <div class="floor-room" onclick="showRoomInfo('office')">
+                        <div class="text-lg mb-1">🏢</div>
+                        <div class="text-xs font-medium">Office</div>
+                    </div>
+                    <div class="floor-room" onclick="showRoomInfo('cultural')">
+                        <div class="text-lg mb-1">🎭</div>
+                        <div class="text-xs font-medium">Cultural Center</div>
+                    </div>
+                    <div class="floor-room" onclick="showRoomInfo('kitchen')">
+                        <div class="text-lg mb-1">🍽️</div>
+                        <div class="text-xs font-medium">Kitchen</div>
+                    </div>
+                    
+                    <div class="floor-room prayer-hall" onclick="showRoomInfo('prayer-hall')">
+                        <div class="text-xl mb-2">🙏</div>
+                        <div class="text-sm font-bold">Main Prayer Hall</div>
+                        <div class="text-xs opacity-70">Community Worship Space</div>
+                    </div>
+                </div>
+                
+                <div id="room-info" class="mt-8 p-6 bg-white rounded-xl shadow-lg hidden">
+                    <h4 id="room-title" class="text-xl font-bold text-gray-900 mb-3"></h4>
+                    <p id="room-description" class="text-gray-600"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sacred Spaces -->
+        <section id="sacred-spaces" class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Sacred Spaces</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Each space within our temple serves a unique spiritual purpose, designed to facilitate different aspects of worship and community life.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🕉️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Main Sanctum</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        The Garbhagriha houses the main deity, Lord Murugan. This most sacred space is designed according to ancient principles for maximum spiritual energy.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Square base representing earth element</li>
+                            <li>• Vimana tower for cosmic connection</li>
+                            <li>• Precise cardinal alignment</li>
+                            <li>• Sacred acoustics for mantras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🙏</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Prayer Hall</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        The main assembly area where devotees gather for community prayers, bhajans, and religious discourses.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Mandapa style with pillared halls</li>
+                            <li>• Excellent acoustics for chanting</li>
+                            <li>• Natural ventilation system</li>
+                            <li>• Capacity for 500+ devotees</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🎭</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Cultural Center</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Dedicated space for cultural programs, Tamil classes, dance performances, and community events.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Flexible seating arrangements</li>
+                            <li>• Stage for performances</li>
+                            <li>• Audio-visual equipment</li>
+                            <li>• Climate control system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🧘</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Meditation Garden</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Peaceful outdoor space designed for quiet contemplation, meditation, and connection with nature.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Sacred plants and flowers</li>
+                            <li>• Water feature for tranquility</li>
+                            <li>• Shaded seating areas</li>
+                            <li>• Walking meditation paths</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🍽️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Kitchen & Dining</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Modern facilities for preparing prasadam and community meals, following traditional and hygienic practices.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Commercial-grade equipment</li>
+                            <li>• Separate vegetarian sections</li>
+                            <li>• Dining hall for 200+ people</li>
+                            <li>• Food safety compliance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="architecture-card">
+                    <div class="space-icon">
+                        <span>🏢</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Administrative Wing</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Offices for temple administration, meeting rooms, and facilities for managing daily operations and community services.
+                    </p>
+                    
+                    <div class="design-principle">
+                        <h5 class="font-bold text-gray-900 mb-2 text-sm">Design Features:</h5>
+                        <ul class="text-sm text-orange-800 space-y-1">
+                            <li>• Modern office facilities</li>
+                            <li>• Meeting and conference rooms</li>
+                            <li>• Digital infrastructure</li>
+                            <li>• Accessible design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architectural Elements -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Traditional Elements</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our temple incorporates classic Dravidian architectural elements, each with deep spiritual significance and cultural meaning.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🏗️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Gopuram</h3>
+                    <p class="text-gray-600 text-sm">Towering entrance gateway adorned with intricate sculptures and divine imagery</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🏛️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Mandapam</h3>
+                    <p class="text-gray-600 text-sm">Pillared halls with ornate carvings supporting the temple structure</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">⛩️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Vimana</h3>
+                    <p class="text-gray-600 text-sm">Sacred tower above the sanctum connecting earth to divine realms</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🔄</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Prakaram</h3>
+                    <p class="text-gray-600 text-sm">Circumambulation path for devotees to walk around the sanctum</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🎨</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Sculptures</h3>
+                    <p class="text-gray-600 text-sm">Divine carvings depicting deities, mythological scenes, and spiritual symbols</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🌺</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Motifs</h3>
+                    <p class="text-gray-600 text-sm">Traditional patterns representing cosmic order and divine beauty</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">🔔</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bell Tower</h3>
+                    <p class="text-gray-600 text-sm">Sacred bells creating divine vibrations during worship ceremonies</p>
+                </div>
+
+                <div class="architectural-element">
+                    <div class="text-3xl mb-3">💧</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Water Features</h3>
+                    <p class="text-gray-600 text-sm">Sacred pools and fountains for purification and spiritual cleansing</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Construction Timeline -->
+        <section class="mb-16 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Construction Journey</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    The development of Skanda Sramam has been a journey of faith, community effort, and divine grace spanning over two decades.
+                </p>
+            </div>
+
+            <div class="construction-timeline">
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">1999 - Foundation & Planning</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Initial planning phase with architectural consultations, Vastu compliance studies, and community fundraising efforts.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-drafting-compass mr-1"></i>Design Phase
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2001 - Ground Breaking</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Sacred ground breaking ceremony followed by foundation laying with proper Vedic rituals and blessings.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-hammer mr-1"></i>Construction Start
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2003 - Main Structure</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Completion of main temple structure including sanctum, prayer hall, and basic facilities using traditional techniques.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-building mr-1"></i>Structure Complete
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2005 - Consecration</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Grand consecration ceremony (Kumbhabhishekam) establishing the divine presence and opening for worship.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-star mr-1"></i>Temple Opening
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2010 - Cultural Center</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Addition of cultural center, expanded kitchen facilities, and enhanced parking to serve growing community.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-plus mr-1"></i>Expansion Phase
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2015 - Modernization</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Integration of modern amenities including audio-visual systems, climate control, and accessibility features.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-cog mr-1"></i>Modernization
+                        </span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4 class="font-bold text-gray-900 mb-2">2020 - Digital Integration</h4>
+                    <p class="text-gray-600 text-sm mb-2">
+                        Implementation of digital infrastructure for online services, virtual events, and enhanced community engagement.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="sustainability-badge">
+                            <i class="fas fa-wifi mr-1"></i>Digital Upgrade
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Features -->
+        <section class="fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Sustainability & Innovation</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Our temple incorporates eco-friendly features and modern innovations while maintaining traditional architectural integrity.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">☀️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Solar Energy</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Solar panels provide renewable energy for lighting and basic electrical needs, reducing environmental impact.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-leaf mr-1"></i>Eco-Friendly
+                    </div>
+                </div>
+
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">💧</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Water Conservation</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Rainwater harvesting system and efficient water management for temple operations and garden maintenance.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-tint mr-1"></i>Water Wise
+                    </div>
+                </div>
+
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">♿</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Accessibility</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Wheelchair accessible ramps, elevators, and facilities ensuring all devotees can participate in worship.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-universal-access mr-1"></i>Inclusive
+                    </div>
+                </div>
+
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">🌱</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Green Spaces</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Native plants and organic gardens creating natural beauty while supporting local ecosystem.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-seedling mr-1"></i>Green Design
+                    </div>
+                </div>
+
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">🔊</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Smart Systems</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Automated lighting, sound systems, and climate control for efficient operations and enhanced experience.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-microchip mr-1"></i>Smart Tech
+                    </div>
+                </div>
+
+                <div class="feature-highlight">
+                    <div class="text-3xl mb-3">🚗</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Parking & Transport</h3>
+                    <p class="text-gray-600 text-sm mb-3">
+                        Ample parking with electric vehicle charging stations and public transport connectivity.
+                    </p>
+                    <div class="sustainability-badge">
+                        <i class="fas fa-car mr-1"></i>EV Ready
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 sm:p-12">
+                <div class="text-4xl sm:text-5xl mb-6">🏛️</div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Experience Sacred Architecture</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Visit Skanda Sramam to experience the beauty and spiritual significance of our sacred architecture. Every element tells a story of devotion and divine grace.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="gallery.html" class="btn-primary">
+                        <i class="fas fa-camera mr-2"></i>View Gallery
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Visit Temple
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+                <div class="sm:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white text-xl sm:text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
+                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+                        cultural preservation, and community service for over 25 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-twitter text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-instagram text-sm sm:text-base"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
+                            <i class="fab fa-youtube text-sm sm:text-base"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
+                        <li><a href="about.html" class="text-orange-400 font-semibold text-sm sm:text-base">About Us</a></li>
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
+                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
+                        <li><a href="payment-integration.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Online Donations</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">
+                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Room information data
+        const roomInfo = {
+            'entrance': {
+                title: 'Temple Entrance',
+                description: 'The main entrance welcomes devotees with traditional gopuram architecture. Shoes are removed here as a sign of respect before entering the sacred space.'
+            },
+            'sanctum': {
+                title: 'Main Sanctum (Garbhagriha)',
+                description: 'The most sacred space housing Lord Murugan. Built according to ancient Vastu principles with precise measurements and cardinal alignment for maximum spiritual energy.'
+            },
+            'meditation': {
+                title: 'Meditation Room',
+                description: 'A quiet space designed for personal meditation and contemplation. Features natural lighting and acoustic design to facilitate deep spiritual practice.'
+            },
+            'office': {
+                title: 'Administrative Office',
+                description: 'Temple administration offices for managing daily operations, community services, and coordinating events and programs.'
+            },
+            'cultural': {
+                title: 'Cultural Center',
+                description: 'Multi-purpose hall for cultural programs, Tamil classes, dance performances, and community gatherings. Equipped with modern audio-visual facilities.'
+            },
+            'kitchen': {
+                title: 'Kitchen & Prasadam',
+                description: 'Modern kitchen facilities for preparing prasadam and community meals. Follows strict vegetarian guidelines and food safety standards.'
+            },
+            'prayer-hall': {
+                title: 'Main Prayer Hall',
+                description: 'Large assembly area for community worship, bhajans, and religious discourses. Designed with excellent acoustics and can accommodate 500+ devotees.'
+            }
+        };
+
+        function showRoomInfo(roomId) {
+            const info = roomInfo[roomId];
+            if (info) {
+                document.getElementById('room-title').textContent = info.title;
+                document.getElementById('room-description').textContent = info.description;
+                document.getElementById('room-info').classList.remove('hidden');
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize fade-in animations
+        function initFadeInAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initFadeInAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98699ec8a77528bc',t:'MTc1OTEyOTQwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
