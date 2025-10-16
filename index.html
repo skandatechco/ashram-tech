@@ -190,150 +190,197 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
-                        <span class="text-white text-xl sm:text-2xl">🕉️</span>
-                    </div>
-                    <div>
-                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
-                        <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
-                    </div>
-                </div>
+ <!-- Navigation -->
+<nav class="bg-white shadow-lg sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+
+      <!-- Logo + Site Info -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 temple-gradient rounded-full flex items-center justify-center">
+          <span class="text-white text-xl sm:text-2xl">🕉️</span>
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold text-gray-900">Skanda Sramam</h1>
+          <p class="text-xs sm:text-sm text-gray-600">Sacred Temple of Lord Murugan</p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex space-x-6 items-center">
+        <a href="/index.html" class="text-orange-600 font-semibold">Home</a>
+
+        <!-- Poojas -->
+        <div class="relative group">
+          <a href="/Poojas/" class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <a href="/Poojas/daily-poojas.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
+            <a href="/Poojas/special-poojas.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
+          </div>
+        </div>
+
+        <a href="/events.html" class="text-gray-700 hover:text-orange-600 font-medium">Events</a>
+
+        <!-- About -->
+        <div class="relative group">
+          <a href="/About/" class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <a href="/About/Asramam.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
+            <a href="/About/History.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">History</a>
+            <a href="/About/Swamiji.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
+            <a href="/About/Deities.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Deities</a>
+            <a href="/About/Temple Architecture.html " class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Temple Architecture</a>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="relative group">
+          <a href="/Gallery/" class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <a href="/Gallery/Photo Gallery .html " class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Pictures</a>
+            <a href="/Gallery/Video Gallery .html " class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Videos</a>
+            <a href="/Gallery/Audio Gallery .html " class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Audio</a>
+          </div>
+        </div>
+
+        <a href="/Resources.html" class="text-gray-700 hover:text-orange-600 font-medium">Resources</a>
+
+        <!-- Charity -->
+        <div class="relative group">
+          <a href="/Charity/" class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <a href="/Charity/Donation.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Donation</a>
+            <a href="/Charity/Volunteer.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
+            <a href="/Charity/Annadanam.html" class="block px-4 py-2 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
+          </div>
+        </div>
+
+        <a href="/Contact.html" class="text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+      </div>
+
+      <!-- Right Side (Donate + Hamburger) -->
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <a href="/Charity/Donation.html" class="btn-primary hidden sm:flex text-sm sm:text-base">
+          <i class="fas fa-heart mr-2"></i>Donate
+        </a>
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-gray-700 hover:text-orange-500 transition-colors" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+     
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-20 left-0 w-full h-full bg-white z-40 overflow-y-auto shadow-xl">
+            <div class="px-6 py-8 space-y-6">
+                <a href="/index.html" class="block py-3 text-orange-500 hover:text-orange-600 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-home mr-3 text-orange-500"></i>Home
+                </a>
                 
-                <div class="hidden lg:flex space-x-6">
-                    <a href="index.html" class="nav-link text-orange-600 font-medium active">Home</a>
-                    <div class="relative group">
-                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
-                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="poojas.html/daily-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Daily Poojas</a>
-                            <a href="poojas.html/special-poojas.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Special Poojas</a>
-                        </div>
-                    </div>
-                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Events</a>
-                    <div class="relative group">
-                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
-                            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="about.html/Asramam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Asramam</a>
-                            <a href="about.html/History.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">History</a>
-                            <a href="about.html/Swamiji.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Swamiji</a>
-                            <a href="about.html/Deities.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Deities</a>
-                            <a href="about.html/Temple Architecture.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Temple Architecture</a>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
-                            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="gallery.html/Photo Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Photos Gallery</a>
-                            <a href="gallery.html/Video Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Videos Gallery</a>
-                            <a href="gallery.html/Audio Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Audio Gallery</a>
-                        </div>
-                    </div>
-                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Resources</a>
-                    <div class="relative group">
-                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium flex items-center">
-                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="charity.html/Donation.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Donation</a>
-                            <a href="charity.html/Volunteer.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Volunteer</a>
-                            <a href="charity.html/Annadanam.html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Annadanam</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 font-medium">Contact</a>
-                </div>
-                
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <a href="charity.html/Donation.html" class="btn-primary hidden sm:flex text-sm sm:text-base">
-                        <i class="fas fa-heart mr-2"></i>Donate
-                    </a>
-                    <button class="lg:hidden text-gray-700" onclick="toggleMobileMenu()">
-                        <i class="fas fa-bars text-xl"></i>
+                <!-- Mobile Poojas Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('Poojas')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-pray mr-3 text-orange-500"></i>Poojas</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="poojas-icon"></i>
                     </button>
+                    <div id="poojas-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Poojas/daily-poojas.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Daily Poojas</a>
+                        <a href="/Poojas/special-poojas.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Special Poojas</a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="lg:hidden hidden pb-4 border-t border-gray-200 mt-4 pt-4">
-                <div class="flex flex-col space-y-3">
-                    <a href="index.html" class="nav-link text-orange-600 py-2 font-semibold">Home</a>
-                    <div class="space-y-2">
-                        <a href="poojas.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Poojas</a>
-                        <div class="pl-4 space-y-1">
-                            <a href="poojas.html/daily-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Daily Poojas</a>
-                            <a href="poojas.html/special-poojas.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Special Poojas</a>
-                        </div>
+                
+                <a href="/events.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-calendar mr-3 text-orange-500"></i>Events
+                </a>
+                
+                <!-- Mobile About Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('About)" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-info-circle mr-3 text-orange-500"></i>About</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="about-icon"></i>
+                    </button>
+                    <div id="about-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/About/Asramam.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Asramam</a>
+                        <a href="/About/History.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">History</a>
+                        <a href="/About/Swamiji.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Swamiji</a>
+                        <a href="/About/Deities.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Deities</a>
+                        <a href="/About/Temple Architecture.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Temple Architecture</a>
                     </div>
-                    <a href="events.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Events</a>
-                    <div class="space-y-2">
-                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">About</a>
-                        <div class="pl-4 space-y-1">
-                            <a href="about.html/Asramam.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Asramam</a>
-                            <a href="about.html/History.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">History</a>
-                            <a href="about.html/Swamiji.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Swamiji</a>
-                            <a href="about.html/Deities.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Deities</a>
-                            <a href="about.html/Temple Architecture.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Temple Architecture</a>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Gallery</a>
-                        <div class="pl-4 space-y-1">
-                            <a href="gallery.html/Photo Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Photos Gallery</a>
-                            <a href="gallery.html/Video Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Videos Gallery</a>
-                            <a href="gallery.html/Audio Gallery .html" class="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600">Audio Gallery</a>
-                        </div>
-                    </div>
-                    <a href="resources.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Resources</a>
-                    <div class="space-y-2">
-                        <a href="charity.html" class="nav-link text-gray-700 hover:text-orange-600 py-2 font-semibold">Charity</a>
-                        <div class="pl-4 space-y-1">
-                            <a href="charity.html/Donation.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Donation</a>
-                            <a href="charity.html/Volunteer.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Volunteer</a>
-                            <a href="charity.html/Annadanam.html" class="block text-gray-600 hover:text-orange-600 py-1 text-sm">Annadanam</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-600 py-2">Contact</a>
-                    <a href="charity.html/Donation.html" class="btn-primary justify-center mt-4 sm:hidden">
-                        <i class="fas fa-heart mr-2"></i>Donate Now
-                    </a>
                 </div>
+                
+                <!-- Mobile Gallery Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('Gallery')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-images mr-3 text-orange-500"></i>Gallery</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="gallery-icon"></i>
+                    </button>
+                    <div id="gallery-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Gallery/Photo Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Pictures</a>
+                        <a href="/Gallery/Video Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Videos</a>
+                        <a href="/Gallery/Audio Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Audio</a>
+                    </div>
+                </div>
+                
+                <a href="/Resources.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-book mr-3 text-orange-500"></i>Resources
+                </a>
+                
+                <!-- Mobile Charity Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('Charity')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-heart mr-3 text-orange-500"></i>Charity</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="charity-icon"></i>
+                    </button>
+                    <div id="charity-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Charity/Donation.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Donation</a>
+                        <a href="/Charity/Volunteer.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Volunteer</a>
+                        <a href="/Charity/Annadanam.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Annadanam</a>
+                    </div>
+                </div>
+                
+                <a href="/Contact.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                    <i class="fas fa-envelope mr-3 text-orange-500"></i>Contact
+                </a>
             </div>
         </div>
     </nav>
 
+
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-16 sm:py-20 lg:py-32 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <div class="floating mb-8">
-                    <div class="text-6xl sm:text-8xl lg:text-9xl mb-4">🕉️</div>
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight fade-in">
-                    Welcome to <span class="text-yellow-300">Skanda Sramam</span>
-                </h1>
-                <p class="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 opacity-90 max-w-4xl mx-auto fade-in">
-                    A sacred sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
+    <section class="hero-gradient flex items-center justify-center text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="mb-8">
+                <div class="text-6xl sm:text-7xl lg:text-8xl mb-6 floating-om">🕉️</div>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">
+                Welcome to <br><span class="text-yellow-300">Sri Skanda Ashram</span>
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl mb-10 opacity-95 max-w-4xl mx-auto leading-relaxed fade-in">
+                A sacred sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
                     cultural preservation, and community service for over 25 years.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center fade-in">
-                    <a href="poojas.html" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50 text-lg px-8 py-4">
-                        <i class="fas fa-prayer-hands mr-2"></i>Join Daily Poojas
-                    </a>
-                    <a href="about.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900 text-lg px-8 py-4">
-                        <i class="fas fa-info-circle mr-2"></i>Learn More
-                    </a>
-                </div>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in">
+                <a href="/Poojas/daily-poojas.html" class="btn-primary text-lg">
+                    <i class="fas fa-pray mr-2"></i>Book Regular Poojas
+                </a>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in"></div>
+                <a href="/Poojas/special-poojas.html" class="btn-outline text-lg">
+                    <i class="fas fa-info-circle mr-2"></i>Book Special Poojas
+                </a>
             </div>
         </div>
+        
         
         <!-- Floating Elements -->
         <div class="absolute top-20 left-10 text-yellow-300 opacity-20 floating" style="animation-delay: 0.5s;">
@@ -370,197 +417,327 @@
             </div>
         </div>
     </section>
+ <!-- Nakshatra Finder Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-2xl p-8 temple-shadow">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-primary mb-4">🌟 Nakshatra Finder</h2>
+                    <p class="text-gray-700">Find the perfect dates for your regular poojas based on Vedic astrology</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Current Nakshatra Display -->
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Current Nakshatra</h3>
+                        <div id="currentNakshatra" class="text-4xl font-bold text-primary mb-4 pulse-gentle">Ashwini</div>
+                        <div id="nakshatraDetails" class="text-sm text-gray-600 mb-4">
+                            <p><strong>Meaning:</strong> Horse Woman</p>
+                            <p><strong>Deity:</strong> Ashwini Kumaras</p>
+                            <p><strong>Next Occurrence:</strong> <span class="text-primary font-semibold">March 15, 2025</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Nakshatra Search -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Search & Select Your Nakshatra</label>
+                        <div class="relative mb-4">
+                            <input 
+                                type="text" 
+                                id="nakshatraSearch" 
+                                placeholder="Type to search nakshatras..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                            >
+                            <div id="nakshatraDropdown" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg mt-1 max-h-60 overflow-y-auto hidden z-10 shadow-lg">
+                                <!-- Nakshatra options will be populated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button id="findDatesBtn" class="bg-primary hover:bg-red-800 text-white px-6 py-3 rounded-lg transition-colors flex-1">
+                                Find Auspicious Dates
+                            </button>
+                            <button id="bookPoojaBtn" class="bg-secondary hover:bg-yellow-600 text-primary px-6 py-3 rounded-lg transition-colors font-semibold">
+                                Book Pooja
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Dates Display -->
+                <div id="upcomingDates" class="mt-8 hidden">
+                    <h4 class="text-lg font-bold text-primary mb-4">Upcoming Auspicious Dates</h4>
+                    <div id="datesList" class="grid md:grid-cols-3 gap-4">
+                        <!-- Dates will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <script>
+        // All 27 Nakshatras with their meanings and mock dates
+        const nakshatras = [
+            { name: 'Ashwini', meaning: 'Horse Woman', deity: 'Ashwini Kumaras', nextDate: 'March 15, 2025' },
+            { name: 'Bharani', meaning: 'The Bearer', deity: 'Yama', nextDate: 'March 28, 2025' },
+            { name: 'Krittika', meaning: 'The Cutter', deity: 'Agni', nextDate: 'April 10, 2025' },
+            { name: 'Rohini', meaning: 'The Red One', deity: 'Brahma', nextDate: 'April 23, 2025' },
+            { name: 'Mrigashirsha', meaning: 'Deer Head', deity: 'Soma', nextDate: 'May 6, 2025' },
+            { name: 'Ardra', meaning: 'The Moist One', deity: 'Rudra', nextDate: 'May 19, 2025' },
+            { name: 'Punarvasu', meaning: 'Return of the Light', deity: 'Aditi', nextDate: 'June 1, 2025' },
+            { name: 'Pushya', meaning: 'The Nourisher', deity: 'Brihaspati', nextDate: 'June 14, 2025' },
+            { name: 'Ashlesha', meaning: 'The Embracer', deity: 'Nagas', nextDate: 'June 27, 2025' },
+            { name: 'Magha', meaning: 'The Mighty', deity: 'Pitrs', nextDate: 'July 10, 2025' },
+            { name: 'Purva Phalguni', meaning: 'Former Red One', deity: 'Bhaga', nextDate: 'July 23, 2025' },
+            { name: 'Uttara Phalguni', meaning: 'Latter Red One', deity: 'Aryaman', nextDate: 'August 5, 2025' },
+            { name: 'Hasta', meaning: 'The Hand', deity: 'Savitar', nextDate: 'August 18, 2025' },
+            { name: 'Chitra', meaning: 'The Bright One', deity: 'Tvashtar', nextDate: 'August 31, 2025' },
+            { name: 'Swati', meaning: 'The Independent', deity: 'Vayu', nextDate: 'September 13, 2025' },
+            { name: 'Vishakha', meaning: 'The Forked', deity: 'Indra-Agni', nextDate: 'September 26, 2025' },
+            { name: 'Anuradha', meaning: 'Following Radha', deity: 'Mitra', nextDate: 'October 9, 2025' },
+            { name: 'Jyeshtha', meaning: 'The Eldest', deity: 'Indra', nextDate: 'October 22, 2025' },
+            { name: 'Mula', meaning: 'The Root', deity: 'Nirriti', nextDate: 'November 4, 2025' },
+            { name: 'Purva Ashadha', meaning: 'Former Invincible', deity: 'Apas', nextDate: 'November 17, 2025' },
+            { name: 'Uttara Ashadha', meaning: 'Latter Invincible', deity: 'Vishvedevas', nextDate: 'November 30, 2025' },
+            { name: 'Shravana', meaning: 'The Listener', deity: 'Vishnu', nextDate: 'December 13, 2025' },
+            { name: 'Dhanishtha', meaning: 'The Wealthiest', deity: 'Vasus', nextDate: 'December 26, 2025' },
+            { name: 'Shatabhisha', meaning: 'Hundred Healers', deity: 'Varuna', nextDate: 'January 8, 2026' },
+            { name: 'Purva Bhadrapada', meaning: 'Former Lucky Feet', deity: 'Aja Ekapada', nextDate: 'January 21, 2026' },
+            { name: 'Uttara Bhadrapada', meaning: 'Latter Lucky Feet', deity: 'Ahir Budhnya', nextDate: 'February 3, 2026' },
+            { name: 'Revati', meaning: 'The Wealthy', deity: 'Pushan', nextDate: 'February 16, 2026' }
+        ];
 
-    <!-- Services Section -->
-    <section class="py-16 sm:py-20 bg-white">
+        let selectedNakshatra = nakshatras[0]; // Default to Ashwini
+
+        // Initialize nakshatra search functionality
+        function initNakshatraSearch() {
+            const searchInput = document.getElementById('nakshatraSearch');
+            const dropdown = document.getElementById('nakshatraDropdown');
+            
+            // Populate dropdown with nakshatras
+            function populateDropdown(filteredNakshatras) {
+                dropdown.innerHTML = '';
+                filteredNakshatras.forEach(nakshatra => {
+                    const option = document.createElement('div');
+                    option.className = 'px-4 py-3 hover:bg-yellow-50 cursor-pointer border-b border-gray-100 last:border-b-0';
+                    option.innerHTML = `
+                        <div class="font-semibold text-gray-800">${nakshatra.name}</div>
+                        <div class="text-sm text-gray-600">${nakshatra.meaning} • Deity: ${nakshatra.deity}</div>
+                        <div class="text-xs text-primary">Next: ${nakshatra.nextDate}</div>
+                    `;
+                    option.addEventListener('click', () => {
+                        searchInput.value = nakshatra.name;
+                        dropdown.classList.add('hidden');
+                        selectedNakshatra = nakshatra;
+                        updateNakshatraDisplay();
+                    });
+                    dropdown.appendChild(option);
+                });
+            }
+
+            // Show dropdown on focus
+            searchInput.addEventListener('focus', () => {
+                populateDropdown(nakshatras);
+                dropdown.classList.remove('hidden');
+            });
+
+            // Filter nakshatras on input
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const filtered = nakshatras.filter(nakshatra => 
+                    nakshatra.name.toLowerCase().includes(searchTerm) ||
+                    nakshatra.meaning.toLowerCase().includes(searchTerm) ||
+                    nakshatra.deity.toLowerCase().includes(searchTerm)
+                );
+                populateDropdown(filtered);
+                dropdown.classList.remove('hidden');
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        // Update nakshatra display
+        function updateNakshatraDisplay() {
+            document.getElementById('currentNakshatra').textContent = selectedNakshatra.name;
+            document.getElementById('nakshatraDetails').innerHTML = `
+                <p><strong>Meaning:</strong> ${selectedNakshatra.meaning}</p>
+                <p><strong>Deity:</strong> ${selectedNakshatra.deity}</p>
+                <p><strong>Next Occurrence:</strong> <span class="text-primary font-semibold">${selectedNakshatra.nextDate}</span></p>
+            `;
+        }
+
+        // Generate upcoming dates for selected nakshatra
+        function generateUpcomingDates() {
+            const upcomingDates = document.getElementById('upcomingDates');
+            const datesList = document.getElementById('datesList');
+            
+            // Mock upcoming dates (in real app, this would come from API)
+            const dates = [
+                { date: selectedNakshatra.nextDate, type: 'Primary', recommended: true },
+                { date: 'April 12, 2025', type: 'Secondary', recommended: false },
+                { date: 'May 8, 2025', type: 'Auspicious', recommended: true }
+            ];
+            
+            datesList.innerHTML = '';
+            dates.forEach(dateInfo => {
+                const dateCard = document.createElement('div');
+                dateCard.className = `bg-white rounded-lg p-4 border-l-4 ${dateInfo.recommended ? 'border-primary' : 'border-gray-300'}`;
+                dateCard.innerHTML = `
+                    <div class="font-semibold text-gray-800">${dateInfo.date}</div>
+                    <div class="text-sm text-gray-600">${dateInfo.type}</div>
+                    ${dateInfo.recommended ? '<div class="text-xs text-primary font-semibold mt-1">⭐ Highly Recommended</div>' : ''}
+                `;
+                datesList.appendChild(dateCard);
+            });
+            
+            upcomingDates.classList.remove('hidden');
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Mobile dropdown functionality
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const dropdown = btn.parentElement;
+                    const content = dropdown.querySelector('.mobile-dropdown-content');
+                    const arrow = btn.querySelector('svg');
+                    
+                    content.classList.toggle('hidden');
+                    arrow.classList.toggle('rotate-180');
+                });
+            });
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            initNakshatraSearch();
+            updateNakshatraDisplay();
+            initMobileMenu();
+
+            // Scroll down button
+            const scrollDownBtn = document.getElementById('scrollDownBtn');
+            if (scrollDownBtn) {
+                scrollDownBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const nakshatraSection = document.querySelector('section.py-12.bg-white');
+                    if (nakshatraSection) {
+                        nakshatraSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+
+            // Find dates button
+            document.getElementById('findDatesBtn').addEventListener('click', () => {
+                generateUpcomingDates();
+            });
+
+            // Book pooja button
+            document.getElementById('bookPoojaBtn').addEventListener('click', () => {
+                alert(`Booking regular pooja for ${selectedNakshatra.name} nakshatra on ${selectedNakshatra.nextDate}!`);
+            });
+
+            // Add click handlers for all other buttons
+            document.querySelectorAll('button').forEach(button => {
+                if (!button.id || (button.id !== 'findDatesBtn' && button.id !== 'bookPoojaBtn' && button.id !== 'scrollDownBtn' && button.id !== 'mobileMenuBtn' && !button.classList.contains('mobile-dropdown-btn'))) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const buttonText = this.textContent.trim();
+                        alert(`${buttonText} functionality would connect to your booking system here!`);
+                    });
+                }
+            });
+        });
+    </script>
+     <!-- Platform Features -->
+    <section class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 lg:mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 fade-in">Our Sacred Services</h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto fade-in">
-                    Experience divine blessings through our traditional worship services, 
-                    spiritual ceremonies, and community programs designed to nurture your spiritual journey.
-                </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card card-hover p-6 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-xl">📅</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Personalized Spiritual Calendar</h3>
+                    <p class="text-gray-600 text-sm mb-4">AI-driven guidance based on Vedic astrology and life milestones. Sync to Google/Apple Calendar.</p>
+                </div>
+                
+                <div class="feature-card card-hover p-6 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-xl">🤖</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Automated Devotee Care</h3>
+                    <p class="text-gray-600 text-sm mb-4">Birthstar poojas, anniversaries, and observances with smart reminders and follow-ups.</p>
+                </div>
+                
+                <div class="feature-card card-hover p-6 rounded-lg text-center">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-xl">♿</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Accessible, Offline-first, and Inclusive</h3>
+                    <p class="text-gray-600 text-sm mb-4">Large fonts, voice navigation, regional languages, and cached daily reminders. Downloadable chants and mantras for uninterrupted practice.</p>
+                    <div class="flex justify-center space-x-2 mt-4">
+                        <button onclick="downloadChants()" class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium hover:bg-orange-200 transition duration-200">
+                            Download Chants
+                        </button>
+                        <button onclick="enableVoice()" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition duration-200">
+                            Enable Voice
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spiritual Journey Call-to-Action -->
+    <section class="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Begin your holistic spiritual journey
+            </h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Join thousands of devotee families preserving culture with modern care. Book your first pooja and set up your heritage vault today.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="openBookingModal()" class="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition duration-200 flex items-center space-x-2 shadow-lg">
+                    <span class="text-xl">📿</span>
+                    <span>Book a Pooja</span>
+                </button>
+                <button onclick="openFamilyProfile()" class="bg-white text-orange-600 border-2 border-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 transition duration-200 flex items-center space-x-2 shadow-lg">
+                    <span class="text-xl">👨‍👩‍👧‍👦</span>
+                    <span>Create Family Profile</span>
+                </button>
             </div>
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-                <div class="service-card fade-in">
-                    <div class="bg-gradient-to-br from-orange-400 to-red-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">🌅</div>
-                        <h3 class="text-xl font-bold">Daily Poojas</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Join our traditional daily worship services conducted three times a day with 
-                            authentic Vedic rituals and experienced priests.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-orange-600 mr-2"></i>
-                                <span>Morning: 6:00 AM - 8:00 AM</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-sun text-orange-600 mr-2"></i>
-                                <span>Afternoon: 12:00 PM - 1:00 PM</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-moon text-orange-600 mr-2"></i>
-                                <span>Evening: 6:00 PM - 8:00 PM</span>
-                            </div>
-                        </div>
-                        <a href="poojas.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-calendar mr-2"></i>View Schedule
-                        </a>
-                    </div>
+            <div class="mt-8 grid sm:grid-cols-3 gap-6 text-center">
+                <div class="bg-white bg-opacity-60 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-orange-600 mb-1">5,000+</div>
+                    <div class="text-sm text-gray-600">Active Families</div>
                 </div>
-                
-                <div class="service-card fade-in" style="animation-delay: 0.1s;">
-                    <div class="bg-gradient-to-br from-purple-400 to-indigo-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">⭐</div>
-                        <h3 class="text-xl font-bold">Special Ceremonies</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Personalized poojas for life events, deity-specific worship, and spiritual ceremonies 
-                            tailored to your individual needs and occasions.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-heart text-orange-600 mr-2"></i>
-                                <span>Marriage & Engagement</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-baby text-orange-600 mr-2"></i>
-                                <span>Naming & Upanayana</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-home text-orange-600 mr-2"></i>
-                                <span>Housewarming & Blessings</span>
-                            </div>
-                        </div>
-                        <a href="poojas.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-star mr-2"></i>Book Ceremony
-                        </a>
-                    </div>
+                <div class="bg-white bg-opacity-60 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-orange-600 mb-1">25,000+</div>
+                    <div class="text-sm text-gray-600">Poojas Completed</div>
                 </div>
-                
-                <div class="service-card fade-in" style="animation-delay: 0.2s;">
-                    <div class="bg-gradient-to-br from-green-400 to-teal-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">🎭</div>
-                        <h3 class="text-xl font-bold">Cultural Events</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Celebrate traditional festivals, cultural programs, and community gatherings 
-                            that preserve our rich heritage and bring devotees together.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-music text-orange-600 mr-2"></i>
-                                <span>Classical Music & Dance</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-calendar-alt text-orange-600 mr-2"></i>
-                                <span>Festival Celebrations</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-users text-orange-600 mr-2"></i>
-                                <span>Community Programs</span>
-                            </div>
-                        </div>
-                        <a href="events.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-calendar-check mr-2"></i>View Events
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in" style="animation-delay: 0.3s;">
-                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">📚</div>
-                        <h3 class="text-xl font-bold">Spiritual Learning</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Deepen your spiritual knowledge through our educational resources, 
-                            scripture studies, and guided meditation sessions.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-book text-orange-600 mr-2"></i>
-                                <span>Sacred Texts & Mantras</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-meditation text-orange-600 mr-2"></i>
-                                <span>Meditation Classes</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-chalkboard-teacher text-orange-600 mr-2"></i>
-                                <span>Spiritual Guidance</span>
-                            </div>
-                        </div>
-                        <a href="resources.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-graduation-cap mr-2"></i>Learn More
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in" style="animation-delay: 0.4s;">
-                    <div class="bg-gradient-to-br from-pink-400 to-red-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">🤝</div>
-                        <h3 class="text-xl font-bold">Community Service</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Participate in our charitable activities, volunteer programs, and community 
-                            outreach initiatives that serve those in need.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-utensils text-orange-600 mr-2"></i>
-                                <span>Free Meal Programs</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-hands-helping text-orange-600 mr-2"></i>
-                                <span>Volunteer Opportunities</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-donate text-orange-600 mr-2"></i>
-                                <span>Charitable Donations</span>
-                            </div>
-                        </div>
-                        <a href="charity.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-heart mr-2"></i>Get Involved
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="service-card fade-in" style="animation-delay: 0.5s;">
-                    <div class="bg-gradient-to-br from-blue-400 to-purple-500 p-8 text-center text-white">
-                        <div class="text-5xl mb-4">📸</div>
-                        <h3 class="text-xl font-bold">Temple Gallery</h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-6">
-                            Explore our beautiful temple architecture, divine deities, and memorable moments 
-                            from festivals and ceremonies through our gallery.
-                        </p>
-                        <div class="space-y-2 mb-6 text-sm text-gray-600">
-                            <div class="flex items-center">
-                                <i class="fas fa-camera text-orange-600 mr-2"></i>
-                                <span>Temple Photography</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-video text-orange-600 mr-2"></i>
-                                <span>Ceremony Videos</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-volume-up text-orange-600 mr-2"></i>
-                                <span>Devotional Audio</span>
-                            </div>
-                        </div>
-                        <a href="gallery.html" class="btn-primary w-full justify-center">
-                            <i class="fas fa-images mr-2"></i>View Gallery
-                        </a>
-                    </div>
+                <div class="bg-white bg-opacity-60 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-orange-600 mb-1">98%</div>
+                    <div class="text-sm text-gray-600">Satisfaction Rate</div>
                 </div>
             </div>
         </div>
@@ -605,7 +782,7 @@
                                 <span>Prasadam included</span>
                             </div>
                         </div>
-                        <a href="events.html" class="btn-secondary w-full justify-center">
+                        <a href="/events.html" class="btn-secondary w-full justify-center">
                             <i class="fas fa-info-circle mr-2"></i>Learn More
                         </a>
                     </div>
@@ -638,7 +815,7 @@
                                 <span>Professional artists</span>
                             </div>
                         </div>
-                        <a href="events.html" class="btn-secondary w-full justify-center">
+                        <a href="/events.html" class="btn-secondary w-full justify-center">
                             <i class="fas fa-info-circle mr-2"></i>Learn More
                         </a>
                     </div>
@@ -671,7 +848,7 @@
                                 <span>Vegetarian meals</span>
                             </div>
                         </div>
-                        <a href="charity.html/Annadanam.html" class="btn-secondary w-full justify-center">
+                        <a href="/Charity/Annadanam.html" class="btn-secondary w-full justify-center">
                             <i class="fas fa-info-circle mr-2"></i>Learn More
                         </a>
                     </div>
@@ -679,7 +856,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="events.html" class="btn-primary text-lg px-8 py-4">
+                <a href="/events.html" class="btn-primary text-lg px-8 py-4">
                     <i class="fas fa-calendar-alt mr-2"></i>View All Events
                 </a>
             </div>
@@ -782,10 +959,10 @@
                     Skanda Sramam welcomes you with open arms and divine blessings.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center fade-in">
-                    <a href="contact.html" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50 text-lg px-8 py-4">
+                    <a href="/Contact.html" class="btn-secondary bg-white text-orange-600 hover:bg-orange-50 text-lg px-8 py-4">
                         <i class="fas fa-map-marker-alt mr-2"></i>Visit Us
                     </a>
-                    <a href="charity.html/Donation.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900 text-lg px-8 py-4">
+                    <a href="/Charity/Donation.html" class="btn-primary bg-yellow-500 hover:bg-yellow-600 text-orange-900 text-lg px-8 py-4">
                         <i class="fas fa-heart mr-2"></i>Support Temple
                     </a>
                 </div>
@@ -793,7 +970,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+      <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 sm:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
@@ -804,61 +981,63 @@
                         </div>
                         <div>
                             <h3 class="text-xl sm:text-2xl font-bold">Skanda Sramam</h3>
-                            <p class="text-gray-400 text-sm sm:text-base">Sacred Temple of Lord Murugan</p>
+                            <p class="text-gray-400 text-sm sm:text-base"></p>
                         </div>
                     </div>
                     <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
-                        A divine sanctuary dedicated to Lord Murugan, fostering spiritual growth, 
-                        cultural preservation, and community service for over 25 years.
+                        
+             
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
-                            <i class="fab fa-facebook-f text-sm sm:text-base"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
-                            <i class="fab fa-twitter text-sm sm:text-base"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
-                            <i class="fab fa-instagram text-sm sm:text-base"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-full flex items-center justify-center hover:bg-orange-700 transition duration-300">
-                            <i class="fab fa-youtube text-sm sm:text-base"></i>
-                        </a>
-                    </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Quick Links</h4>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Home</h4>
                     <ul class="space-y-2 sm:space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">About Us</a></li>
-                        <li><a href="poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
-                        <li><a href="events.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Events</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Gallery</a></li>
+                        <li><a href="#" onclick="navigateTo('daily-poojas')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-pray mr-2 text-orange-500"></i>Poojas
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('events')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-calendar mr-2 text-orange-500"></i>Events
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('history')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-info-circle mr-2 text-orange-500"></i>About Temple
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('resources')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-book mr-2 text-orange-500"></i>Resources
+                        </a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Services</h4>
+                    <h4 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Get Involved</h4>
                     <ul class="space-y-2 sm:space-y-3">
-                        <li><a href="daily-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Daily Poojas</a></li>
-                        <li><a href="special-poojas.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Special Ceremonies</a></li>
-                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Spiritual Resources</a></li>
-                        <li><a href="charity.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Community Service</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Contact Us</a></li>
+                        <li><a href="#" onclick="navigateTo('donation')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-heart mr-2 text-orange-500"></i>Donation
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('Annadhanam')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-utensils mr-2 text-orange-500"></i>Annadanam
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('volunteer')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-hands-helping mr-2 text-orange-500"></i>Volunteer
+                        </a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base flex items-center">
+                            <i class="fas fa-envelope mr-2 text-orange-500"></i>Contact Us
+                        </a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center">
                 <p class="text-gray-400 text-sm sm:text-base">
-                    © 2024 Skanda Sramam. All rights reserved. Built with devotion and modern technology.
+                    © 2024 Skanda Sramam. All rights reserved. 
+                    <span class="text-orange-400 font-semibold"></span> - Complete Temple Home with full connectivity.
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
+        
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
@@ -888,7 +1067,7 @@
             });
 
             // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('a[href^="#"]').forEach(anch  or => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
@@ -902,5 +1081,7 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9869333d36f3f3fd',t:'MTc1OTEyNDk5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    
+    
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98bd29e825ab7f89',t:'MTc2MDAwNTQxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Poojas - Chennai Om Sri Skandashramam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ashram-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 147, 30, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="bg" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b35;stop-opacity:0.8" /><stop offset="100%" style="stop-color:%23f7931e;stop-opacity:0.9" /></radialGradient></defs><rect width="1200" height="800" fill="url(%23bg)"/><circle cx="300" cy="200" r="100" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="400" r="150" fill="rgba(255,255,255,0.05)"/><circle cx="600" cy="600" r="80" fill="rgba(255,255,255,0.08)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+        
+        .nav-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.15);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .btn-outline {
+            border: 2px solid #ff6b35;
+            color: #ff6b35;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .spiritual-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(247, 147, 30, 0.05));
+            border: 2px solid rgba(255, 107, 53, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .floating-om {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .deity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .deity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ff6b35);
+        }
+        
+        .deity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        
+        .deity-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gradient {
+                min-height: 80vh;
+            }
+            
+            .deity-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 ashram-gradient rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-white text-2xl font-bold">🕉️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Sri Skanda Ashram</h1>
+                        <p class="text-sm text-gray-600">Divine Spiritual Center</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/index.html" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300">Home</a>
+                    
+                    <!-- Poojas Dropdown -->
+                    <div class="relative nav-item">
+                        <a href="#" class="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-300 flex items-center border-b-2 border-orange-500">
+                            Poojas <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="nav-dropdown absolute top-full left-0 bg-white rounded-lg py-3 w-60 mt-2 border border-gray-100">
+                            <a href="/Poojas/daily-poojas.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-sun mr-3 text-orange-500"></i>Daily Poojas
+                            </a>
+                            <a href="/Poojas/special-poojas.html" class="block px-4 py-3 text-orange-600 bg-orange-50 font-semibold">
+                                <i class="fas fa-star mr-3 text-orange-500"></i>Special Poojas
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="/events.html" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300">Events</a>
+                    
+                    <!-- About Dropdown -->
+                    <div class="relative nav-item">
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300 flex items-center">
+                            About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="nav-dropdown absolute top-full left-0 bg-white rounded-lg py-3 w-64 mt-2 border border-gray-100">
+                            <a href="/About/Asramam.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-temple mr-3 text-orange-500"></i>Asramam
+                            </a>
+                            <a href="/About/History.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-scroll mr-3 text-orange-500"></i>History
+                            </a>
+                            <a href="/About/Swamiji.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-user-tie mr-3 text-orange-500"></i>Swamiji
+                            </a>
+                            <a href="/About/Deities.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-hands-praying mr-3 text-orange-500"></i>Deities
+                            </a>
+                            <a href="/About/Temple Architecture.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-building mr-3 text-orange-500"></i>Temple Architecture
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Dropdown -->
+                    <div class="relative nav-item">
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300 flex items-center">
+                            Gallery <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="nav-dropdown absolute top-full left-0 bg-white rounded-lg py-3 w-56 mt-2 border border-gray-100">
+                            <a href="/Gallery/Photo Gallery .html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-images mr-3 text-orange-500"></i>Pictures
+                            </a>
+                            <a href="/Gallery/Video Gallery .html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-video mr-3 text-orange-500"></i>Videos
+                            </a>
+                            <a href="/Gallery/Audio Gallery .html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-music mr-3 text-orange-500"></i>Audio
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="/Resources.html" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300">Resources</a>
+                    
+                    <!-- Charity Dropdown -->
+                    <div class="relative nav-item">
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300 flex items-center">
+                            Charity <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="nav-dropdown absolute top-full left-0 bg-white rounded-lg py-3 w-56 mt-2 border border-gray-100">
+                            <a href="/Charity/Donation.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-heart mr-3 text-orange-500"></i>Donation
+                            </a>
+                            <a href="/Charity/Volunteer.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-hands-helping mr-3 text-orange-500"></i>Volunteer
+                            </a>
+                            <a href="/Charity/Annadanam.html" class="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                                <i class="fas fa-utensils mr-3 text-orange-500"></i>Annadanam
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="/Contact.html" class="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-300">Contact</a>
+                </div>
+                
+      <!-- Right Side (Donate + Hamburger) -->
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <a href="/Charity/Donation.html" class="btn-primary hidden sm:flex text-sm sm:text-base">
+          <i class="fas fa-heart mr-2"></i>Donate
+        </a>
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-gray-700 hover:text-orange-500 transition-colors" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-700 hover:text-orange-500 transition-colors" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden fixed top-20 left-0 w-full h-full bg-white z-40 overflow-y-auto shadow-xl">
+            <div class="px-6 py-8 space-y-6">
+                <a href="/index.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-home mr-3 text-orange-500"></i>Home
+                </a>
+                
+                <!-- Mobile Poojas Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('poojas')" class="w-full flex items-center justify-between py-3 text-orange-500 hover:text-orange-600 font-medium transition-colors">
+                        <span><i class="fas fa-pray mr-3 text-orange-500"></i>Poojas</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="poojas-icon"></i>
+                    </button>
+                    <div id="poojas-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Poojas/daily-poojas.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Daily Poojas</a>
+                        <a href="/Poojas/special-poojas.html" class="block py-2 text-orange-600 font-semibold">Special Poojas</a>
+                    </div>
+                </div>
+                
+                <a href="/events.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-calendar mr-3 text-orange-500"></i>Events
+                </a>
+                
+                <!-- Mobile About Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('about')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-info-circle mr-3 text-orange-500"></i>About</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="about-icon"></i>
+                    </button>
+                    <div id="about-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/About/Asramam.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Asramam</a>
+                        <a href="/About/History.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">History</a>
+                        <a href="/About/Swamiji.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Swamiji</a>
+                        <a href="/About/Deities.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Deities</a>
+                        <a href="/About/Temple Architecture.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Temple Architecture</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Gallery Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('Gallery')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-images mr-3 text-orange-500"></i>Gallery</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="gallery-icon"></i>
+                    </button>
+                    <div id="gallery-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Gallery/Photo Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Pictures</a>
+                        <a href="/Gallery/Video Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Videos</a>
+                        <a href="/Gallery/Audio Gallery .html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Audio</a>
+                    </div>
+                </div>
+                
+                <a href="/Resources.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium border-b border-gray-100 transition-colors">
+                    <i class="fas fa-book mr-3 text-orange-500"></i>Resources
+                </a>
+                
+                <!-- Mobile Charity Section -->
+                <div class="border-b border-gray-100">
+                    <button onclick="toggleMobileDropdown('Charity')" class="w-full flex items-center justify-between py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                        <span><i class="fas fa-heart mr-3 text-orange-500"></i>Charity</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="charity-icon"></i>
+                    </button>
+                    <div id="charity-dropdown" class="hidden pl-8 pb-4 space-y-3">
+                        <a href="/Charity/Donation.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Donation</a>
+                        <a href="/Charity/Volunteer.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Volunteer</a>
+                        <a href="/Charity/Annadanam.html" class="block py-2 text-gray-600 hover:text-orange-500 transition-colors">Annadanam</a>
+                    </div>
+                </div>
+                
+                <a href="/Contact.html" class="block py-3 text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                    <i class="fas fa-envelope mr-3 text-orange-500"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient flex items-center justify-center text-white relative overflow-hidden pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-20">
+            <div class="mb-8">
+                <div class="text-5xl sm:text-6xl mb-6 floating-om">🔥</div>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight fade-in">
+                Special <span class="text-yellow-300">Poojas</span>
+            </h1>
+            <p class="text-lg sm:text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed fade-in">
+                Festival and sankalpa-based poojas performed on auspicious days with elaborate rituals and Vedic procedures
+            </p>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-24 h-24 bg-white opacity-5 rounded-full"></div>
+        <div class="absolute bottom-20 right-10 w-20 h-20 bg-white opacity-10 rounded-full"></div>
+    </section>
+
+    <!-- Spiritual Significance Section -->
+    <section class="py-20 bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8">
+                    The Sacred <span class="text-gradient">Science of Homam</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="spiritual-card">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🕉️</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Moolamantra & Divine Connection</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        According to Hindu shastras, there is a <strong>Moolamantra for every Devathai</strong>. By reciting this as a japam, the journey of a Devotee towards merging with his Ishta-Devathai begins.
+                    </p>
+                </div>
+
+                <div class="spiritual-card">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🔥</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">The Power of Agni</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        A <strong>Homam is the avahanam of the Devathai in Agni</strong> when all auspicious articles are offered while simultaneously reciting the Mantra. The Mantra's effect is at once <strong>multiplied a hundred times</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border-2 border-orange-100">
+                <div class="text-center mb-8">
+                    <div class="text-5xl mb-4">🌾</div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Infinite Divine Multiplication</h3>
+                </div>
+                
+                <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                        The offerings to the Devathai during a Homam are <strong>multiplied infinitely</strong>. A single grain of rice that is offered in the Homam is multiplied by infinity and immediately reached the Devathai.
+                    </p>
+                    
+                    <p class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-500">
+                        <strong>Imagine every granary in all the worlds beginning to overflow at the offering of just one grain of rice.</strong> Similarly, a single flower offered in the Homam is equal to covering the cosmic form of the deity with the fragrance and beauty of that flower.
+                    </p>
+                    
+                    <p>
+                        Thus, a <strong>Homam conducted according to strict Vedic practices becomes a multiplier of divine power</strong>. The Devathai so satisfied with the sincerity and conduct of the Devotees has no alternative but to meet every wish and command.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deities Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    Divine <span class="text-gradient">Deities & Blessings</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Each deity bestows specific blessings and divine grace through elaborate Vedic rituals
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Lord Kamala Siddhi Vinayaka -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-elephant"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Kamala Siddhi Vinayaka, Panchamukha Heramba Ganapathy</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Removes obstacles and grants success in all endeavors.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Kamala Siddhi Vinayaka')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Goddess Prathyangira Devi -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Goddess Prathyangira Devi</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Protects against black magic, evil eye, and negative energies.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Goddess Prathyangira Devi')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Veera Sarabeswara -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Veera Sarabeswara</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Pacifies doshas, cures ailments, and removes enmity.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Veera Sarabeswara')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Goddess Matha Bhuvaneshwari -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Goddess Matha Bhuvaneshwari</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Bestows abundance, harmony, and spiritual elevation.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Goddess Matha Bhuvaneshwari')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Skanda (Murugan) -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Skanda (Murugan)</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Brings victory, clears debts, and ensures progeny blessings.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Skanda (Murugan)')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Shiva -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Shiva</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Cleanses karmas and grants health, peace, and liberation.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Shiva')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Saniswarar -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Saniswarar</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Reduces Saturn's malefic effects and brings steady progress.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Saniswarar')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Panchamukha Hanuman -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Panchamukha Hanuman</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Grants courage, protection, and victory over negativity.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Panchamukha Hanuman')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Iyyapan -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-meditation"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Iyyapan</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Blesses with discipline, devotion, and family peace.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Iyyapan')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Asta Dasa Bhuja Durga Parameswari -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-goddess"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Asta Dasa Bhuja Durga Parameswari</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Destroys obstacles and ensures strength and prosperity.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Asta Dasa Bhuja Durga Parameswari')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lord Dattatreya -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Lord Dattatreya</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Removes stress, balances karma, and grants wisdom.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Lord Dattatreya')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sadguru Shantananda Swamigal -->
+                <div class="deity-card">
+                    <div class="deity-icon">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Sadguru Shantananda Swamigal</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Bestows guru's grace for clarity and spiritual growth.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Sadguru Shantananda Swamigal')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Ceremonies Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    Sacred <span class="text-gradient">Ceremonies & Rituals</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Powerful spiritual practices for protection, prosperity, and divine grace
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Prathyangira Sarabha Soolini Koti Homam -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-flame-curved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Prathyangira Sarabha Soolini Koti Homam</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Powerful remedy for karmic afflictions and universal protection.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Prathyangira Sarabha Soolini Koti Homam')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Durga Saptha Sathi Parayanam -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Durga Saptha Sathi Parayanam</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Grants courage, wealth, and protection from negativity.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Durga Saptha Sathi Parayanam')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Nava Varna Pooja -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mandala"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Nava Varna Pooja</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Invokes divine energies for health, prosperity, and liberation.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Nava Varna Pooja')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guru Paaduka Pooja -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Guru Paaduka Pooja</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Receives guru's blessings for wisdom and guidance.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Guru Paaduka Pooja')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Homam for World Peace -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Homam for World Peace</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Promotes harmony, compassion, and collective well-being.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="bookSpecialPooja('Homam for World Peace')">
+                            <i class="fas fa-calendar-plus mr-2"></i>Book Pooja
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Daily Annadhanam -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Daily Annadhanam</h3>
+                    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+                        Removes hunger-related sins and ensures abundance and blessings.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-primary w-full" onclick="donateAnnadanam()">
+                            <i class="fas fa-heart mr-2"></i>Donate
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <div class="text-6xl mb-6">🙏</div>
+            </div>
+            <h2 class="text-4xl font-bold mb-6">
+                Experience Divine Transformation
+            </h2>
+            <p class="text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed">
+                Join us in these sacred ceremonies and witness the infinite multiplication of divine blessings through authentic Vedic practices.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-orange-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300" onclick="bookSpecialPooja('General Inquiry')">
+                    <i class="fas fa-calendar-plus mr-2"></i>Book Special Pooja
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-orange-500 transition-colors duration-300" onclick="donateAnnadanam()">
+                    <i class="fas fa-heart mr-2"></i>Support Our Mission
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 ashram-gradient rounded-full flex items-center justify-center mr-4 shadow-lg">
+                            <span class="text-white text-2xl">🕉️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Chennai Om Sri Skandashramam</h3>
+                            <p class="text-gray-400 text-sm">Preserving tradition, empowering devotion through technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        A sacred sanctuary dedicated to Lord Skanda, fostering spiritual growth, 
+                        divine worship, and community service in the tradition of ancient Vedic wisdom.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Devotee Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Family Heritage Vault</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Spiritual Calendar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Bookings & Donations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy</a></li>
+                        <li><a href="/Contact.html" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Chennai Om Sri Skandashramam. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        // Mobile dropdown functionality
+        function toggleMobileDropdown(section) {
+            const dropdown = document.getElementById(section + '-dropdown');
+            const icon = document.getElementById(section + '-icon');
+            
+            dropdown.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Special Pooja booking function
+        function bookSpecialPooja(poojaName) {
+            alert(`🙏 Thank you for your interest in ${poojaName}! This special ceremony will be conducted with elaborate Vedic rituals. Our team will contact you within 24 hours to discuss the auspicious timing and arrangements. Om Muruga! 🕉️`);
+        }
+        
+        // Annadanam donation function
+        function donateAnnadanam() {
+            alert('🙏 Thank you for supporting our Annadanam service! Your contribution removes hunger-related sins and ensures abundance and blessings. Every grain offered multiplies infinitely in divine grace. Om Muruga! 🕉️');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuButton = event.target.closest('button[onclick="toggleMobileMenu()"]');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🕉️ Chennai Om Sri Skandashramam Special Poojas page loaded successfully!');
+            console.log('🔥 Experience the infinite multiplication of divine blessings!');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98dd2ce1e7cb178a',t:'MTc2MDM0MTA4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
