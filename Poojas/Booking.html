@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pooja Booking</title>
+
+  <!-- jQuery + Razorpay -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(255,107,53,0.9), rgba(247,147,30,0.9));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .booking-container {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffffee;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+      backdrop-filter: blur(8px);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ff5722;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+      color: #444;
+    }
+    select, input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      outline: none;
+      transition: .25s;
+      background: #fafafa;
+    }
+    select:focus, input:focus, textarea:focus {
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 3px rgba(255,107,53,0.2);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      color: white;
+      box-shadow: 0 6px 20px rgba(255,107,53,0.3);
+      transition: .25s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255,107,53,0.35);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="booking-container">
+    <h2>Pooja Booking</h2>
+    <h3 id="pooja-name" style="text-align:center;color:#ff5722;"></h3>
+
+    <form id="bookingForm">
+      <label>Pooja Type</label>
+      <select id="pooja_type" required>
+        <option value="">Select Type</option>
+        <option value="daily">Daily Pooja</option>
+        <option value="special">Special Pooja</option>
+      </select>
+
+      <label>Select Pooja</label>
+      <select id="pooja_id" required>
+        <option value="">Select a Pooja</option>
+      </select>
+
+      <label>Full Name</label>
+      <input type="text" id="full_name" required />
+
+      <label>Email</label>
+      <input type="email" id="email" required />
+
+      <label>Phone</label>
+      <input type="text" id="phone" />
+
+      <label>Select Nakshatra</label>
+      <select id="nakshatra" required>
+        <option value="">Loading...</option>
+      </select>
+
+      <label>Gotra</label>
+      <input type="text" id="gotra" />
+
+      <label>Preferred Date</label>
+      <input type="date" id="preferred_date" />
+
+      <label>Preferred Time</label>
+      <input type="time" id="preferred_time" />
+
+      <label>Sankalpam</label>
+      <textarea id="sankalpam"></textarea>
+
+      <label>Amount (₹)</label>
+      <input type="number" id="amount" readonly required />
+
+      <button type="submit">Book & Pay</button>
+    </form>
+  </div>
+
+  <script>
+    const API_BASE = "http://localhost:3000"; // Backend URL
+
+    $(document).ready(function() {
+      // Get pooja name from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const poojaName = urlParams.get("name");
+      if (poojaName) {
+        $("#pooja-name").text(poojaName);
+      }
+
+      // Load Nakshatras
+      async function loadNakshatras() {
+        try {
+          const res = await fetch(`${API_BASE}/api/nakshatras`);
+          if (!res.ok) throw new Error(`Failed to fetch Nakshatras: ${res.status}`);
+          const nakshatras = await res.json();
+          const select = $("#nakshatra");
+          select.empty();
+          select.append('<option value="">Select Nakshatra</option>');
+          nakshatras.forEach(n => {
+            select.append(`<option value="${n.name}">${n.name}</option>`);
+          });
+        } catch (err) {
+          console.error(err);
+          $("#nakshatra").html('<option value="">Failed to load Nakshatras</option>');
+        }
+      }
+
+      loadNakshatras();
+
+      // Load Poojas based on type
+      async function loadPoojas(type) {
+        const category_id = type === "daily" ? 1 : 2;
+        const poojaSelect = $("#pooja_id");
+        poojaSelect.html('<option>Loading...</option>');
+
+        try {
+          const res = await fetch(`${API_BASE}/api/poojas/${category_id}`);
+          if (!res.ok) throw new Error(`Failed to fetch poojas: ${res.status}`);
+          const result = await res.json();
+
+          poojaSelect.html('<option value="">Select Pooja</option>');
+          result.data.forEach(p => {
+            poojaSelect.append(`<option value="${p.id}" data-amount="${p.amount}">${p.name} - ₹${p.amount}</option>`);
+          });
+
+          // Preselect if poojaName exists in URL
+          if (poojaName) {
+            poojaSelect.find(`option:contains(${poojaName})`).prop("selected", true).trigger("change");
+          }
+        } catch (err) {
+          console.error(err);
+          poojaSelect.html('<option value="">Failed to load Poojas</option>');
+        }
+      }
+
+      // When Pooja Type changes
+      $("#pooja_type").on("change", function() {
+        const type = $(this).val();
+        if (type) loadPoojas(type);
+      });
+
+      // Update amount on pooja selection 
+      $("#pooja_id").on("change", function() {
+        const amount = $(this).find("option:selected").data("amount");
+        $("#amount").val(amount || 0);
+      });
+
+      // Form submission
+      $("#bookingForm").on("submit", async function(e) {
+        e.preventDefault();
+
+        const bookingData = {
+          pooja_id: $("#pooja_id").val(),
+          full_name: $("#full_name").val(),
+          email: $("#email").val(),
+          phone: $("#phone").val(),
+          nakshatra: $("#nakshatra").val(),
+          gotra: $("#gotra").val(),
+          preferred_date: $("#preferred_date").val(),
+          preferred_time: $("#preferred_time").val(),
+          sankalpam: $("#sankalpam").val(),
+          amount: $("#amount").val()
+        };
+
+        try {
+          const res = await fetch(`${API_BASE}/api/bookings/create`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(bookingData)
+          });
+
+          const order = await res.json();
+          if (!order.success) return alert("Failed to create booking!");
+
+          openRazorpay(order);
+        } catch (err) {
+          console.error(err);
+          alert("Booking failed.");
+        }
+      });
+
+      // Razorpay
+      function openRazorpay(order) {
+        const options = {
+          key: order.key_id,
+          amount: order.amount,
+          currency: "INR",
+          name: "Ashram Pooja Booking",
+          description: "Pooja Booking Payment",
+          order_id: order.order_id,
+          handler: async function(response) {
+            try {
+              const verifyRes = await fetch(`${API_BASE}/api/bookings/verify`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  booking_id: order.booking_id,
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature
+                })
+              });
+              const verifyData = await verifyRes.json();
+              if (verifyData.success) {
+                alert("Pooja booked successfully!");
+                window.location.href = "success.html";
+              } else {
+                alert("Payment verification failed.");
+              }
+            } catch (err) {
+              console.error(err);
+              alert("Payment verification error.");
+            }
+          },
+          theme: { color: "#ff6b35" }
+        };
+        const rzp = new Razorpay(options);
+        rzp.open();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "axios": "^1.12.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.2",
+    "razorpay": "^2.9.6",
+    "sequelize": "^6.37.7"
+  },
+  "name": "ashram-tech",
+  "version": "1.0.0",
+  "description": "\"# AshramTech\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skandatechco/AshramTech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/skandatechco/AshramTech/issues"
+  },
+  "homepage": "https://github.com/skandatechco/AshramTech#readme"
+}
