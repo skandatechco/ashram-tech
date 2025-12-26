@@ -1,27 +1,32 @@
-const mysql = require('mysql2/promise');
+// db.js
+const { Pool } = require('pg');
 require('dotenv').config();
 
-// Create a MySQL connection pool
-const pool = mysql.createPool({
-    host: process.env.DB_HOST || '127.0.0.1',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'Bahola#1234',
-    database: process.env.DB_NAME || 'pooja_booking',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+if (!process.env.DATABASE_URL) {
+  console.error('❌ DATABASE_URL missing in .env');
+  process.exit(1);
+}
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // REQUIRED for Supabase
+  },
+  max: 10,              // max connections
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
 });
 
-// Test the MySQL connection
+// Test DB connection once at startup
 (async () => {
-    try {
-        const conn = await pool.getConnection();
-        console.log("✅ MySQL connected!");
-        conn.release();
-    } catch (err) {
-        console.error("❌ MySQL connection failed:", err.message);
-        process.exit(1);
-    }
+  try {
+    const client = await pool.connect();
+    console.log('✅ PostgreSQL connected (Supabase)');
+    client.release();
+  } catch (err) {
+    console.error('❌ PostgreSQL connection failed:', err.message);
+    process.exit(1);
+  }
 })();
 
 module.exports = pool;

@@ -1,168 +1,150 @@
 const express = require("express");
 const router = express.Router();
-const pool = require("../database");
+const supabase = require("../database");
 
-// -------------------------
-// GET /api/poojas/:category_id
-// -------------------------
-// Get poojas by category
-router.get("/:category_id", async (req, res) => {
-    const { category_id } = req.params;
-    const [rows] = await pool.query(
-        "SELECT * FROM poojas WHERE category_id = ? ORDER BY id ASC",
-        [category_id]
-    );
-    res.json({ success: true, data: rows });
-});
-
-// Get pooja by name
+/**
+ * GET /api/poojas
+ * Optional query: ?name=Ganapathi
+ */
 router.get("/", async (req, res) => {
-    const { name } = req.query;
-    if (!name) return res.status(400).json({ success: false, message: "Missing name" });
-    const [rows] = await pool.query("SELECT * FROM poojas WHERE name = ? LIMIT 1", [name]);
-    if (rows.length === 0) return res.json({ success: false, message: "Pooja not found" });
-    res.json({ success: true, data: rows[0] });
-});
-
-router.get("/:category", async (req, res) => {
-    const category = req.params.category;
-
-    const category_id =
-        category === "daily" ? 1 :
-        category === "special" ? 2 :
-        null;
-
-    if (!category_id)
-        return res.status(400).json({ success: false, message: "Invalid category" });
-
-    const [rows] = await pool.query(
-        "SELECT * FROM poojas WHERE category_id = ?",
-        [category_id]
-    );
-
-    res.json({ success: true, data: rows });
-});
-
-
-// -------------------------
-// GET /api/poojas?name=NAME
-// -------------------------
-router.get("/", async (req, res) => {
+  try {
     const { name } = req.query;
 
-    if (!name)
-        return res.status(400).json({ success: false, message: "Missing name" });
+    if (name) {
+      // Get pooja by name
+      const { data, error } = await supabase
+        .from("poojas")
+        .select("*")
+        .eq("name", name)
+        .single();
 
-    try {
-        const [rows] = await pool.query(
-            "SELECT * FROM poojas WHERE name = ?",
-            [name]
-        );
+      if (error) {
+        if (error.code === "PGRST116") {
+          return res.status(404).json({ success: false, message: "Pooja not found" });
+        }
+        throw error;
+      }
 
-        if (rows.length === 0)
-            return res.json({ success: false, message: "Pooja not found" });
-
-        res.json({ success: true, data: rows[0] });
-
-    } catch (err) {
-        console.error("Error fetching pooja:", err);
-        res.status(500).json({ success: false, message: "DB error" });
-    }
-});
-
-// Get poojas by category (1=daily, 2=special)
-router.get("/:category_id", async (req, res) => {
-    try {
-        const category_id = req.params.category_id;
-
-        const [rows] = await pool.query(
-            "SELECT * FROM poojas WHERE category_id = ?",
-            [category_id]
-        );
-
-        res.json({ success: true, data: rows });
-
-    } catch (error) {
-        console.error(error);
-        res.json({ success: false, message: "Error fetching poojas" });
-    }
-});
-
-// Search pooja by name (for details page)
-router.get("/", async (req, res) => {
-    const name = req.query.name;
-
-    if (!name) {
-        return res.json({ success: false, message: "Missing name" });
+      return res.json({ success: true, data });
     }
 
-    const [rows] = await pool.query(
-        "SELECT * FROM poojas WHERE name = ? LIMIT 1",
-        [name]
-    );
+    // Get all poojas
+    const { data, error } = await supabase
+      .from("poojas")
+      .select("*")
+      .order("id", { ascending: true });
 
-    res.json({ success: true, data: rows[0] });
+    if (error) throw error;
+
+    res.json({ success: true, data });
+  } catch (err) {
+    console.error("Error fetching poojas:", err);
+    res.status(500).json({ success: false, message: "Database error" });
+  }
 });
-// -----------------------------
-// ADMIN API — Add a new pooja
-// -----------------------------
+
+/**
+ * GET /api/poojas/category/:category_id
+ */
+router.get("/category/:category_id", async (req, res) => {
+  try {
+    const category_id = Number(req.params.category_id);
+    if (!category_id) {
+      return res.status(400).json({ success: false, message: "Invalid category ID" });
+    }
+
+    const { data, error } = await supabase
+      .from("poojas")
+      .select("*")
+      .eq("category_id", category_id)
+      .order("id", { ascending: true });
+
+    if (error) throw error;
+
+    res.json({ success: true, data });
+  } catch (err) {
+    console.error("Error fetching poojas by category:", err);
+    res.status(500).json({ success: false, message: "Database error" });
+  }
+});
+
+/* =========================
+   ADMIN ROUTES
+========================= */
+
+/**
+ * POST /api/poojas/admin
+ */
 router.post("/admin", async (req, res) => {
-    const { category_id, name, description, amount } = req.body;
+  const { category_id, name, description = "", amount } = req.body;
 
-    if (!category_id || !name || !amount)
-        return res.status(400).json({ success: false, message: "Missing fields" });
+  if (!category_id || !name || !amount) {
+    return res.status(400).json({ success: false, message: "Missing required fields" });
+  }
 
-    try {
-        await pool.query(
-            "INSERT INTO poojas (category_id, name, description, amount) VALUES (?, ?, ?, ?)",
-            [category_id, name, description, amount]
-        );
+  try {
+    const { error } = await supabase
+      .from("poojas")
+      .insert([{ category_id, name, description, amount }]);
 
-        res.json({ success: true, message: "Pooja added!" });
+    if (error) throw error;
 
-    } catch (err) {
-        console.error("Admin add pooja error:", err);
-        res.status(500).json({ success: false, message: "DB error" });
-    }
+    res.json({ success: true, message: "Pooja added successfully" });
+  } catch (err) {
+    console.error("Admin add pooja error:", err);
+    res.status(500).json({ success: false, message: "Database error" });
+  }
 });
 
-// -----------------------------
-// ADMIN API — Edit pooja
-// -----------------------------
+/**
+ * PUT /api/poojas/admin/:id
+ */
 router.put("/admin/:id", async (req, res) => {
-    const { id } = req.params;
-    const { category_id, name, description, amount } = req.body;
+  const id = Number(req.params.id);
+  const { category_id, name, description, amount } = req.body;
 
-    try {
-        await pool.query(
-            `UPDATE poojas
-             SET category_id=?, name=?, description=?, amount=?
-             WHERE id=?`,
-            [category_id, name, description, amount, id]
-        );
+  if (!id) {
+    return res.status(400).json({ success: false, message: "Invalid pooja ID" });
+  }
 
-        res.json({ success: true, message: "Pooja updated" });
+  try {
+    const { error } = await supabase
+      .from("poojas")
+      .update({ category_id, name, description, amount })
+      .eq("id", id);
 
-    } catch (err) {
-        console.error("Admin edit pooja error:", err);
-        res.status(500).json({ success: false, message: "DB error" });
-    }
+    if (error) throw error;
+
+    res.json({ success: true, message: "Pooja updated successfully" });
+  } catch (err) {
+    console.error("Admin update pooja error:", err);
+    res.status(500).json({ success: false, message: "Database error" });
+  }
 });
 
-// -----------------------------
-// ADMIN API — Delete pooja
-// -----------------------------
+/**
+ * DELETE /api/poojas/admin/:id
+ */
 router.delete("/admin/:id", async (req, res) => {
-    const { id } = req.params;
+  const id = Number(req.params.id);
 
-    try {
-        await pool.query("DELETE FROM poojas WHERE id = ?", [id]);
-        res.json({ success: true, message: "Deleted successfully" });
+  if (!id) {
+    return res.status(400).json({ success: false, message: "Invalid pooja ID" });
+  }
 
-    } catch (err) {
-        console.error("Admin delete error:", err);
-        res.status(500).json({ success: false, message: "DB error" });
-    }
+  try {
+    const { error } = await supabase
+      .from("poojas")
+      .delete()
+      .eq("id", id);
+
+    if (error) throw error;
+
+    res.json({ success: true, message: "Pooja deleted successfully" });
+  } catch (err) {
+    console.error("Admin delete pooja error:", err);
+    res.status(500).json({ success: false, message: "Database error" });
+  }
 });
 
 module.exports = router;

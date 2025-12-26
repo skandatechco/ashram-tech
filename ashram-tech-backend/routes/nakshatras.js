@@ -1,20 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const pool = require("../db"); // Correct: use 'pool'
+const supabase = require("../database");
 
 router.get("/", async (req, res) => {
   try {
-    const [rows] = await pool.query(
-      "SELECT id, Nakshatra AS name FROM nakshatras"
-    );
+    const { data, error } = await supabase
+      .from("nakshatras")
+      .select("id, name:english_name");
 
-    res.json(rows);
+    if (error) throw error;
+
+    res.json({ success: true, data });
   } catch (err) {
-    console.error("Nakshatra fetch error:", err);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch Nakshatras."
-    });
+    console.error("Error fetching nakshatras:", err);
+    res.status(500).json({ success: false, message: "DB error" });
   }
 });
 
