@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm install",
+  "installCommand": "npm install",
+  "functions": {
+    "ashram-tech-backend/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/ashram-tech-backend/index.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["iad1"]
+}
