@@ -1061,17 +1061,17 @@
     const { data, error } = await supabase.from("nakshatras").select("*");
     if (error) return console.error("Error fetching nakshatras:", error);
 
-    const select = document.getElementById("nakshatra");
+    const select = document.getElementById("nakshatras");
     select.innerHTML = '<option value="">Select Nakshatra</option>';
     data.forEach(n => {
       select.innerHTML += `<option value="${n.id}">${n.name}</option>`;
     });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {  
     loadPoojasFromSupabase();
     loadNakshatrasFromSupabase();
-  });
+  });    
 
   function goToBooking(name) {
     window.location.href = `/Poojas/booking.html?name=${encodeURIComponent(name)}`;

@@ -189,7 +189,7 @@ async function loadPoojas(category) {
       `<option value="${p.id}" data-amount="${p.amount}">
         ${p.name} - ₹${p.amount}
       </option>`
-    )
+    )   
   );
 }
 
@@ -201,31 +201,36 @@ $("#pooja_id").on("change", function () {
   $("#amount").val($(this).find(":selected").data("amount") || 0);
 });
 
+
 /* ---------- SUBMIT ---------- */
 $("#bookingForm").on("submit", async function (e) {
   e.preventDefault();
 
   const payload = {
-    pooja_id: $("#pooja_id").val(),
-    full_name: $("#full_name").val(),
-    email: $("#email").val(),
-    phone: $("#phone").val(),
-    nakshatra: $("#nakshatra").val(),
-    gotra: $("#gotra").val(),
-    preferred_date: $("#preferred_date").val(),
-    preferred_time: $("#preferred_time").val(),
-    sankalpam: $("#sankalpam").val(),
-    amount: Number($("#amount").val())
-  };
+  pooja_id: Number($("#pooja_id").val()),
+  full_name: $("#full_name").val(),
+  email: $("#email").val(),
+  phone: $("#phone").val(),
+  nakshatra_id: Number($("#nakshatra").val()),
+  gotra: $("#gotra").val(),
+  preferred_date: $("#preferred_date").val(),
+  preferred_time: $("#preferred_time").val(),
+  sankalpam: $("#sankalpam").val(),
+  amount: Number($("#amount").val())
+};
 
-  const res = await fetch("http://localhost:3000/api/bookings", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+ const bookingRes = await fetch("/api/bookings", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload)
+});
 
-  const result = await res.json();
-  if (!result.success) return alert("Booking failed");
+const booking = await bookingRes.json();
+
+
+if (!booking.success) throw new Error("Booking creation failed");
+
+const bookingId = booking.data.id;
 
   const rzp = new Razorpay({
     key: result.key_id,
@@ -233,7 +238,7 @@ $("#bookingForm").on("submit", async function (e) {
     currency: "INR",
     order_id: result.order_id,
     handler: async function (response) {
-      await fetch("http://localhost:3000/api/bookings/verify", {
+      await fetch("/api/bookings/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

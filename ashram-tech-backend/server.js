@@ -1,98 +1,102 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const crypto = require('crypto');
-const Razorpay = require('razorpay');
-const supabase = require('./database');
+require("dotenv").config();
+
+const express = require("express");
+const cors = require("cors");
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
+const supabase = require("./database");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// -------------------------
-// Middleware
-// -------------------------
+/* -------------------------- */
+/* Middleware */
+/* -------------------------- */
 app.use(cors());
 app.use(express.json());
 
-// -------------------------
-// Razorpay Init
-// -------------------------
+/* -------------------------- */
+/* Razorpay */
+/* -------------------------- */
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// -------------------------
-// Health check
-// -------------------------
-app.get('/', (req, res) => {
-  res.send('API is running 🚀');
+/* -------------------------- */
+/* Helpers */
+/* -------------------------- */
+const sendError = (res, message, status = 500) =>
+  res.status(status).json({ success: false, message });
+
+const isValidAmount = (amount) => 
+  !isNaN(amount) && Number(amount) > 0;
+
+/* -------------------------- */
+/* Health Check */
+/* -------------------------- */
+app.get("/", (_, res) => {
+  res.send("API running on Railway 🚀");
 });
-app.get('/test-supabase', async (req, res) => {
+
+/* -------------------------- */
+/* Poojas */
+/* -------------------------- */
+app.get("/api/poojas", async (_, res) => {
   try {
-    const { data, error } = await supabase     
-      .from('poojas')
-      .select('*')
-      .limit(1);
+    const { data, error } = await supabase
+      .from("poojas")
+      .select("*")
+      .order("id");
 
     if (error) throw error;
     res.json({ success: true, data });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, error: err.message });
-  }
-});
-// -------------------------
-// Poojas endpoints
-// -------------------------
-app.get('/api/poojas', async (req, res) => {
-  try {
-    const { data, error } = await supabase
-      .from('poojas')
-      .select('*')
-      .order('id', { ascending: true });
-    if (error) throw error;
-    res.json({ success: true, data });
-  } catch (err) {
-    res.status(500).json({ success: false, message: 'Failed to fetch poojas' });
+    sendError(res, "Failed to fetch poojas");
   }
 });
 
-app.get('/api/poojas/:id', async (req, res) => {
+app.get("/api/poojas/:id", async (req, res) => {
   try {
     const { id } = req.params;
+
     const { data, error } = await supabase
-      .from('poojas')
-      .select('*')
-      .eq('id', id)
+      .from("poojas")
+      .select("*")
+      .eq("id", id)
       .single();
-    if (error) return res.status(404).json({ success: false, message: 'Pooja not found' });
+
+    if (error) return sendError(res, "Pooja not found", 404);
     res.json({ success: true, data });
   } catch (err) {
-    res.status(500).json({ success: false, message: 'Failed to fetch pooja' });
+    console.error(err);
+    sendError(res, "Failed to fetch pooja");
   }
 });
 
-// -------------------------
-// Nakshatras endpoint
-// -------------------------
-app.get('/api/nakshatras', async (req, res) => {
+/* -------------------------- */
+/* Nakshatras */
+/* -------------------------- */
+app.get("/api/nakshatras", async (_, res) => {
   try {
     const { data, error } = await supabase
-      .from('nakshatras')
-      .select('id, english_name')
-      .order('id', { ascending: true });
+      .from("nakshatras")
+      .select("id, english_name")
+      .order("id");
+
     if (error) throw error;
     res.json({ success: true, data });
   } catch (err) {
-    res.status(500).json({ success: false, message: 'Failed to fetch nakshatras' });
+    console.error(err);
+    sendError(res, "Failed to fetch nakshatras");
   }
 });
 
-// -------------------------
-// Create booking + Razorpay order
-// -------------------------
-app.post('/api/bookings', async (req, res) => {
+/* -------------------------- */
+/* Create Booking */
+/* -------------------------- */
+app.post("/api/bookings", async (req, res) => {
   try {
     const {
       pooja_id,
@@ -104,21 +108,17 @@ app.post('/api/bookings', async (req, res) => {
       preferred_date,
       preferred_time,
       sankalpam,
-      amount
+      amount,
     } = req.body;
 
-    if (!pooja_id || !full_name || !email || !amount) {
-      return res.status(400).json({ success: false, message: 'Missing required fields' });
+    if (!pooja_id || !full_name || !email || !isValidAmount(amount)) {
+      return sendError(res, "Invalid or missing fields", 400);
     }
 
-    const amountNumber = Number(amount);
-    if (isNaN(amountNumber) || amountNumber <= 0) {
-      return res.status(400).json({ success: false, message: 'Invalid amount' });
-    }
+    const bookingAmount = Number(amount);
 
-    // Insert booking
     const { data: booking, error } = await supabase
-      .from('bookings')
+      .from("bookings")
       .insert({
         pooja_id,
         full_name,
@@ -129,81 +129,93 @@ app.post('/api/bookings', async (req, res) => {
         preferred_date,
         preferred_time,
         sankalpam,
-        amount: amountNumber,
-        payment_status: 'pending'
+        amount: bookingAmount,
+        payment_status: "pending",
       })
-      .select('id')
+      .select("id")
       .single();
 
     if (error) throw error;
 
-    // Create Razorpay order
     const order = await razorpay.orders.create({
-      amount: amountNumber * 100, // paise
-      currency: 'INR',
+      amount: Math.round(bookingAmount * 100),
+      currency: "INR",
       receipt: `booking_${booking.id}`,
-      payment_capture: 1
+      payment_capture: 1,
     });
 
-    // Save order ID in booking
     await supabase
-      .from('bookings')
+      .from("bookings")
       .update({ razorpay_order_id: order.id })
-      .eq('id', booking.id);
+      .eq("id", booking.id);
 
     res.json({
       success: true,
       booking_id: booking.id,
       order_id: order.id,
       amount: order.amount,
-      currency: 'INR',
-      key_id: process.env.RAZORPAY_KEY_ID
+      currency: "INR",
+      key_id: process.env.RAZORPAY_KEY_ID,
     });
   } catch (err) {
-    console.error('Booking creation error:', err);
-    res.status(500).json({ success: false, message: 'Booking failed' });
+    console.error(err);
+    sendError(res, "Booking failed");
   }
 });
 
-// -------------------------
-// Verify Razorpay payment
-// -------------------------
-app.post('/api/bookings/verify', async (req, res) => {
+/* -------------------------- */
+/* Verify Payment */
+/* -------------------------- */
+app.post("/api/bookings/verify", async (req, res) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, booking_id } = req.body;
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+      booking_id,
+    } = req.body;
 
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !booking_id) {
-      return res.status(400).json({ success: false, message: 'Missing payment data' });
+    if (
+      !razorpay_order_id ||
+      !razorpay_payment_id ||
+      !razorpay_signature ||
+      !booking_id
+    ) {
+      return sendError(res, "Missing payment data", 400);
     }
 
     const expectedSignature = crypto
-      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
-      .digest('hex');
+      .digest("hex");
 
     if (expectedSignature !== razorpay_signature) {
       await supabase
-        .from('bookings')
-        .update({ payment_status: 'failed' })
-        .eq('id', booking_id);
-      return res.status(400).json({ success: false, message: 'Invalid signature' });
+        .from("bookings")
+        .update({ payment_status: "failed" })
+        .eq("id", booking_id);
+
+      return sendError(res, "Invalid signature", 400);
     }
 
     await supabase
-      .from('bookings')
-      .update({ payment_status: 'paid', razorpay_payment_id })
-      .eq('id', booking_id);
+      .from("bookings")
+      .update({
+        payment_status: "paid",
+        razorpay_payment_id,
+      })
+      .eq("id", booking_id);
 
-    res.json({ success: true, message: 'Payment verified successfully' });
+    res.json({ success: true, message: "Payment verified successfully" });
   } catch (err) {
-    console.error('Payment verification error:', err);
-    res.status(500).json({ success: false, message: 'Verification failed' });
+    console.error(err);
+    sendError(res, "Verification failed");
   }
 });
 
-// -------------------------
-// Start server
-// -------------------------
+/* -------------------------- */
+/* Server */
+/* -------------------------- */
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
