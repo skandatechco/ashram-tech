@@ -219,11 +219,19 @@ $("#bookingForm").on("submit", async function (e) {
   amount: Number($("#amount").val())
 };
 
+<<<<<<< HEAD
  const bookingRes = await fetch("/api/bookings", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payload)
 });
+=======
+  const res = await fetch("/api/bookings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+>>>>>>> 750589fbbd3038c003171a04d40e38b028866d9e
 
 const booking = await bookingRes.json();
 
